@@ -4,13 +4,12 @@
       <h1 class="logo">Uber<span style="color:#06C167;"> Eats</span></h1>
       <div class="progress"></div>
     </div>
-    <div v-else class="content">
       <!-- <p>Hello Main</p> -->
 
       <Navbar />
 
       <MenuBar />
-      <ImageBar/>
+      <!-- <ImageBar/> -->
      
     </div>
   </div>

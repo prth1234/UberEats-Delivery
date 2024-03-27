@@ -1,4 +1,5 @@
 <template>
+    <div class="fixed-container"></div>
     <div class="al-ak">
         <div>
             <li style="position: relative; max-width: 95px;">
@@ -1184,14 +1185,31 @@
             </li>
         </div>
     </div>
+    
 </template>
 <style scoped>
 .al-ak{
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
-    justify-content:80px;
+    /* justify-content:80px; */
     gap:80px;
-    position: fixed;
+    /* position: fixed; */
+  /* width: 100%; */
+  /* top: 30px; */
+  transform:scale(0.45);
+  font-family: "Uber Move";
+
+  
+
+    
 }
+.fixed-container {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  width: 100%;
+  z-index: 100; /* Ensure the image bar appears below the menu bar */
+}
+
 </style>

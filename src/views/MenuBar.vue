@@ -210,7 +210,12 @@ export default {
   display: flex;
   gap: 20px;
   position: static;
-  /* transform: translateY(-625%); */
+  width: 100%;
+  /* display:flex; */
+  position: fixed;
+  top: 100px;
+
+
 }
 
 .button-content {
