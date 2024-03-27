@@ -5,10 +5,12 @@
       <div class="progress"></div>
     </div>
     <div v-else class="content">
-      <p>Hello Main</p>
+      <!-- <p>Hello Main</p> -->
+
       <Navbar />
 
       <MenuBar />
+      <ImageBar/>
      
     </div>
   </div>
@@ -18,9 +20,10 @@
 import { defineComponent } from 'vue';
 import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
+import ImageBar from './imageBar.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar
+    Navbar,MenuBar, ImageBar
   },
   data() {
     return {

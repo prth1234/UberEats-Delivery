@@ -209,7 +209,8 @@ export default {
 .menu-bar {
   display: flex;
   gap: 20px;
-  transform: translateY(-790%);
+  position: static;
+  /* transform: translateY(-625%); */
 }
 
 .button-content {

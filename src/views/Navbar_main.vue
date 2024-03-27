@@ -132,6 +132,10 @@
   text-align: center;
 }
 
+.btn-container .btn {
+  margin-right: 10px;
+}
+
 .btn-color-mode-switch {
   display: inline-block;
   margin: 0px;
