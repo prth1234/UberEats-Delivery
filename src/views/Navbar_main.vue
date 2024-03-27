@@ -9,22 +9,17 @@
 
 
 <div style="display: flex; justify-content:flex-end;">
-    <input type="checkbox" id="checkbox1">
+    <!-- <input type="checkbox" id="checkbox1">
         <label for="checkbox1" class="toggle1">
         <div class="bars" id="bar1"></div>
         <div class="bars" id="bar2"></div>
         <div class="bars" id="bar3"></div>
-    </label>
+    </label> -->
         <a href="#" class="navbar-brand" style="font-family: 'Uber Move'; padding-left: 20px;">
             
   <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
   <span style="color: #06C167;"><b> Eats</b></span>
 </a>
-<!-- <a href="#" style="font-family: 'Uber Move';">Pickup     </a> -->
-<!-- <label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label> -->
 
 
 </div>

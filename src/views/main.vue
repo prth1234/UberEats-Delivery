@@ -5,10 +5,11 @@
       <div class="progress"></div>
     </div>
     <div v-else class="content">
-      <p>Hello Main</p>
       <Navbar />
 
       <MenuBar />
+
+      <imageSlider/>
      
     </div>
   </div>
@@ -18,9 +19,10 @@
 import { defineComponent } from 'vue';
 import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
+import imageSlider from './imageSlider.vue';
 export default defineComponent({
   components: {
-    Navbar,MenuBar
+    Navbar,MenuBar,imageSlider
   },
   data() {
     return {

@@ -10,6 +10,8 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router/router'; // Import the router
 import VueGoogleMaps from '@fawmi/vue-google-maps';
+import PrimeVue from 'primevue/config';
+import 'primevue/resources/themes/aura-light-green/theme.css'
 
 // createApp(App).use(router).mount('#app');
 // app.use(VueGoogleMaps, {
@@ -31,6 +33,7 @@ import VueGoogleMaps from '@fawmi/vue-google-maps';
 //  .mount("#app");
 
 const app = createApp(App); // Create the Vue app instance
+app.use(PrimeVue);
 
 // Use VueGoogleMaps plugin
 app.use(VueGoogleMaps, {
