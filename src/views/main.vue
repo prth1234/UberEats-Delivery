@@ -4,12 +4,12 @@
       <h1 class="logo">Uber<span style="color:#06C167;"> Eats</span></h1>
       <div class="progress"></div>
     </div>
-      <!-- <p>Hello Main</p> -->
-
+    <div v-else class="content">
+      <p>Hello Main</p>
       <Navbar />
 
       <MenuBar />
-      <!-- <ImageBar/> -->
+      <ImageSlider/>
      
     </div>
   </div>
@@ -19,10 +19,10 @@
 import { defineComponent } from 'vue';
 import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
-import ImageBar from './imageBar.vue'
+import ImageSlider from './imageSlider.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar, ImageBar
+    Navbar,MenuBar,ImageSlider
   },
   data() {
     return {
