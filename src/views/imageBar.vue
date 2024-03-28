@@ -1199,17 +1199,19 @@
   /* top: 30px; */
   transform:scale(0.45);
   font-family: "Uber Move";
+}
 
   
 
     
-}
+
 .fixed-container {
   position: fixed;
   top: 0;
   left: 10px;
   width: 100%;
   z-index: 100; /* Ensure the image bar appears below the menu bar */
+  
 }
 
 </style>

@@ -209,7 +209,6 @@ export default {
 .menu-bar {
   display: flex;
   gap: 20px;
-  position: static;
   width: 100%;
   /* display:flex; */
   position: fixed;

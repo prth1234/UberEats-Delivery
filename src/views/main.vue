@@ -5,11 +5,15 @@
       <div class="progress"></div>
     </div>
     <div v-else class="content">
-      <p>Hello Main</p>
+      <!-- <p>Hello Main</p> -->
       <Navbar />
-
       <MenuBar />
-      <ImageSlider/>
+
+<div class="slider">
+  <ImageSlider/>
+</div>
+    
+      
      
     </div>
   </div>
@@ -19,7 +23,7 @@
 import { defineComponent } from 'vue';
 import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
-import ImageSlider from './imageSlider.vue'
+import ImageSlider from './imageBar.vue'
 export default defineComponent({
   components: {
     Navbar,MenuBar,ImageSlider
@@ -44,6 +48,10 @@ export default defineComponent({
     --border-color: #d2d6dc; /* Border color variable */
     --hover-color: #f0f2f5; /* Hover color variable */
     font-family: 'Uber Move';
+  }
+  .slider{
+    display:inline;
+    margin-left:1000px;
   }
   
   .logo {
