@@ -29,7 +29,6 @@
 
 
 
-
     <div aria-label="button group" data-baseweb="button-group" role="group" class="al j5 j6">
       <button data-baseweb="button" tabindex="0" aria-checked="false" role="checkbox"
         class="hq aq cd de kh ki kj kk kl km kn ko e1 ja kp kq kr ks kt cl ku kv kw ly kx lz g4 be bf bg bh m0 m1 m2 m3 l2 l3 eu ev b1 ey l6 l7 bn"
@@ -208,7 +207,7 @@ export default {
 <style scoped>
 .menu-bar {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   width: 100%;
   /* display:flex; */
   position: fixed;

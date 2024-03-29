@@ -49,13 +49,21 @@ export default defineComponent({
     --hover-color: #f0f2f5; /* Hover color variable */
     font-family: 'Uber Move';
   }
-  .slider{
-    display:inline;
-    margin-left:1000px;
+  .content{
+    display:flex-start;
+    
+
   }
+
+ 
   
   .logo {
     margin-top: 0; /* Remove top margin */
+  }
+  .slider{
+    transform: scale(0.5);
+
+    /* margin-top: 10px; */
   }
   
   .progress-loader {
@@ -68,6 +76,7 @@ export default defineComponent({
     height: 3px;
     border-radius: 7px;
   }
+  
   
   .progress {
     content: '';

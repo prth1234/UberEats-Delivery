@@ -1,88 +1,56 @@
 <template>
-    <nav class="navbar">
-      <div class="container">
-        
-
-
-
-    
-
-
-<div style="display: flex; justify-content:flex-end;">
-    <input type="checkbox" id="checkbox1">
-        <label for="checkbox1" class="toggle1">
-        <div class="bars" id="bar1"></div>
-        <div class="bars" id="bar2"></div>
-        <div class="bars" id="bar3"></div>
-    </label>
-        <a href="#" class="navbar-brand" style="font-family: 'Uber Move'; padding-left: 20px;">
-            
-  <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
-  <span style="color: #06C167;"><b> Eats</b></span>
-</a>
-<!-- <a href="#" style="font-family: 'Uber Move';">Pickup     </a> -->
-<!-- <label class="switch">
-  <input type="checkbox">
-  <span class="slider"></span>
-</label> -->
-
-
-</div>
-<!-- <div class="rectangle">
-        📍 Bangalore, Karnataka
-    </div>
-    <div class="rectangle">
-        📍 Bangalore, Karnataka
-    </div> -->
-    <a data-testid="edit-delivery-location-button" class="be bf bg bh d4 al aq cd cl ec hu af hv hw b1 gh gi gj da db" href="/feed?diningMode=DELIVERY&amp;mod=deliveryDetails&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbnRhJTIwQ2xhcml0YSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKeGpWckRPR3dvQVJTTllGYy1DUFNsWSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC4zOTE2NjQxJTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExOC41NDI1ODYlN0Q%3D&amp;ps=1">
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo-container">
+        <a href="#" class="navbar-brand">
+          <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
+          <span style="color: #06C167;"><b>Eats</b></span>
+        </a>
+      </div>
+      <a data-testid="edit-delivery-location-button" class="be bf bg bh d4 al aq cd cl ec hu af hv hw b1 gh gi gj da db" href="/feed?diningMode=DELIVERY&amp;mod=deliveryDetails&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbnRhJTIwQ2xhcml0YSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKeGpWckRPR3dvQVJTTllGYy1DUFNsWSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC4zOTE2NjQxJTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExOC41NDI1ODYlN0Q%3D&amp;ps=1">
   <div class="d1 cj dz" style="margin-right: 10px; vertical-align: auto; display: flex; justify-content: 10px;">
-    <svg width="16px"  height="24px" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Deliver to" role="img" focusable="false" color="#ffff">
+    <!-- <svg width="16px"  height="24px" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="Deliver to" role="img" focusable="false" color="#ffff">
       <path d="M17.5834 5.16602C14.5001 2.08268 9.50008 2.08268 6.41675 5.16602C3.33341 8.24935 3.33341 13.3327 6.41675 16.416L12.0001 21.9993L17.5834 16.3327C20.6667 13.3327 20.6667 8.24935 17.5834 5.16602ZM12.0001 12.416C11.0834 12.416 10.3334 11.666 10.3334 10.7493C10.3334 9.83268 11.0834 9.08268 12.0001 9.08268C12.9167 9.08268 13.6667 9.83268 13.6667 10.7493C13.6667 11.666 12.9167 12.416 12.0001 12.416Z" fill="#000000"></path>
-    </svg>
+    </svg> -->🔗
   </div>
   <div class="spacer _8"></div>
   <div data-testid="delivery-address-label" class="hq bn bl jz" style="width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border-radius: 500px;">Santa Clarita is a very long text that will be truncated with an ellipsis</div>
-  <span class="be bf dr ds hx hr cd">&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <span class="be bf dr ds hx hr cd">·</span>
   <div data-test="delivery-time" class="hq bn bl hy">Now</div>
 </a>
-<GoogleMaps/>
-
-
-   
+      <div class="nav-links">
         <ul class="nav-menu">
-            <input type="checkbox" name="check-toggle" id="checkbox" hidden="" >
-        <label for="checkbox" class="toggle" style="margin-right: 15px ;">
-            <div class="toggle__circle" ></div>
-        </label> 
-          <li><a href="#" style="font-family: 'Uber Move';">Cabs     </a></li>
-          <li><a href="#" style="font-family: 'Uber Move';">Story     </a></li>
-          <li><a href="#" style="font-family: 'Uber Move';">Business     </a></li>
-          <li><a href="#" style="font-family: 'Uber Move';">About us     </a></li>
-          <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look✨    </a></li>
-
+          <li><a href="#" style="font-family: 'Uber Move';">Cabs</a></li>
+          <li><a href="#" style="font-family: 'Uber Move';">Story</a></li>
+          <li><a href="#" style="font-family: 'Uber Move';">Business</a></li>
+          <li><a href="#" style="font-family: 'Uber Move';">About us</a></li>
+          <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look✨</a></li>
         </ul>
       </div>
-    </nav>
-  </template>
-  <script>
-  import GoogleMaps from './GoogleMaps.vue'
-  export default {
-    data() {
-      return {
-        isDelivery: true, // Initial state for delivery toggle
-      };
+    </div>
+  </nav>
+</template>
+
+<script>
+import GoogleMaps from './GoogleMaps.vue'
+export default {
+  data() {
+    return {
+      isDelivery: true, // Initial state for delivery toggle
+    };
+  },
+  methods: {
+    toggleDelivery() {
+      this.isDelivery = !this.isDelivery; // Toggle between delivery and pickup
     },
-    methods: {
-      toggleDelivery() {
-        this.isDelivery = !this.isDelivery; // Toggle between delivery and pickup
-      },
-      // Other methods if needed
-    },
-  };
-  </script>
-  <style scoped>
-  
-  .navbar {
+    // Other methods if needed
+  },
+};
+</script>
+
+<style scoped>
+
+.navbar {
     background-color: transparent;
     position: fixed;
     top: 0;
@@ -420,14 +388,5 @@ input:checked + .slider:before {
 
 
 
-
-
-
-
-
-
-
-
-
-  </style>
-  
+/* Optional: Add styles for the toggle switch and other elements as needed */
+</style>

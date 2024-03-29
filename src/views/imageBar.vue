@@ -1,8 +1,11 @@
 <template>
     <div class="fixed-container"></div>
     <div class="al-ak">
+       
         <div>
-            <li style="position: relative; max-width: 95px;">
+            
+
+            <!-- <li style="position: relative; max-width: 95px;"> -->
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -25,15 +28,14 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Grocery</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
+            <!-- </li> -->
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -56,15 +58,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Fast Food</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -87,15 +87,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Pizza</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -118,15 +116,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Sushi</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -149,15 +145,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Desserts</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -180,15 +174,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Mexican</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -211,15 +203,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Chinese</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -242,15 +232,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Wings</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -273,15 +261,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Healthy</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -304,15 +290,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Thai</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -335,15 +319,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Korean</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -366,15 +348,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Vegan</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -397,15 +377,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Burgers</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -428,15 +406,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Ice Cream</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -459,15 +435,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Indian</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -490,15 +464,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Soup</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -521,15 +493,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Bubble Tea</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -552,15 +522,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Sandwich</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -583,15 +551,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Alcohol</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -614,15 +580,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Halal</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -645,15 +609,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">BBQ</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -676,15 +638,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Asian</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -707,15 +667,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Italian</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -738,15 +696,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Breakfast</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -769,15 +725,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Japanese</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -800,15 +754,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Poke</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -831,15 +783,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Coffee</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -862,15 +812,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Seafood</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -893,15 +841,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Vietnamese</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -924,15 +870,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Bakery</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -955,15 +899,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Soul Food</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -986,15 +928,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Hawaiian</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1024,11 +964,9 @@
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1051,15 +989,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Smoothies</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1082,15 +1018,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">American</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1113,15 +1047,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Greek</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1144,15 +1076,13 @@
                             </div>
                         </div>
                         <div class="md me mf bl mg">
-                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1">Salads</span>
+                            <span data-testid="rich-text" class="mh jg mi be kh bg bh b1"></span>
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
         <div class="f4 e7 bj jf jg"></div>
         <div>
-            <li style="position: relative; max-width: 95px;">
                 <a
                     data-testid="shortcut-refresh-button"
                     class="al am ch m1 m2 ak"
@@ -1182,7 +1112,6 @@
                         </div>
                     </div>
                 </a>
-            </li>
         </div>
     </div>
     
@@ -1193,12 +1122,18 @@
     flex-direction:row;
     flex-wrap:nowrap;
     /* justify-content:80px; */
-    gap:80px;
+    gap:10px;
+    top:10px;
     /* position: fixed; */
   /* width: 100%; */
   /* top: 30px; */
-  transform:scale(0.45);
+  /* transform:scale(0.45); */
   font-family: "Uber Move";
+  display:fixed;
+  transform:translateY(-150%);
+  position:relative;
+  right:650px;
+
 }
 
   
