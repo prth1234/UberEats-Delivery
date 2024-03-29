@@ -1121,6 +1121,8 @@
     display:flex;
     flex-direction:row;
     flex-wrap:nowrap;
+    overflow-y: auto; /* Enable vertical scrolling for content */
+
     /* justify-content:80px; */
     gap:10px;
     top:10px;
@@ -1130,9 +1132,10 @@
   /* transform:scale(0.45); */
   font-family: "Uber Move";
   display:fixed;
-  transform:translateY(-190%);
+  transform:translateY(-170%);
   position:relative;
   right:650px;
+  width:2300px;
 
 }
 
