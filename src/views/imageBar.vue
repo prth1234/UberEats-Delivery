@@ -960,7 +960,7 @@
                             <span
                                 data-testid="rich-text"
                                 class="mh jg mi be kh bg bh b1"
-                            >Comfort Food</span>
+                            ></span>
                         </div>
                     </div>
                 </a>
@@ -1108,7 +1108,7 @@
                             <span
                                 data-testid="rich-text"
                                 class="mh jg mi be kh bg bh b1"
-                            >Box Catering</span>
+                            ></span>
                         </div>
                     </div>
                 </a>
@@ -1130,7 +1130,7 @@
   /* transform:scale(0.45); */
   font-family: "Uber Move";
   display:fixed;
-  transform:translateY(-170%);
+  transform:translateY(-190%);
   position:relative;
   right:650px;
 
