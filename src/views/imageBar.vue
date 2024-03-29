@@ -1124,19 +1124,29 @@
     overflow-y: auto; /* Enable vertical scrolling for content */
 
     /* justify-content:80px; */
-    gap:10px;
-    top:10px;
+    /* gap:10px; */
+    top:0px;
     /* position: fixed; */
   /* width: 100%; */
   /* top: 30px; */
   /* transform:scale(0.45); */
   font-family: "Uber Move";
-  display:fixed;
-  transform:translateY(-170%);
+  /* display:fixed; */
+  /* transform:translateY(-170%); */
+    transform: translateX(-50%);
+      transform:translateY(-180%);
+
   position:relative;
-  right:650px;
-  width:2300px;
-  margin-top:17px;
+  left:-620px;
+  
+  /* width:200%; */
+  margin-top:0px;
+  justify-content: space-between;
+    align-items: center;
+    margin-right: -950px;
+    max-width: 20000px;
+    /* transform: translateY(100%); */
+  
 
 }
 
@@ -1145,11 +1155,11 @@
     
 
 .fixed-container {
-  position: fixed;
-  top: 0;
-  left: 10px;
-  width: 100%;
+  position: relative;
+  left: 0px;
+  /* width: 100%; */
   z-index: 100; /* Ensure the image bar appears below the menu bar */
+
   
 }
 

@@ -1,7 +1,8 @@
 <template>
-    <div class="content-main" >
-    <p style="color:rgb(255, 255, 255)">Hello Main</p>
-</div>
+
+
+
+
   </template>
   
   <script setup>
@@ -15,6 +16,9 @@
     width: 100%;
     height:8
   }  
+  .section{
+    width:100%;
+  }
   </style>
   
   <script>

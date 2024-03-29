@@ -68,8 +68,7 @@ export default defineComponent({
   }
   .slider{
     transform: scale(0.5);
-
-    /* margin-top: 10px; */
+   
   }
   
   .progress-loader {
