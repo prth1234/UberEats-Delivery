@@ -14,9 +14,9 @@
     </svg> -->🔗
   </div>
   <div class="spacer _8"></div>
-  <div data-testid="delivery-address-label" class="hq bn bl jz" style="width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border-radius: 500px;">Santa Clarita is a very long text that will be truncated with an ellipsis</div>
+  <div data-testid="delivery-address-label" class="hq-bn-bl-jz" style="width: 100px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; border-radius: 500px ;">Santa Clarita is a very long text that will be truncated with an ellipsis</div>
   <span class="be bf dr ds hx hr cd">·</span>
-  <div data-test="delivery-time" class="hq bn bl hy">Now</div>
+  <div data-test="delivery-time" class="hq-bn-bl-hy">Now</div>
 </a>
       <div class="nav-links">
         <ul class="nav-menu">
@@ -272,7 +272,9 @@ input:checked + .slider:before {
   padding: 0 .2rem;
   transition: background-color 400ms;
 }
-
+.hq-bn-bl-hy{
+  font-family:"Uber Move"
+}
 
 .toggle__circle {
   width: 24px; /* Adjust the width as needed */
@@ -334,7 +336,9 @@ input:checked + .slider:before {
   gap: 10px;
   transition-duration: .3s;
 }
-
+.hq-bn-bl-jz{
+  font-family: 'Uber Move';
+}
 .bars {
   width: 100%;
   height: 4px;

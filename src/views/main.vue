@@ -12,6 +12,7 @@
 <div class="slider">
   <ImageSlider/>
 </div>
+<MainContent/>
     
       
      
@@ -24,9 +25,10 @@ import { defineComponent } from 'vue';
 import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
 import ImageSlider from './imageBar.vue'
+import MainContent from './mainContent.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider
+    Navbar,MenuBar,ImageSlider,MainContent
   },
   data() {
     return {
