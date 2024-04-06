@@ -1125,18 +1125,16 @@
 
     /* justify-content:80px; */
     gap:10px;
-    top:10px;
     /* position: fixed; */
   /* width: 100%; */
   /* top: 30px; */
   /* transform:scale(0.45); */
   font-family: "Uber Move";
   display:fixed;
-  transform:translateY(-170%);
+  transform:translateY(-200%);
   position:relative;
   right:650px;
-  width:2300px;
-  margin-top:17px;
+  width:2600px;
 
 }
 
