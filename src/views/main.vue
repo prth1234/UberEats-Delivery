@@ -8,7 +8,6 @@
       <!-- <p>Hello Main</p> -->
       <Navbar />
       <MenuBar />
-
 <div class="slider">
   <ImageSlider/>
 </div>
@@ -56,6 +55,11 @@ export default defineComponent({
     
 
   }
+
+  .define-color{
+    background-color: #101010;
+  }
+  
   .canvas {
   background-color: #000000; /* Black background color */
   font-family: 'Uber Move';

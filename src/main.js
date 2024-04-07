@@ -11,6 +11,11 @@ import App from './App.vue';
 import router from './router/router'; // Import the router
 import VueGoogleMaps from '@fawmi/vue-google-maps';
 
+
+import PrimeVue from 'primevue/config';
+
+import Button from "primevue/button"
+
 // createApp(App).use(router).mount('#app');
 // app.use(VueGoogleMaps, {
 //     load: {
@@ -31,13 +36,10 @@ import VueGoogleMaps from '@fawmi/vue-google-maps';
 //  .mount("#app");
 
 const app = createApp(App); // Create the Vue app instance
-
 // Use VueGoogleMaps plugin
-app.use(VueGoogleMaps, {
-  load: {
-    key: 'YOUR_API_KEY' // Replace with your actual Google Maps API key
-  }
-});
+
+app.use(PrimeVue, { unstyled: true });
+app.component('Button', Button);
 
 // Register global components
 // app.component('Navbar', Navbar);

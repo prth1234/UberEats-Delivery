@@ -1131,10 +1131,11 @@
   /* transform:scale(0.45); */
   font-family: "Uber Move";
   display:fixed;
-  transform:translateY(-200%);
+  transform:translateY(70%);
   position:relative;
   right:650px;
   width:2600px;
+  margin-bottom: 40px;
 
 }
 
