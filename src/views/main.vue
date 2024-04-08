@@ -12,7 +12,10 @@
   <ImageSlider/>
 </div>
 <MainContent/>
-    
+<div class="more">
+
+<Card/>
+</div>
       
      
     </div>
@@ -25,9 +28,10 @@ import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
 import ImageSlider from './imageBar.vue'
 import MainContent from './mainContent.vue'
+import Card from './Card.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider,MainContent
+    Navbar,MenuBar,ImageSlider,MainContent, Card
   },
   data() {
     return {
@@ -65,7 +69,10 @@ export default defineComponent({
   font-family: 'Uber Move';
 }
 
- 
+ .more{
+  margin-top: 200px;
+  margin-left: 100px;
+ }
   
   .logo {
     margin-top: 0; /* Remove top margin */
