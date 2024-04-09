@@ -1,5 +1,5 @@
 <template>
-    <h2 class="h2-class">Healthy options to explore</h2>
+    <!-- <h2 class="h2-class">Healthy options to explore</h2> -->
     <div class="lol">
     <div class="content-main">
 
@@ -11,13 +11,14 @@
             </div>
             <div class="card-desc">
                 <div class="card-header">
-                    <div class="card-title"> Order Now</div>
                     <div class="card-menu">
 
                     </div>
                 </div>
-                <div class="card-time">California Burrito</div>
-                <p class="recent">300 🚛 in last hr</p>
+                <div class="card-time">Snacking</div>
+                <p class="recent">30 mins ⏲️</p>
+                <!-- <span><svg width="24px" height="24px" fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" aria-label="When" role="img" focusable="false" style="fill: #FFFFFF;"><path d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z" fill="#000000"></path></svg>
+                </span> -->
             </div>
         </div>
 
@@ -28,13 +29,12 @@
             </div>
             <div class="card-desc">
                 <div class="card-header">
-                    <div class="card-title">Order Now</div>
                     <div class="card-menu">
 
                     </div>
                 </div>
-                <div class="card-time">Subway India</div>
-                <p class="recent">92 🚛 in last hr</p>
+                <div class="card-time">Dining</div>
+                <p class="recent">Under $10</p>
             </div>
         </div>
         <div class="card work">
@@ -43,13 +43,12 @@
             </div>
             <div class="card-desc">
                 <div class="card-header">
-                    <div class="card-title">Order Now</div>
                     <div class="card-menu">
 
                     </div>
                 </div>
-                <div class="card-time">Zero Calories</div>
-                <p class="recent">15 🚛 in last hr</p>
+                <div class="card-time">0 Calories</div>
+                <p class="recent">Less than 100 calories</p>
             </div>
         </div>
         <div class="card work">
@@ -58,13 +57,12 @@
             </div>
             <div class="card-desc">
                 <div class="card-header">
-                    <div class="card-title">Order Now</div>
                     <div class="card-menu">
 
                     </div>
                 </div>
-                <div class="card-time">Denny's Kitchen</div>
-                <p class="recent">12 🚛 in last hr</p>
+                <div class="card-time">Groceries</div>
+                <p class="recent">15 mins away</p>
             </div>
         </div>
         <div class="card work">
@@ -73,13 +71,12 @@
             </div>
             <div class="card-desc">
                 <div class="card-header">
-                    <div class="card-title">Order Now</div>
                     <div class="card-menu">
 
                     </div>
                 </div>
-                <div class="card-time">Onestar Pizza</div>
-                <p class="recent">29 🚛 in last hr</p>
+                <div class="card-time">Nightlife</div>
+                <p class="recent">12am - 5am</p>
             </div>
         </div>
     </div>
@@ -101,7 +98,7 @@ import Card from 'primevue/card';
 .content-main {
     font-family: "Uber Move", sans-serif;
     width: 100%;
-    height: 8rem;
+    height: 7rem;
     /* Specify the height with a unit like 'rem' */
     display: flex;
     font-family: 'Uber Move';
@@ -110,7 +107,6 @@ import Card from 'primevue/card';
 .custom-card {
     border-radius: 8px;
     /* Rounded corners */
-    padding: 16px;
     /* Padding inside the card */
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     /* Box shadow for depth */
@@ -156,7 +152,7 @@ import Card from 'primevue/card';
     position: relative;
     top: -10px;
     display: grid;
-    gap: 10px;
+    gap: 1px;
     background: var(--primary-clr);
 }
 
@@ -170,7 +166,7 @@ import Card from 'primevue/card';
     transition: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-    background: hsl(0, 0%, 100%);
+    /* background: hsl(0, 41%, 20%); */
 }
 
 .card-header {
@@ -213,7 +209,8 @@ import Card from 'primevue/card';
 .card .recent {
     line-height: 0;
     font-size: 0.8em;
-    font-family: 'Uber Move'
+    font-family: 'Uber Move';
+    display:flex-column;
 }
 
 </style>
