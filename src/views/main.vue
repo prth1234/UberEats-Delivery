@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="showLoader">
-      <h1 class="logo">Uber<span style="color:#06C167;"> Eats</span></h1>
+      <h1 class="logo">Uber<span style="color:#06C167;">Eats</span></h1>
       <div class="progress"></div>
     </div>
     <div v-else class="content">
