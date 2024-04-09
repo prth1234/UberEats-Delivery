@@ -19,6 +19,7 @@
 <Collections/>
 
 </div>
+<Footer/>
      
     </div>
   </div>
@@ -33,9 +34,10 @@ import MainContent from './mainContent.vue'
 import UberOne from './UberOne.vue'
 import Card from './Card.vue'
 import Collections from './Collections.vue'
+import Footer from './Footer.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections
+    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections, Footer
   },
   data() {
     return {

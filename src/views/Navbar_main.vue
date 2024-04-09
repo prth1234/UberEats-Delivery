@@ -4,7 +4,7 @@
       <div class="logo-container">
         <a href="#" class="navbar-brand">
           <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
-          <span style="color: #06C167;"><b>Eats</b></span>
+          <span style="color: #06C167;"><b> Eats</b></span>
         </a>
       </div>
       <a data-testid="edit-delivery-location-button" class="location-button" href="/feed?diningMode=DELIVERY&amp;mod=deliveryDetails&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbnRhJTIwQ2xhcml0YSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKeGpWckRPR3dvQVJTTllGYy1DUFNsWSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC4zOTE2NjQxJTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExOC41NDI1ODYlN0Q%3D&amp;ps=1">
