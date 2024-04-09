@@ -26,6 +26,10 @@
 <hr class="divider">
 
 <gallery/>
+
+<hr class="divider">
+
+<greenDelivery/>
 </div>
 <Footer/>
      
@@ -45,9 +49,10 @@ import Collections from './Collections.vue'
 import Footer from './Footer.vue'
 import offers from './offers.vue'
 import gallery from './gallery.vue'
+import greenDelivery from './greenDelivery.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections, Footer, offers, gallery
+    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections, Footer, offers, gallery, greenDelivery
   },
   data() {
     return {

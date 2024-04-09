@@ -316,7 +316,7 @@
       </div>
       <div class="action">
         <div class="price">
-          <span>sMars </span>
+          <span>Mars </span>
           <span style="font-weight: 100;text-align: left; font-size: smaller;">$9.99 <br></span>
         </div>
       </div>
