@@ -16,14 +16,29 @@
     <div class="buttons-container">
 
       <div class="dropdown">
-        <button @click="toggleDropdown" class="dropdown-button">
-          Deliver {{ deliveryOption === 'now' ? 'now 👇🏻' : 'later ⏰' }} 
-        </button>
-        <div v-if="showDropdown" class="dropdown-content" >
-          <a @click="setDeliveryOption('now')">Deliver now</a>
-          <a @click="setDeliveryOption('later')">Schedule for later</a>
-        </div>
-      </div>
+  <button @click="toggleDropdown" class="dropdown-button">
+    <svg width="24px" height="24px" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="When" role="img" focusable="false" style="vertical-align: middle; margin-right: 5px;">
+      <path d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z" fill="#000000"></path>
+    </svg>
+    Deliver {{ deliveryOption === 'now' ? 'now ' : 'later ' }} 
+  </button>
+  <div v-if="showDropdown" class="dropdown-content">
+    <a @click="setDeliveryOption('now')">
+      <svg width="24px" height="24px" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="When" role="img" focusable="false" style="vertical-align: middle; margin-right: 5px;">
+        <path d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z" fill="#000000"></path>
+      </svg>
+      Deliver now
+    </a>
+    <a @click="setDeliveryOption('later')">
+      <svg width="20px" height="20px" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" style="vertical-align: middle; margin-right: 5px;">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M21.1666 8.66732V5.33398H18.6666V2.83398H16.1666V5.33398H7.83325V2.83398H5.33325V5.33398H2.83325V8.66732H21.1666ZM21.1666 21.1673H2.83325V10.334H21.1666V21.1673ZM8.66658 13.6673H6.16658V16.1673H8.66658V13.6673Z" fill="currentColor"></path>
+      </svg>
+      Schedule for later
+    </a>
+  </div>
+</div>
+
+
       <button class="button">Search here</button>
 
     </div>
@@ -167,6 +182,8 @@ export default {
   min-width: 120px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  text-align: left;
+  
 }
 
 .dropdown-content a {
