@@ -104,6 +104,8 @@ export default defineComponent({
     transition: 0.5s;
     animation: loading1274 2s ease infinite;
   }
+
+
   
   @keyframes loading1274 {
     0% {
