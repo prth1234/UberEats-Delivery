@@ -15,9 +15,17 @@
 <div class="more">
 
 <Card/>
-<UberOne/>
-<Collections/>
 
+<UberOne/>
+
+
+<Collections/>
+<hr class="divider">
+
+<offers/>
+<hr class="divider">
+
+<gallery/>
 </div>
 <Footer/>
      
@@ -35,9 +43,11 @@ import UberOne from './UberOne.vue'
 import Card from './Card.vue'
 import Collections from './Collections.vue'
 import Footer from './Footer.vue'
+import offers from './offers.vue'
+import gallery from './gallery.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections, Footer
+    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections, Footer, offers, gallery
   },
   data() {
     return {
@@ -64,6 +74,11 @@ export default defineComponent({
     display:flex-start;
     
 
+  }
+  .divider {
+    border: none;
+    height: 1px;
+    background-color: #1d1b1b;
   }
 
   .define-color{

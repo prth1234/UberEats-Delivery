@@ -57,7 +57,7 @@
         <hr class="divider">
 
             <div class="legal-text">
-          <p>&copy; 2024 Uber Technologies Inc.<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Terms</a><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Pricing</a><a href="#">Do not sell or share my personal information</a></p>
+          <p>&copy; 2024 Uber Technologies Inc.<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Privacy Policy</a><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Terms</a><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Pricing</a><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;Do not sell or share my personal information</a></p>
           <p>This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
         </div>
       </footer>
@@ -114,7 +114,7 @@
   .footer-links {
     margin-right: 20px;
     margin-top: 70px;
-    font-size: 17px;
+    font-size: 18px;
   }
   
   .footer-links h3 {
