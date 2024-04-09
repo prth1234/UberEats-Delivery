@@ -10,7 +10,7 @@
       <a data-testid="edit-delivery-location-button" class="location-button" href="/feed?diningMode=DELIVERY&amp;mod=deliveryDetails&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbnRhJTIwQ2xhcml0YSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKeGpWckRPR3dvQVJTTllGYy1DUFNsWSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC4zOTE2NjQxJTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExOC41NDI1ODYlN0Q%3D&amp;ps=1">
         <div class="location-icon">🔗</div>
         <div class="delivery-info">
-          <div data-testid="delivery-address-label" class="address-label">HSR, Bengaluru is a very long text that will be truncated with an ellipsis</div>
+          <div data-testid="delivery-address-label" class="address-label">Santa Clarita is a very long text that will be truncated with an ellipsis</div>
           <span class="separator">·</span>
           <div data-test="delivery-time" class="delivery-time">Now</div>
         </div>

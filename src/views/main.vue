@@ -71,7 +71,7 @@ export default defineComponent({
 
  .more{
   margin-top: 200px;
-  margin-left: 100px;
+  margin-left:45px;
  }
   
   .logo {
