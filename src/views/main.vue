@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="showLoader">
-      <h1 class="logo">Uber<span style="color:#06C167;">Eats</span></h1>
+      <h1 class="logo">Uber<span style="color:#06C167;"> Eats</span></h1>
       <div class="progress"></div>
     </div>
     <div v-else class="content">
@@ -15,8 +15,10 @@
 <div class="more">
 
 <Card/>
+<UberOne/>
+<Collections/>
+
 </div>
-      
      
     </div>
   </div>
@@ -28,10 +30,12 @@ import Navbar from './Navbar_main.vue'; // Adjust the path as needed
 import MenuBar from './MenuBar.vue'
 import ImageSlider from './imageBar.vue'
 import MainContent from './mainContent.vue'
+import UberOne from './UberOne.vue'
 import Card from './Card.vue'
+import Collections from './Collections.vue'
 export default defineComponent({
   components: {
-    Navbar,MenuBar,ImageSlider,MainContent, Card
+    Navbar,MenuBar,ImageSlider,MainContent, Card,UberOne,Collections
   },
   data() {
     return {

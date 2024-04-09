@@ -415,7 +415,7 @@ h3 {
     text-align: left;
     font-family: 'Uber Move';
 
-    margin-bottom: -7px;
+    margin-bottom: -10px;
 }
 
 </style>
