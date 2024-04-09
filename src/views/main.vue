@@ -70,7 +70,7 @@ export default defineComponent({
 }
 
  .more{
-  margin-top: 200px;
+  margin-top: 60px;
   margin-left:45px;
  }
   

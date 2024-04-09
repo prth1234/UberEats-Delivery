@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="card-time">Snacking</div>
-                <p class="recent">30 mins ⏲️</p>
+                <p class="recent" style="font-size: 16px; font-weight: 70; color: #D9D9D9;">30 mins delivery </p>
                 <!-- <span><svg width="24px" height="24px" fill="none" viewBox="0 0 25 25" xmlns="http://www.w3.org/2000/svg" aria-label="When" role="img" focusable="false" style="fill: #FFFFFF;"><path d="M12 2.83398C6.91671 2.83398 2.83337 6.91732 2.83337 12.0007C2.83337 17.084 6.91671 21.1673 12 21.1673C17.0834 21.1673 21.1667 17.084 21.1667 12.0007C21.1667 6.91732 17.0834 2.83398 12 2.83398ZM17 13.6673H10.3334V5.33398H12.8334V11.1673H17V13.6673Z" fill="#000000"></path></svg>
                 </span> -->
             </div>
@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="card-time">Dining</div>
-                <p class="recent">Under $10</p>
+                <p class="recent" style="font-size: 16px; font-weight: 70; color: #D9D9D9;">Under $10</p>
             </div>
         </div>
         <div class="card work">
@@ -47,8 +47,8 @@
 
                     </div>
                 </div>
-                <div class="card-time">0 Calories</div>
-                <p class="recent">Less than 100 calories</p>
+                <div class="card-time">No Calories</div>
+                <p class="recent" style="font-size: 16px; font-weight: 70; color: #D9D9D9;">Less than 10 calories</p>
             </div>
         </div>
         <div class="card work">
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="card-time">Groceries</div>
-                <p class="recent">15 mins away</p>
+                <p class="recent" style="font-size: 16px; font-weight: 70; color: #D9D9D9;">15 mins away</p>
             </div>
         </div>
         <div class="card work">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="card-time">Nightlife</div>
-                <p class="recent">12am - 5am</p>
+                <p class="recent" style="font-size: 16px; font-weight: 70; color: #D9D9D9;">12am - 5am</p>
             </div>
         </div>
     </div>
@@ -88,20 +88,13 @@
     
 </template>
 
-<script setup>
-import Card from 'primevue/card';
-
-
-</script>
 
 <style scoped>
 .content-main {
-    font-family: "Uber Move", sans-serif;
     width: 100%;
     height: 7rem;
     /* Specify the height with a unit like 'rem' */
     display: flex;
-    font-family: 'Uber Move';
 }
 
 .custom-card {
@@ -135,9 +128,8 @@ import Card from 'primevue/card';
 }
 
 .card {
-    font-family: "Arial";
+    /* font-family: "Arial"; */
     color: #fff;
-    display: grid;
     cursor: pointer;
     grid-template-rows: 50px 1fr;
 }
@@ -182,6 +174,8 @@ import Card from 'primevue/card';
     font-family: 'Uber Move';
 }
 
+
+
 .card-menu {
     display: flex;
     gap: 4px;
@@ -209,14 +203,13 @@ import Card from 'primevue/card';
 .card .recent {
     line-height: 0;
     font-size: 0.8em;
-    font-family: 'Uber Move';
+    /* font-family: 'Uber Move'; */
     display:flex-column;
 }
 
-</style>
-
-<script>
-export default {
-    name: 'HelloMain'
+.recent{
+    font-size: 12px;
 }
-</script>
+
+
+</style>
