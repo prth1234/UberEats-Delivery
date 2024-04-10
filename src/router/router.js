@@ -22,6 +22,11 @@ const routes = [
     name: 'Main',
     component: Main,
   },
+  {
+    path: '/green',
+    name: 'Green',
+    component: Main,
+  },
 ];
 
 const router = createRouter({

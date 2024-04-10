@@ -210,8 +210,9 @@ export default {
   gap: 25px;
   width: 100%;
   /* display:flex; */
-  position: fixed;
-  top: 100px;
+  position: relative;
+  top: 4.5px;
+  left:30px
 
 
 }

@@ -96,7 +96,9 @@
     /* Specify the height with a unit like 'rem' */
     display: flex;
 }
-
+.lol{
+    margin-top: -110px;
+}
 .custom-card {
     border-radius: 8px;
     /* Rounded corners */
@@ -209,6 +211,10 @@
 
 .recent{
     font-size: 12px;
+}
+
+.card-work{
+    margin-top: -50px;
 }
 
 
