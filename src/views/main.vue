@@ -65,6 +65,9 @@ export default defineComponent({
     }, 2000);
   },
 });
+
+
+
 </script>
   <style scoped>
   :root {

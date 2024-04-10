@@ -1,35 +1,32 @@
 <template>
-    <div class='crave-text' >Uber goes <span style="color: #06C167;"><b> Green 🌱</b></span></div> 
-
-<div class="mmm">
-<div class="card">
-  <div class="header">
-    <span class="icon">
-    
-    </span>
-    <p class="alert"></p>
-  </div>
-
-  <p class="message"><b>
-    Uber has expanded its services to include environmentally friendly options like Green Delivery, promoting sustainability in urban transportation. Through initiatives like Green Delivery, Uber aims to reduce carbon emissions and contribute to a greener future for urban mobility. 
-</b> </p>
-
-  <div class="actions">
-    <a class="read" href="" style="font-family: 'Uber Move';">
-      Take a Look
-    </a>
-
-    <a class="mark-as-read" href="" style="font-family: 'Uber Move';">
-      Mark as Read
-    </a>
-  </div>
-</div>
-
-
-
-</div>
-   
-          </template>
+    <div class='crave-text'>
+      Uber goes <span style="color: #06C167;"><b> Green 🌱</b></span>
+    </div>
+  
+    <div class="mmm">
+      <div class="card">
+        <div class="header">
+          <span class="icon"></span>
+          <p class="alert"></p>
+        </div>
+  
+        <p class="message"><b>
+          Uber has expanded its services to include environmentally friendly options like Green Delivery, promoting sustainability in urban transportation. Through initiatives like Green Delivery, Uber aims to reduce carbon emissions and contribute to a greener future for urban mobility. 
+        </b></p>
+  
+        <div class="actions">
+          <!-- Updated anchor tag with router-link -->
+          <router-link to="/green" class="read" style="font-family: 'Uber Move';">
+            Take a Look
+          </router-link>
+  
+          <a class="mark-as-read" href="" style="font-family: 'Uber Move';">
+            Join us
+          </a>
+        </div>
+      </div>
+    </div>
+  </template>
           <style scoped>
       
       .card {
