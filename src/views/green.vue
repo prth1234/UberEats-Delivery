@@ -1,7 +1,6 @@
 
 <template>
     <div class="navbar">
-        <hr class="divider">
 
         <Navbar/>
 

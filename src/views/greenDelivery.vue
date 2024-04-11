@@ -11,7 +11,7 @@
         </div>
   
         <p class="message"><b>
-          Uber has expanded its services to include environmentally friendly options like Green Delivery, promoting sustainability in urban transportation. Through initiatives like Green Delivery, Uber aims to reduce carbon emissions and contribute to a greener future for urban mobility. 
+          Uber has expanded its services to include environmentally friendly options like Green Delivery, promoting sustainability in urban transportation. Through initiatives like Green Delivery, Uber aims to reduce carbon emissions and contribute to a greener future for urban mobility.
         </b></p>
   
         <div class="actions">
@@ -20,13 +20,15 @@
             Take a Look
           </router-link>
   
-          <a class="mark-as-read" href="" style="font-family: 'Uber Move';">
+          <!-- Updated anchor tag to redirect to /sign-in-green -->
+          <router-link to="/sign-in-green" class="mark-as-read" style="font-family: 'Uber Move';">
             Join us
-          </a>
+          </router-link>
         </div>
       </div>
     </div>
   </template>
+  
           <style scoped>
       
       .card {
