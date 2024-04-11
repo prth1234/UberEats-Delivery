@@ -9,6 +9,8 @@
 
 
 <Barrr/>
+
+<ContentGreen/>
     
   
     
@@ -19,6 +21,7 @@ import { useRouter } from 'vue-router';
 // import Navbar from './components/navbar.vue'; // Check the path and file extension
 import Navbar from './Navbar2.vue';
 import Barrr from './barrr.vue';
+import ContentGreen from './Content-green.vue';
 
 const router = useRouter();
 
@@ -45,7 +48,7 @@ const router = useRouter();
     height: 1px;
     background-color: #1d1b1b;
     position: relative;
-    top:-390px;
+    top:-140px;
   }
 
 </style>

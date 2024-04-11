@@ -23,7 +23,7 @@
 
   .main{
     position: relative;
-    top:-400px
+    top:-160px
   }
   
   .title {
