@@ -49,6 +49,7 @@
   
   .large {
     font-size: 3rem; /* Adjust font size */
+    margin-top:-10px;
   }
   
   .icon-white {
