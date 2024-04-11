@@ -8,7 +8,7 @@
     </div>
 
 
-<Barrr/>
+<!-- <Barrr/> -->
 
 <ContentGreen/>
     
@@ -48,7 +48,7 @@ const router = useRouter();
     height: 1px;
     background-color: #1d1b1b;
     position: relative;
-    top:-140px;
+    top:-110px;
   }
 
 </style>

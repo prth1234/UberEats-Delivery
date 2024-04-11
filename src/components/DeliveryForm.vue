@@ -45,7 +45,7 @@
     <p>Or 
       
       <!-- <a href="#" style="font-family: 'Uber Move', sans-serif;">Sign In</a> -->
-      <router-link to="/sign-in">Sign In</router-link>
+      <router-link to="/sign-in"><u>Sign In</u></router-link>
 
     
     

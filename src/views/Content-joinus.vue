@@ -3,27 +3,45 @@
     <!-- Left half with text -->
     <div class="text-content">
       <h2>
-        <img src="https://www.uber-assets.com/image/upload/q_auto:eco,c_fill,w_48,h_48/v1542249426/assets/4e/7ed09b-e0b3-423f-ab4f-23bec03d847c/original/lightning-filled.svg" alt="Charging" role="presentation" aria-hidden="true" class="icon-white">
-        Charging Electric vehicles
+       ❏ &nbsp;&nbsp;&nbsp;&nbsp;Register with Uber Eats
       </h2>
       <p>Drivers on Uber Green help cities move more people with rides in electric cars, including hybrid electric vehicles, plug-in hybrids, and 100% battery electric vehicles.</p>
       <h2>
-        <img src="https://www.uber-assets.com/image/upload/q_auto:eco,c_fill,w_48,h_48/v1542249373/assets/75/df204b-0da4-4504-bc68-97433b937258/original/leaf-filled.svg" alt="Earth-friendly" role="presentation" aria-hidden="true" class="icon-white">
-        Earth-friendly Cleaner mobility
+        ❏ &nbsp;&nbsp;&nbsp;&nbsp; Background Check
       </h2>
       
       <p style="margin-bottom: 35px;">In many cities around the world, more electric mobility is cleaner mobility. This means less local pollution and fewer climate-related emissions for cities, especially where electricity grids include an increasing share of renewable energy.</p>
       
+      <h2>
+        ❏ &nbsp;&nbsp;&nbsp;&nbsp;Accept Delivery Requests
+      </h2>
+      <p>Drivers on Uber Green help cities move more people with rides in electric cars, including hybrid electric vehicles, plug-in hybrids, and 100% battery electric vehicles.</p>
+      <h2>
+        ❏ &nbsp;&nbsp;&nbsp;&nbsp;Navigate to Pickup Location
+      </h2>
+      
+      <p style="margin-bottom: 35px;">In many cities around the world, more electric mobility is cleaner mobility. This means less local pollution and fewer climate-related emissions for cities, especially where electricity grids include an increasing share of renewable energy.</p>
+      
+      <h2>
+        ❏ &nbsp;&nbsp;&nbsp;&nbsp; Pick Up the Order and Deliver !!!
+      </h2>
+      <p>Drivers on Uber Green help cities move more people with rides in electric cars, including hybrid electric vehicles, plug-in hybrids, and 100% battery electric vehicles.</p>
+    
+
       <!-- Use router-link to navigate to "/joinus" -->
-      <router-link to="/join-us" class="join-button">Join Us</router-link> <!-- Button "Join Us" -->
     </div>
+    
     
     <!-- Right half with image and emoji -->
     <div class="image-content">
-      <div class="large">🌱</div> <!-- Move the 🌱 emoji above the image -->
-      <img src="https://i.ibb.co/gRJcyYC/Product-Icon-removebg.png" alt="Uber Green" class="product-image">
+      <!-- <div class="large">🌱</div> Move the 🌱 emoji above the image -->
+      <img src="https://www.uber-assets.com/image/upload/f_auto,q_auto:eco,c_fill,w_956,h_956/v1696243800/assets/62/3b076a-3406-4f3b-89de-2cf1a2ccb907/original/uber-one.jpg" alt="Uber Green" class="product-image">
     </div>
+
+    
   </div>
+  <router-link to="/sign-in-green"><u>Green Sign In</u></router-link>
+
 </template>
 
 <script setup>
@@ -34,6 +52,7 @@ const router = useRouter();
 <style scoped>
 .main-content {
   display: flex;
+  
 }
 
 .text-content {
@@ -48,6 +67,10 @@ const router = useRouter();
   align-items: center;
   justify-content: center;
   padding: 10px; /* Adjust padding as needed */
+  width:450px;
+  height:450px;
+  margin-top: 180px;
+  margin-left:100px;
 }
 
 .product-image {
