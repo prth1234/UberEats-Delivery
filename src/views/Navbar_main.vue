@@ -7,14 +7,13 @@
           <span style="color: #06C167;"><b>Eats</b></span>
         </a>
       </div>
-      <a data-testid="edit-delivery-location-button" class="location-button" href="/feed?diningMode=DELIVERY&amp;mod=deliveryDetails&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlNhbnRhJTIwQ2xhcml0YSUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpKeGpWckRPR3dvQVJTTllGYy1DUFNsWSUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0EzNC4zOTE2NjQxJTJDJTIybG9uZ2l0dWRlJTIyJTNBLTExOC41NDI1ODYlN0Q%3D&amp;ps=1">
+      <a @click="openPopup" class="location-button" href="#">
         <div class="location-icon">🔗</div>
         <div class="delivery-info">
           <div data-testid="delivery-address-label" class="address-label">HSR, Bengaluru is a very long text that will be truncated with an ellipsis</div>
           <span class="separator">·</span>
           <div data-test="delivery-time" class="delivery-time">Now</div>
         </div>
-        
       </a>
       <ul class="nav-menu">
         <input type="checkbox" name="check-toggle" id="checkbox" hidden="">
@@ -33,7 +32,67 @@
       </ul>
     </div>
   </nav>
+
+  <div v-if="showPopup" class="popup" >
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>Search for delivery areas</h2>
+        <button @click="closePopup" aria-label="Close" class="close-button">x</button>
+      </div>
+      <div class="popup-body">
+        <div class="address-input">
+          <label for="delivery-address">Select an area</label>
+          <div class="search">
+            <div class="group">
+              <select v-model="selectedArea" @change="onAreaChange" class="input" >
+                <option value="" disabled>Select an area</option>
+                <option value="Bangalore">Bangalore</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Noida">Noida</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Hyderabad">Hyderabad</option>
+                <option value="Pune">Pune</option>
+                <option value="Ahmedabad">Ahmedabad</option>
+                <option value="Jaipur">Jaipur</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <button @click="searchAreas" class="button">Search here</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
+
+<script setup>
+import { ref } from 'vue';
+
+const showPopup = ref(false);
+const searchQuery = ref('');
+const selectedArea = ref('');
+
+function openPopup() {
+  showPopup.value = true;
+}
+
+function closePopup() {
+  showPopup.value = false;
+}
+
+function searchAreas() {
+  // Implement your search logic here
+  console.log('Searching for:', searchQuery.value);
+  closePopup();
+}
+
+function onAreaChange() {
+  console.log('Selected Area:', selectedArea.value);
+}
+</script>
 
 <style scoped>
 .navbar {
@@ -77,17 +136,17 @@
 }
 
 .nav-menu li a:hover {
-  color: #ccc; /* Change hover color if needed */
+  color: #ccc;
 }
 
 .toggle {
   --bg-toggle: hsl(0, 0%, 96%);
   --bg-circle: hsl(96, 85%, 34%);
-  width: 60px; /* Adjust the width as needed */
-  height: 30px; /* Adjust the height as needed */
+  width: 60px;
+  height: 30px;
   background-color: var(--bg-toggle);
   box-shadow: 0 .2rem 3rem 0 rgba(125, 125, 125, 0.25);
-  border-radius: 1.5rem; /* Adjust border-radius to maintain roundness */
+  border-radius: 1.5rem;
   display: flex;
   align-items: center;
   padding: 0 .2rem;
@@ -95,11 +154,11 @@
 }
 
 .toggle__circle {
-  width: 24px; /* Adjust the width as needed */
-  height: 24px; /* Adjust the height as needed */
+  width: 24px;
+  height: 24px;
   cursor: pointer;
   background-color: var(--bg-circle);
-  border-radius: 50%;
+  border-radius: 500px; /* Change to 0 to remove rounded edges */
   position: relative;
   transition: margin 400ms ease-in-out, background-color 1000ms;
 }
@@ -114,23 +173,23 @@
 }
 
 .toggle__circle::before {
-  width: 6px; /* Adjust the width as needed */
-  height: 10px; /* Adjust the height as needed */
+  width: 6px;
+  height: 10px;
   left: 32%;
   border-radius: 0% 100% 0% 100% / 0% 27% 73% 100%;
   transform: translateX(-70%) rotate(-2deg);
 }
 
 .toggle__circle::after {
-  width: 12px; /* Adjust the width as needed */
-  height: 15px; /* Adjust the height as needed */
+  width: 12px;
+  height: 15px;
   left: 48%;
   border-radius: 100% 0% 100% 0% / 100% 0% 100% 0%;
   transform: rotate(-20deg);
 }
 
 #checkbox:checked + .toggle > .toggle__circle {
-  margin-left: calc(60px - 24px); /* Adjusted margin calculation */
+  margin-left: calc(60px - 24px);
 }
 
 #checkbox:checked + .toggle {
@@ -165,7 +224,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  border-radius: 500px;
+  /* Remove border-radius for rectangle shape */
 }
 
 .separator {
@@ -176,4 +235,80 @@
   font-family: 'Uber Move';
 }
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(214, 213, 213, 0.5);
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px; /* Remove border-radius for rectangle shape */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 400px;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popup-header h2 {
+  font-family: 'Uber Move';
+  color: black;
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+}
+
+.popup-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 0; /* Change to 0 to remove rounded edges */
+  margin-bottom: 15px;
+  font-family: 'Uber Move';
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  -webkit-appearance: menulist;
+  -moz-appearance: menulist;
+  appearance: menulist;
+  font-size: 1.15rem; /* Increase font size */
+  color: black; /* Text color */
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.button {
+  background-color: #06C167;
+  height: 59px;
+  width: 149px;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 500; /* Change to 0 to remove rounded edges */
+  cursor: pointer;
+  font-family: 'Uber Move';
+}
 </style>
