@@ -7,7 +7,7 @@
         <div class="mb-2 flex justify-center"></div>
         <h2 class="text-center text-1xl font-bold leading-tight text-black" style="font-family: Uber Move; text-align: left;">What's your phone number or email?</h2>
         <!-- <a class="mt-2 text-center text-sm text-gray-600" href="#" >Don't have an account? Create a free account</a> -->
-        <form class="mt-8" method="POST" action="#" style="margin-top: 20px;">
+        <form class="mt-8" method="POST" @submit.prevent="redirectToMain" action="#" style="margin-top: 20px;">
           <div class="space-y-5">
             <div>
             
