@@ -10,7 +10,7 @@
       <a @click="openPopup" class="location-button" href="#">
         <div class="location-icon">🔗</div>
         <div class="delivery-info">
-          <div data-testid="delivery-address-label" class="address-label">HSR, Bengaluru is a very long text that will be truncated with an ellipsis</div>
+          <div data-testid="delivery-address-label" class="address-label">{{ displayedArea }}</div>
           <span class="separator">·</span>
           <div data-test="delivery-time" class="delivery-time">Now</div>
         </div>
@@ -37,6 +37,8 @@
     <div class="popup-content">
       <div class="popup-header">
         <h2>Search for delivery areas</h2>
+  <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px;">
+  <!-- Adjust the src attribute to point to your actual image path -->
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
@@ -44,24 +46,24 @@
           <label for="delivery-address">Select an area</label>
           <div class="search">
             <div class="group">
-              <select v-model="selectedArea" @change="onAreaChange" class="input" >
-                <option value="" disabled>Select an area</option>
-                <option value="Bangalore">Bangalore</option>
-                <option value="Delhi">Delhi</option>
-                <option value="Chennai">Chennai</option>
-                <option value="Noida">Noida</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Hyderabad">Hyderabad</option>
-                <option value="Pune">Pune</option>
-                <option value="Ahmedabad">Ahmedabad</option>
-                <option value="Jaipur">Jaipur</option>
-              </select>
+              <select v-model="selectedArea" @change="onAreaChange" class="input">
+  <option value="" disabled>Select an area</option>
+  <option value="Hsr, Bangalore">Hsr, Bangalore</option>
+  <option value="South Delhi Extension, Delhi">South Delhi Extension, Delhi</option>
+  <option value="Malya Nagar Chennai">Malya Nagar Chennai</option>
+  <option value="Greater Noida, Noida">Greater Noida, Noida</option>
+  <option value="The bagh, Kolkata">The bagh, Kolkata</option>
+  <option value="Atilia, Mumbai">Atilia, Mumbai</option>
+  <option value="Cyber Hub, Hyderabad">Cyber Hub, Hyderabad</option>
+  <option value="IT Hub, Pune">IT Hub, Pune</option>
+  <option value="Trade Centre, Ahmedabad">Trade Centre, Ahmedabad</option>
+  <option value="The Bagh, Jaipur">The Bagh, Jaipur</option>
+</select>
             </div>
           </div>
         </div>
         <div class="buttons-container">
-          <button @click="searchAreas" class="button">Search here</button>
+          <button @click="searchAreas" class="button" style="margin-top: 15px;">Search here</button>
         </div>
       </div>
     </div>
@@ -71,26 +73,33 @@
 <script setup>
 import { ref } from 'vue';
 
+// Define refs for data
 const showPopup = ref(false);
 const searchQuery = ref('');
 const selectedArea = ref('');
+const displayedArea = ref('HSR, Bengaluru'); // Initialize displayedArea with default value
 
+// Function to open the popup
 function openPopup() {
   showPopup.value = true;
 }
 
+// Function to close the popup
 function closePopup() {
   showPopup.value = false;
 }
 
+// Function to handle the search logic
 function searchAreas() {
-  // Implement your search logic here
-  console.log('Searching for:', searchQuery.value);
-  closePopup();
+  // Update displayedArea with the selected option
+  displayedArea.value = selectedArea.value;
+  console.log('Searching for:', displayedArea.value); // Log the selected area for demonstration
+  closePopup(); // Close the popup after selecting an area
 }
 
+// Function to handle the change in the selected area
 function onAreaChange() {
-  console.log('Selected Area:', selectedArea.value);
+  console.log('Selected Area:', selectedArea.value); // Log the selected area for demonstration
 }
 </script>
 
@@ -253,7 +262,8 @@ function onAreaChange() {
   padding: 20px;
   border-radius: 15px; /* Remove border-radius for rectangle shape */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  width: 400px;
+  height: 230px;
+  width: 500px;
 }
 
 .popup-header {
@@ -285,7 +295,7 @@ function onAreaChange() {
 .input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: None;
   border-radius: 0; /* Change to 0 to remove rounded edges */
   margin-bottom: 15px;
   font-family: 'Uber Move';
@@ -301,9 +311,9 @@ function onAreaChange() {
 }
 
 .button {
-  background-color: #06C167;
+  background-color: #000000;
   height: 59px;
-  width: 149px;
+  width: 500px;
   color: white;
   border: none;
   padding: 10px 20px;
