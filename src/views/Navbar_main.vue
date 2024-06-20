@@ -37,8 +37,7 @@
     <div class="popup-content">
       <div class="popup-header">
         <h2>Search for delivery areas</h2>
-  <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px;">
-  <!-- Adjust the src attribute to point to your actual image path -->
+  <!-- <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px;"> -->
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
