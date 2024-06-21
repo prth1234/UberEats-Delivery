@@ -32,7 +32,7 @@
             <li><a href="#" style="font-family: 'Uber Move';">Story</a></li>
             <li><a href="#" style="font-family: 'Uber Move';">Business</a></li>
             <li><a href="#" style="font-family: 'Uber Move';">About us</a></li>
-            <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look✨</a></li>
+            <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look ✨</a></li>
           </ul>
         </div>
       </ul>

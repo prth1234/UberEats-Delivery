@@ -19,8 +19,7 @@
           <div class="popup-body">
             <div class="input-container">
               <select v-model="selectedCategory" id="search-category" class="input dropdown" style="font-family: Arial, Helvetica, sans-serif;">
-                <option value="" disabled>Select a category</option>
-                <option value="All">All</option>
+                <option value="" enabled>All</option>
                 <option value="Fast food">Fast food</option>
                 <option value="Cuisine">Cuisine</option>
                 <option value="Restaurant">Restaurant</option>
