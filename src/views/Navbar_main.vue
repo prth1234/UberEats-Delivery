@@ -1,21 +1,27 @@
 <template>
   <nav class="navbar">
     <div class="container">
-      <div class="logo-container">
+      <div class="logo-container" style="margin-right: 100px;">
         <a href="#" class="navbar-brand">
           <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
           <span style="color: #06C167;"><b>Eats</b></span>
         </a>
       </div>
-      <a @click="openPopup" class="location-button" href="#">
-        <div class="location-icon">🔗</div>
+      <a @click="openPopup" class="location-button" href="#" style="display: fixed; margin-right: 40px;">
+<!--        <div class="location-icon">🔗</div>-->
+         <img src="https://i.ibb.co/VDKzyML/Location-Icon-White.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px; margin-right:10px">
+
         <div class="delivery-info">
           <div data-testid="delivery-address-label" class="address-label">{{ displayedArea }}</div>
           <span class="separator">·</span>
           <div data-test="delivery-time" class="delivery-time">Now</div>
         </div>
       </a>
+
+<searchbar/>
       <ul class="nav-menu">
+        <!-- <img src="https://static-00.iconduck.com/assets.00/search-icon-2044x2048-psdrpqwp.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px; margin-right:120px"> -->
+
         <input type="checkbox" name="check-toggle" id="checkbox" hidden="">
         <label for="checkbox" class="toggle">
           <div class="toggle__circle"></div>
@@ -30,6 +36,9 @@
           </ul>
         </div>
       </ul>
+      
+
+
     </div>
   </nav>
 
@@ -46,13 +55,13 @@
           <div class="search">
             <div class="group">
               <select v-model="selectedArea" @change="onAreaChange" class="input">
-  <option value="" disabled>Select an area</option>
+  <option value="" disabled >Select an area</option>
   <option value="Hsr, Bangalore">Hsr, Bangalore</option>
   <option value="South Delhi Extension, Delhi">South Delhi Extension, Delhi</option>
   <option value="Malya Nagar Chennai">Malya Nagar Chennai</option>
   <option value="Greater Noida, Noida">Greater Noida, Noida</option>
   <option value="The bagh, Kolkata">The bagh, Kolkata</option>
-  <option value="Atilia, Mumbai">Atilia, Mumbai</option>
+  <option value="Atilia, Mumbai">Antilia, Mumbai</option>
   <option value="Cyber Hub, Hyderabad">Cyber Hub, Hyderabad</option>
   <option value="IT Hub, Pune">IT Hub, Pune</option>
   <option value="Trade Centre, Ahmedabad">Trade Centre, Ahmedabad</option>
@@ -62,7 +71,7 @@
           </div>
         </div>
         <div class="buttons-container">
-          <button @click="searchAreas" class="button" style="margin-top: 15px;">Search here</button>
+          <button @click="searchAreas" class="button" style="margin-top: 15px;   font-family: 'Uber Move';">Done</button>
         </div>
       </div>
     </div>
@@ -71,12 +80,13 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import searchbar from './searchbar.vue';
 // Define refs for data
 const showPopup = ref(false);
 const searchQuery = ref('');
 const selectedArea = ref('');
 const displayedArea = ref('HSR, Bengaluru'); // Initialize displayedArea with default value
+
 
 // Function to open the popup
 function openPopup() {
