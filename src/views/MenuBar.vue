@@ -41,12 +41,12 @@
             <div class="plate" :class="{ 'checked': selectedTab.ariaChecked === 'true' }"></div>
           </div>
           <div v-else-if="selectedTab.text === 'Best overall'" class="input-container" style="color: black">
-    <div @click="toggleBestOverall" 
-        :class="{ 'best-overall-selected': selectedTab.selected }"
-        class="best-overall-content">
-      <p>Best overall content goes here.</p>
-    </div>
-  </div>
+          <div @click="toggleBestOverall"
+            :class="{ 'best-overall-selected': bestOverallSelected }"
+            class="best-overall-content">
+            <p>Best overall content goes here.</p>
+          </div>
+        </div>
           <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black">
             <p>Rating content goes here.</p>
           </div>
@@ -155,6 +155,8 @@
       toggleBestOverall() {
       if (this.selectedTab.text === 'Best overall') {
         this.selectedTab.selected = !this.selectedTab.selected;
+        this.selectedTab.selected = this.selectedTab.selected;
+
       }
 
     },
@@ -184,9 +186,15 @@
         }
       },
       toggleSelection(tab) {
-        tab.ariaChecked = tab.ariaChecked === 'false' ? 'true' : 'false';
-        
-      },
+  // Check if the clicked tab is already selected
+  if (tab.ariaChecked === 'true') {
+    tab.ariaChecked = 'false';
+  } else {
+    // If not selected, deselect previously selected tab (if any)
+    this.tabs.forEach(t => t.ariaChecked = 'false');
+    tab.ariaChecked = 'true';
+  }
+}
     },
     computed: {
       formattedDeliveryFee() {
