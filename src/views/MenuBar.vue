@@ -8,6 +8,8 @@
         :role="tab.role"
         class="button"
         style="display: inline-block; border-radius: 400px;"
+        @click="openPopup(tab)"
+
       >
         <svg
           v-if="tab.svgPath"
@@ -24,12 +26,60 @@
       </button>
     </div>
   </div>
-</template>
+   <!-- Popup container -->
+   <div v-if="showPopup" class="popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>{{ selectedTab.text }}</h2>
+        <button @click="closePopup" aria-label="Close" class="close-button">x</button>
+      </div>
+      <div class="popup-body">
+        <div v-if="selectedTab.text === 'Offers'" class="input-container">
+          <!-- Specific content for Offers tab -->
+          <p>Offers content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Delivery fee'" class="input-container">
+          <!-- Specific content for Delivery fee tab -->
+          <p>Delivery fee content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container">
+          <!-- Specific content for Under 30 mins tab -->
+          <p>Under 30 mins content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Best overall'" class="input-container">
+          <!-- Specific content for Best overall tab -->
+          <p>Best overall content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Rating'" class="input-container">
+          <!-- Specific content for Rating tab -->
+          <p>Rating content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Price'" class="input-container">
+          <!-- Specific content for Price tab -->
+          <p>Price content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Dietary'" class="input-container">
+          <!-- Specific content for Dietary tab -->
+          <p>Dietary content goes here.</p>
+        </div>
+        <div v-else-if="selectedTab.text === 'Sort'" class="input-container">
+          <!-- Specific content for Sort tab -->
+          <p>Sort content goes here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+
+
+
+</template>
 <script>
 export default {
   data() {
     return {
+      showPopup: false,
+      selectedTab: null,
       tabs: [
         {
           text: 'Offers',
@@ -97,8 +147,18 @@ export default {
       ],
     };
   },
+  methods: {
+    openPopup(tab) {
+      this.selectedTab = tab;
+      this.showPopup = true;
+    },
+    closePopup() {
+      this.showPopup = false;
+    },
+  },
 };
 </script>
+
 
 <style scoped>
 .menu-bar {
@@ -119,5 +179,53 @@ export default {
 .button {
   width: auto;
   white-space: nowrap;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 540px;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.popup-header h2 {
+  font-family: 'Uber Move';
+  color: black;
+  margin: 0;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+}
+
+.popup-body {
+  display: flex;
+  flex-direction: column;
 }
 </style>
