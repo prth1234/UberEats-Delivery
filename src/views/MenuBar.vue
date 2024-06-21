@@ -172,32 +172,48 @@ export default {
   top: 4.5px;
   left: 30px;
 }
-#slider-container {
+
+.slider-container {
   width: 200px;
   height: 30px;
 }
 
-#slider-track {
-  background-color: #ddd;
-  height: 10px;
-  position: relative;
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 3px;
+  background: black; /* Black to white gradient */
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
 }
 
-#slider-handle {
-  background-color: black;
-  width: 20px;
-  height: 20px;
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px; /* Increased by 20% from 20px */
+  height: 24px; /* Increased by 20% from 20px */
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%); /* Center handle vertically */
-  cursor: pointer; /* Indicate draggable cursor */
+  background: white; /* White thumb */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Shadow effect at the bottom */
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 24px; /* Increased by 20% from 20px */
+  height: 24px; /* Increased by 20% from 20px */
+  border-radius: 50%;
+  background: white; /* White thumb for Firefox */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Shadow effect at the bottom */
+  cursor: pointer;
 }
 
 .increment {
   display: inline-block;
   margin-right: 10px;
 }
+
 .button-content {
   display: flex;
   vertical-align: baseline;
@@ -279,7 +295,8 @@ export default {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: black; /* Black thumb */
+  background: white; /* White thumb */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Shadow effect at the bottom */
   cursor: pointer;
 }
 
@@ -287,7 +304,12 @@ export default {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: black; /* Black thumb for Firefox */
+  background: white; /* White thumb for Firefox */
+  box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5); /* Shadow effect at the bottom */
   cursor: pointer;
 }
+
+/* Other styles for the rest of your components... */
+
+
 </style>
