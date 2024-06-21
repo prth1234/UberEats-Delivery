@@ -305,8 +305,9 @@ function onAreaChange() {
   width: 100%;
   padding: 10px;
   border: None;
+
   border-radius: 0; /* Change to 0 to remove rounded edges */
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   font-family: 'Uber Move';
   box-sizing: border-box;
   background-color: #f4f4f4;
