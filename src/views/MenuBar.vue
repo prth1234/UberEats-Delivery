@@ -266,7 +266,7 @@ export default {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 5px;
+  height: 3px;
   background: black; /* Black to white gradient */
   border-radius: 10px;
   outline: none;
