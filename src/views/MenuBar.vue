@@ -23,22 +23,30 @@
         <div class="popup-body">
           <div v-if="selectedTab.text === 'Offers'" class="input-container" style="color: black">
             <div class="slider-container" style="width: 200px; height: 30px; margin: auto;">
-              <input type="range" min="10" max="35" v-model="deliveryOffer" step="1" class="slider" @input="updateOffer" />
+              <input type="range" min="10" max="35" v-model="deliveryOffer" step="1" class="slider"
+                @input="updateOffer" />
             </div>
-            <p>{{ formattedOffer }}</p>       
+            <p>{{ formattedOffer }}</p>
           </div>
           <div v-else-if="selectedTab.text === 'Delivery fee'" class="input-container" style="color: black">
             <div class="slider-container" style="width: 200px; height: 30px; margin: auto;">
-              <input type="range" min="5" max="8" v-model="deliveryFee" step="1" class="slider" @input="updateDeliveryFee" />
+              <input type="range" min="5" max="8" v-model="deliveryFee" step="1" class="slider"
+                @input="updateDeliveryFee" />
             </div>
             <p>{{ formattedDeliveryFee }}</p>
           </div>
           <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container" style="color: black">
-          
+            <input id="btn" type="checkbox" @change="toggleSelection(selectedTab)" :checked="selectedTab.ariaChecked === 'true'" />
+            <label for="btn"></label>
+            <div class="plate" :class="{ 'checked': selectedTab.ariaChecked === 'true' }"></div>
           </div>
           <div v-else-if="selectedTab.text === 'Best overall'" class="input-container" style="color: black">
-            <p>Best overall content goes here.</p>
-          </div>
+    <div @click="toggleBestOverall" 
+        :class="{ 'best-overall-selected': selectedTab.selected }"
+        class="best-overall-content">
+      <p>Best overall content goes here.</p>
+    </div>
+  </div>
           <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black">
             <p>Rating content goes here.</p>
           </div>
@@ -97,6 +105,8 @@
             role: "checkbox",
             svgPath: "m15 9 8-8h-6l-5 5-5-5H1l8 8h6ZM6 13.5v6l6 3.5 6-3.5v-6L12 10l-6 3.5Zm3 4.51v-3.02l3-1.75 3 1.75v3.02l-3 1.75-3-1.75Z",
             svgTitle: "Medal",
+            selected: false
+
           },
           {
             text: "Rating",
@@ -135,9 +145,19 @@
     },
     methods: {
       openPopup(tab) {
-        this.selectedTab = tab;
-        this.showPopup = true;
+        if (tab.text === "Best overall") {
+          tab.selected = !tab.selected;
+        } else {
+          this.selectedTab = tab;
+          this.showPopup = true;
+        }
       },
+      toggleBestOverall() {
+      if (this.selectedTab.text === 'Best overall') {
+        this.selectedTab.selected = !this.selectedTab.selected;
+      }
+
+    },
       closePopup() {
         this.showPopup = false;
       },
@@ -162,6 +182,10 @@
         } else {
           this.formattedOfferValue = "More than 35% off on delivery";
         }
+      },
+      toggleSelection(tab) {
+        tab.ariaChecked = tab.ariaChecked === 'false' ? 'true' : 'false';
+        
       },
     },
     computed: {
@@ -282,5 +306,134 @@
     flex-direction: column;
   }
 
-  /* Other styles for the rest of your components... */
+  body {
+    height: 100vh;
+    background-image: linear-gradient(45deg, #555 10%, #888 90%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .plate {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 100vw;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) rotate(0) scale(2);
+    z-index: -1;
+    background-image: repeating-conic-gradient(
+      from 45deg at 50% 50%,
+      #4a4 0deg 10deg,
+      #5b5 10deg 20deg,
+      #6c6 20deg 30deg
+    );
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  @keyframes rot {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg) scale(2);
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] ~ label {
+    position: relative;
+    display: block;
+    width: 70px;
+    height: 36px;
+    border-radius: 20px;
+    border: 2px solid #999;
+    transition: transform 200ms cubic-bezier(0.41, -0.01, 0.63, 1.09);
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  input[type="checkbox"] ~ label::before,
+  input[type="checkbox"] ~ label::after {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 34px;
+    height: 34px;
+    border-radius: 18px;
+    content: "";
+    transition: all 220ms cubic-bezier(0.76, 0.01, 0.15, 0.97);
+  }
+
+  input[type="checkbox"] ~ label::before {
+    background-image: linear-gradient(45deg, #383 10%, #4b4 90%);
+  }
+
+  input[type="checkbox"] ~ label::after {
+    background-color: #999;
+  }
+
+  input[type="checkbox"]:checked ~ label {
+    border: 2px solid #fff;
+    transform: scale(1.01);
+    box-shadow: 0 0 60px 5px #9f9;
+    border-color: #afa;
+    background: rgba(0, 128, 0, 0.6);
+  }
+
+  input[type="checkbox"]:checked ~ label::before {
+    width: 68px;
+  }
+
+  input[type="checkbox"]:checked ~ label::after {
+    transform: translateX(34px);
+    background-color: #4c4;
+    box-shadow: -4px 0 4px rgba(0, 0, 0, 0.1);
+  }
+
+  input[type="checkbox"]:checked ~ div {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 240ms, visibility 0s;
+    animation: rot 3s linear forwards;
+  }
+
+  input[type="checkbox"]:checked ~ div.plate {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .plate.checked {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .best-overall-content {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .best-overall-selected {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+  }
+
+  .best-overall-content {
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .best-overall-selected {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+  }
+
   </style>
