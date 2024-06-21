@@ -48,7 +48,7 @@
           </div>
         </div>
           <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black">
-            <p>Rating content goes here.</p>
+<Star/>
           </div>
           <div v-else-if="selectedTab.text === 'Price'" class="input-container" style="color: black">
             <p>Price content goes here.</p>
@@ -64,7 +64,11 @@
     </div>
   </template>
 
+
+<script setup>
+import Star from './star.vue'</script>
   <script>
+
   export default {
     data() {
       return {
@@ -205,6 +209,8 @@
       },
     },
   };
+
+
   </script>
 
   <style scoped>
