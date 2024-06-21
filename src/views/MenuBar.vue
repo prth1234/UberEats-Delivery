@@ -26,44 +26,38 @@
       </button>
     </div>
   </div>
-   <!-- Popup container -->
-   <div v-if="showPopup" class="popup">
+
+  <div v-if="showPopup" class="popup">
     <div class="popup-content">
       <div class="popup-header">
         <h2>{{ selectedTab.text }}</h2>
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
-        <div v-if="selectedTab.text === 'Offers'" class="input-container">
-          <!-- Specific content for Offers tab -->
+        <div v-if="selectedTab.text === 'Offers'" class="input-container" style="color: black;">
           <p>Offers content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Delivery fee'" class="input-container">
-          <!-- Specific content for Delivery fee tab -->
-          <p>Delivery fee content goes here.</p>
+        <div v-else-if="selectedTab.text === 'Delivery fee'" class="input-container" style="color: black;">
+          <div class="slider-container">
+    <input type="range" min="1" max="4" value="1" step="1" class="slider" />
+  </div>
         </div>
-        <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container">
-          <!-- Specific content for Under 30 mins tab -->
+        <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container" style="color: black;">
           <p>Under 30 mins content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Best overall'" class="input-container">
-          <!-- Specific content for Best overall tab -->
+        <div v-else-if="selectedTab.text === 'Best overall'" class="input-container" style="color: black;">
           <p>Best overall content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Rating'" class="input-container">
-          <!-- Specific content for Rating tab -->
+        <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black;">
           <p>Rating content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Price'" class="input-container">
-          <!-- Specific content for Price tab -->
+        <div v-else-if="selectedTab.text === 'Price'" class="input-container" style="color: black;">
           <p>Price content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Dietary'" class="input-container">
-          <!-- Specific content for Dietary tab -->
+        <div v-else-if="selectedTab.text === 'Dietary'" class="input-container" style="color: black;">
           <p>Dietary content goes here.</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Sort'" class="input-container">
-          <!-- Specific content for Sort tab -->
+        <div v-else-if="selectedTab.text === 'Sort'" class="input-container"style="color: black;" >
           <p>Sort content goes here.</p>
         </div>
       </div>
@@ -75,6 +69,15 @@
 
 </template>
 <script>
+
+const sliderTrack = document.getElementById('slider-track');
+const increments = document.querySelectorAll('.increment');
+
+increments.forEach(increment => {
+  increment.addEventListener('click', function() {
+    // Change styles or add a marker element to indicate selection here
+  });
+});
 export default {
   data() {
     return {
@@ -169,7 +172,32 @@ export default {
   top: 4.5px;
   left: 30px;
 }
+#slider-container {
+  width: 200px;
+  height: 30px;
+}
 
+#slider-track {
+  background-color: #ddd;
+  height: 10px;
+  position: relative;
+}
+
+#slider-handle {
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center handle vertically */
+  cursor: pointer; /* Indicate draggable cursor */
+}
+
+.increment {
+  display: inline-block;
+  margin-right: 10px;
+}
 .button-content {
   display: flex;
   vertical-align: baseline;
@@ -227,5 +255,39 @@ export default {
 .popup-body {
   display: flex;
   flex-direction: column;
+}
+
+.slider-container {
+  width: 200px;
+  height: 30px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 5px;
+  background: black; /* Black to white gradient */
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: black; /* Black thumb */
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: black; /* Black thumb for Firefox */
+  cursor: pointer;
 }
 </style>

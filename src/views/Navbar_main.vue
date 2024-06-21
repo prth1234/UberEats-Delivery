@@ -41,7 +41,6 @@
 
     </div>
   </nav>
-
   <div v-if="showPopup" class="popup" >
     <div class="popup-content">
       <div class="popup-header">
