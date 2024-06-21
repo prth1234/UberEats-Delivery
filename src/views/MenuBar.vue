@@ -33,9 +33,6 @@
           </div>
           <p>{{ formattedDeliveryFee }}</p>
         </div>
-        <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container" style="color: black">
-        
-        </div>
         <div v-else-if="selectedTab.text === 'Best overall'" class="input-container" style="color: black">
           <p>Best overall content goes here.</p>
         </div>
@@ -135,8 +132,14 @@ export default {
   },
   methods: {
     openPopup(tab) {
-      this.selectedTab = tab;
-      this.showPopup = true;
+      if (tab.text === 'Under 30 mins') {
+        // Highlight the tab by setting its selected state
+        this.selectedTab = tab;
+      } else {
+        // For other tabs, show the popup
+        this.selectedTab = tab;
+        this.showPopup = true;
+      }
     },
     closePopup() {
       this.showPopup = false;
