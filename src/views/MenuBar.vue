@@ -22,8 +22,11 @@
       </div>
       <div class="popup-body">
         <div v-if="selectedTab.text === 'Offers'" class="input-container" style="color: black">
-          <p>Offers content goes here.</p>
-        </div>
+          <div class="slider-container" style="width: 200px; height: 30px; margin: auto;">
+            <input type="range" min="10" max="35" v-model="deliveryOffer" step="1" class="slider" @input="updateOffer" />
+          </div>
+          <p>{{ formattedOffer }}</p>       
+         </div>
         <div v-else-if="selectedTab.text === 'Delivery fee'" class="input-container" style="color: black">
           <div class="slider-container" style="width: 200px; height: 30px; margin: auto;">
             <input type="range" min="5" max="8" v-model="deliveryFee" step="1" class="slider" @input="updateDeliveryFee" />
@@ -31,7 +34,7 @@
           <p>{{ formattedDeliveryFee }}</p>
         </div>
         <div v-else-if="selectedTab.text === 'Under 30 mins'" class="input-container" style="color: black">
-          <p>Under 30 mins content goes here.</p>
+        
         </div>
         <div v-else-if="selectedTab.text === 'Best overall'" class="input-container" style="color: black">
           <p>Best overall content goes here.</p>
@@ -60,7 +63,9 @@ export default {
       showPopup: false,
       selectedTab: null,
       deliveryFee: 5,
-      formattedDeliveryFeeValue: "Under $5 delivery", // Initialize formattedDeliveryFeeValue here
+      deliveryOffer: 10,
+      formattedDeliveryFeeValue: "Under $5 delivery",
+      formattedOfferValue: "10% off on delivery",
       tabs: [
         {
           text: "Offers",
@@ -137,23 +142,34 @@ export default {
       this.showPopup = false;
     },
     updateDeliveryFee() {
-  console.log(this.deliveryFee);
-
-  if (this.deliveryFee <= 5) {
-    this.formattedDeliveryFeeValue = `Under $5 delivery`;
-  }else if (this.deliveryFee <= 6) {
-    this.formattedDeliveryFeeValue = `Under $6 delivery`;
-  }
-  else if (this.deliveryFee <= 7) {
-    this.formattedDeliveryFeeValue = `Under $7 delivery`;
-  }else {
-    this.formattedDeliveryFeeValue = `$7 and more delivery`;
-  }
-},
+      if (this.deliveryFee <= 5) {
+        this.formattedDeliveryFeeValue = `Under $5 delivery`;
+      } else if (this.deliveryFee <= 6) {
+        this.formattedDeliveryFeeValue = `Under $6 delivery`;
+      } else if (this.deliveryFee <= 7) {
+        this.formattedDeliveryFeeValue = `Under $7 delivery`;
+      } else {
+        this.formattedDeliveryFeeValue = `$7 and more delivery`;
+      }
+    },
+    updateOffer() {
+      if (this.deliveryOffer <= 10) {
+        this.formattedOfferValue = "10% off on delivery";
+      } else if (this.deliveryOffer <= 25) {
+        this.formattedOfferValue = "25% off on delivery";
+      } else if (this.deliveryOffer <= 34) {
+        this.formattedOfferValue = "35% off on delivery";
+      } else {
+        this.formattedOfferValue = "More than 35% off on delivery";
+      }
+    },
   },
   computed: {
     formattedDeliveryFee() {
-      return this.formattedDeliveryFeeValue; // Return formattedDeliveryFeeValue in computed property
+      return this.formattedDeliveryFeeValue;
+    },
+    formattedOffer() {
+      return this.formattedOfferValue;
     },
   },
 };
