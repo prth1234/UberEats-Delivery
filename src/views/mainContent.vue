@@ -97,7 +97,7 @@
     display: flex;
 }
 .lol{
-    margin-top: -110px;
+    margin-top: -140px;
 }
 .custom-card {
     border-radius: 8px;
@@ -147,7 +147,7 @@
     top: -10px;
     display: grid;
     gap: 1px;
-    background: var(--primary-clr);
+
 }
 
 .card-time {
