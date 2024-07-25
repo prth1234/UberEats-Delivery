@@ -70,11 +70,11 @@
         <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black">
           <div class="offer-slider-container">
             <div class="offer-options">
-              <span :class="{ 'selected': selectedRating['1'] }">1</span>
-              <span :class="{ 'selected': selectedRating['2'] }">2</span>
-              <span :class="{ 'selected': selectedRating['3'] }">3</span>
-              <span :class="{ 'selected': selectedRating['4'] }">4</span>
-              <span :class="{ 'selected': selectedRating['5'] }">5</span>
+              <span :class="{ 'selected1': selectedRating['1'] }">1+</span>
+              <span :class="{ 'selected1': selectedRating['2'] }">2+</span>
+              <span :class="{ 'selected1': selectedRating['3'] }">3+</span>
+              <span :class="{ 'selected1': selectedRating['4'] }">4+</span>
+              <span :class="{ 'selected1': selectedRating['5'] }">5</span>
 
             </div>
             <input type="range" min="0" max="4" v-model.number="ratingValue" step="1" class="slider" @input="updateRating" />
@@ -111,7 +111,7 @@ export default {
       deliveryOffer: 10,
       initialOffer: 10,
       deliveryOfferStep: 0, // This will correspond to the slider position
-      ratingValue:0,
+      ratingValue:5,
 
       deliveryOfferValues: [10, 25, 35, 36],
       formattedDeliveryFeeValue: "Under $5 delivery",
@@ -568,10 +568,10 @@ export default {
     background-color: #000000;
     color: #fff;
   }
+
   .offer-options span.selected1 {
-    color: rgb(254, 254, 254);
-    -webkit-text-stroke: 1px black;
-    transition: color 0.2s;
+    background-color: #000000;
+    color: #ffffff;
   }
 
   .slider {
