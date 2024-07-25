@@ -149,7 +149,6 @@
 }
 .card:hover .card-time {
   background: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d);
-  //background: #06C167;
 
   -webkit-background-clip: text; /* Clip background to the text */
   -webkit-text-fill-color: transparent; /* Make the text color transparent so the gradient shows through */
