@@ -29,8 +29,9 @@
               <span :class="{ 'selected': selectedOfferClass['35'] }">35%</span>
               <span :class="{ 'selected': selectedOfferClass['35plus'] }">35%+</span>
             </div>
-            <input type="range" min="0" max="3" v-model.number="deliveryOfferStep" step="1" class="slider" @input="updateSliderBackground($event); updateOffer()" />
-
+            <input type="range" min="0" max="3" v-model.number="deliveryOfferStep" step="1" class="slider"
+                   @input="updateSliderBackground($event); updateOffer()"
+                   ref="offerSlider" />
           </div>
           <button class="apply-button" @click="applyOffer">Apply</button>
         </div>
@@ -84,7 +85,17 @@
           <button class="apply-button" @click="applyOffer">Apply</button>
         </div>
         <div v-else-if="selectedTab.text === 'Price'" class="input-container" style="color: black">
-          <p>Price content goes here.</p>
+          <div style="display: flex; gap: 10px;">
+            <div class="rounded-rectangle" onclick="selectButton(this)">$</div>
+            <div class="rounded-rectangle" onclick="selectButton(this)">$$</div>
+            <div class="rounded-rectangle" onclick="selectButton(this)">$$$</div>
+            <div class="rounded-rectangle" onclick="selectButton(this)">$$$$</div>
+          </div>
+
+
+
+          <button class="apply-button" @click="applyOffer">Apply</button>
+
         </div>
         <div v-else-if="selectedTab.text === 'Dietary'" class="input-container" style="color: black">
           <p>Dietary content goes here.</p>
@@ -97,11 +108,10 @@
   </div>
 </template>
 
-<script setup>
-import Star from './star.vue'
-</script>
+
 
 <script>
+
 export default {
   data() {
     return {
@@ -193,8 +203,12 @@ export default {
         this.selectedTab = tab;
         this.showPopup = true;
         if (tab.text === "Offers") {
+          this.deliveryOfferStep = 0; // Reset to minimum value
           this.initialOffer = this.deliveryOffer;
         }
+        this.$nextTick(() => {
+          this.setInitialSliderBackground();
+        });
       }
     },
     toggleBestOverall() {
@@ -214,6 +228,14 @@ export default {
       // The current offer is already saved in real-time
       this.closePopup();
     },
+     selectButton(selectedDiv) {
+  // Remove the 'selected' class from all buttons
+  const buttons = document.querySelectorAll('.rounded-rectangle');
+  buttons.forEach(button => button.classList.remove('selected'));
+
+  // Add the 'selected' class to the clicked button
+  selectedDiv.classList.add('selected');
+},
     updateDeliveryFee() {
       // if (this.deliveryFee <= 5) {
       //   this.formattedDeliveryFeeValue = ``;
@@ -225,18 +247,7 @@ export default {
       //   this.formattedDeliveryFeeValue = ``;
       // }
     },
-    updateOffer() {
-      this.deliveryOffer = this.deliveryOfferValues[this.deliveryOfferStep];
-      // if (this.deliveryOffer <= 10) {
-      //   this.formattedOfferValue = "";
-      // } else if (this.deliveryOffer <= 25) {
-      //   this.formattedOfferValue = "";
-      // } else if (this.deliveryOffer <= 35) {
-      //   this.formattedOfferValue = "";
-      // } else {
-      //   this.formattedOfferValue = "";
-      // }
-    },
+
     updateRating() {
       this.ratingValue = this.formattedRatingValue[this.updateRating];
       // if (this.ratingValue <= 10) {
@@ -258,11 +269,24 @@ export default {
       }
     },
     updateSliderBackground(event) {
-      const value = event.target.value;
-      const max = event.target.max;
-      const percentage = (value / max) * 100;
+      const value = parseFloat(event.target.value);
+      const min = parseFloat(event.target.min);
+      const max = parseFloat(event.target.max);
+      const percentage = ((value - min) / (max - min)) * 100;
       event.target.style.background = `linear-gradient(to right, #000 0%, #000 ${percentage}%, #ddd ${percentage}%, #ddd 100%)`;
-    }
+    },
+    setInitialSliderBackground() {
+      const sliders = this.$el.querySelectorAll('.slider');
+      sliders.forEach(slider => {
+        slider.value = slider.min;
+        slider.style.background = '#ddd';
+      });
+    },
+
+    updateOffer() {
+      this.deliveryOffer = this.deliveryOfferValues[this.deliveryOfferStep];
+      this.updateSliderBackground({ target: this.$refs.offerSlider });
+    },
   },
   computed: {
     formattedDeliveryFee() {
@@ -300,6 +324,24 @@ export default {
 };
 </script>
   <style scoped>
+  .rounded-rectangle {
+    width: 80px;
+    height: 40px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: black;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  .rounded-rectangle.selected {
+    border-color: lightblue;
+    border-radius: 50%;
+  }
   .menu-bar {
     display: flex;
     gap: 25px;
@@ -308,6 +350,7 @@ export default {
     top: 4.5px;
     left: 30px;
   }
+
 
   .slider-container {
     width: 200px;
@@ -319,13 +362,12 @@ export default {
     appearance: none;
     width: 100%;
     height: 3px;
-    background: black;
+    background: #ddd;
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    background: linear-gradient(to right, #000 100%, #000 100%, #ddd 50%, #ddd 100%);
-
   }
+
   .slider1 {
     -webkit-appearance: none;
     appearance: none;
@@ -335,7 +377,6 @@ export default {
     border-radius: 10px;
     outline: none;
     cursor: pointer;
-    background: linear-gradient(to left, #000 100%, #000 100%, #ddd 50%, #ddd 100%);
 
   }
 
@@ -346,20 +387,19 @@ export default {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: white;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    background: #000;
     cursor: pointer;
   }
+
+
 
   .slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: white;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
+    background: #000;
     cursor: pointer;
   }
-
   .button-content {
     display: flex;
     vertical-align: baseline;
