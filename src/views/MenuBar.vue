@@ -29,7 +29,7 @@
               <span :class="{ 'selected': selectedOfferClass['35'] }">35%</span>
               <span :class="{ 'selected': selectedOfferClass['35plus'] }">35%+</span>
             </div>
-            <input type="range" min="0" max="3" v-model.number="deliveryOfferStep" step="1" class="slider" @input="updateOffer" />
+            <input type="range" min="0" max="3" v-model.number="deliveryOfferStep" step="1" class="slider" @input="updateSliderBackground($event); updateOffer()" />
 
           </div>
           <button class="apply-button" @click="applyOffer">Apply</button>
@@ -46,8 +46,8 @@
               <span :class="{ 'selected': selectedDeliveryClass['35'] }">$5</span>
               <span :class="{ 'selected': selectedDeliveryClass['35plus'] }">$10+</span>
             </div>
-            <input type="range" min="0" max="3" v-model.number="deliveryFee" step="1" class="slider" @input="updateDeliveryFee" />
-
+            <input type="range" min="0" max="3" v-model.number="deliveryFee" step="1" class="slider"
+                   @input="updateSliderBackground($event); updateDeliveryFee()" />
           </div>
 <!--          <p>{{ formattedDeliveryFee }}</p>-->
           <button class="apply-button" @click="applyOffer">Apply</button>
@@ -70,14 +70,14 @@
         <div v-else-if="selectedTab.text === 'Rating'" class="input-container" style="color: black">
           <div class="offer-slider-container">
             <div class="offer-options">
-              <span :class="{ 'selected1': selectedRating['1'] }">1+</span>
-              <span :class="{ 'selected1': selectedRating['2'] }">2+</span>
-              <span :class="{ 'selected1': selectedRating['3'] }">3+</span>
-              <span :class="{ 'selected1': selectedRating['4'] }">4+</span>
-              <span :class="{ 'selected1': selectedRating['5'] }">5</span>
+              <span :class="{ 'selected': selectedRating['1'] }">1+</span>
+              <span :class="{ 'selected': selectedRating['2'] }">2+</span>
+              <span :class="{ 'selected': selectedRating['3'] }">3+</span>
+              <span :class="{ 'selected': selectedRating['4'] }">4+</span>
+              <span :class="{ 'selected': selectedRating['5'] }">5</span>
 
             </div>
-            <input type="range" min="0" max="4" v-model.number="ratingValue" step="1" class="slider" @input="updateRating" />
+            <input type="range" min="0" max="4" v-model.number="ratingValue" step="1" class="slider" @input="updateSliderBackground($event); updateRating()"  />
 
           </div>
           <!--          <p>{{ formattedDeliveryFee }}</p>-->
@@ -256,6 +256,12 @@ export default {
         this.tabs.forEach(t => t.ariaChecked = 'false');
         tab.ariaChecked = 'true';
       }
+    },
+    updateSliderBackground(event) {
+      const value = event.target.value;
+      const max = event.target.max;
+      const percentage = (value / max) * 100;
+      event.target.style.background = `linear-gradient(to right, #000 0%, #000 ${percentage}%, #ddd ${percentage}%, #ddd 100%)`;
     }
   },
   computed: {
@@ -569,10 +575,7 @@ export default {
     color: #fff;
   }
 
-  .offer-options span.selected1 {
-    background-color: #000000;
-    color: #ffffff;
-  }
+
 
   .slider {
     -webkit-appearance: none;
@@ -581,6 +584,8 @@ export default {
     background: #ddd;
     outline: none;
     margin: 10px 0;
+    background: linear-gradient(to right, #000 0%, #000 50%, #ddd 50%, #ddd 100%);
+
   }
 
   .slider::-webkit-slider-thumb {
@@ -599,6 +604,14 @@ export default {
     border-radius: 50%;
     background: #000;
     cursor: pointer;
+  }
+  .slider::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    color: #000;
+  }
+
+  .slider::-moz-range-progress {
+    background-color: #000;
   }
 
   .apply-button {
