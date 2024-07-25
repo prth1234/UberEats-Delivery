@@ -130,24 +130,45 @@
 }
 
 .card {
-    /* font-family: "Arial"; */
-    color: #fff;
-    cursor: pointer;
-    grid-template-rows: 50px 1fr;
+  --primary-clr: #1A1A1A;
+  --dot-clr: #BBC0FF;
+  --play: hsl(195, 74%, 62%);
+  width: 200px;
+  height: 170px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  grid-template-rows: 50px 1fr;
+  position: relative; /* To make sure the animation effect is applied correctly */
+  overflow: hidden; /* Ensure content stays within card boundary */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slightly increase the size of the card on hover */
+}
+.card:hover .card-time {
+  background: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d);
+  //background: #06C167;
+
+  -webkit-background-clip: text; /* Clip background to the text */
+  -webkit-text-fill-color: transparent; /* Make the text color transparent so the gradient shows through */
+}
+.img-section {
+  transition: transform 0.3s ease; /* Smooth transition for image section */
 }
 
 .card:hover .img-section {
-    transform: translateY(1em);
+  transform: scale(1.1); /* Slightly enlarge the image section on hover */
 }
 
 .card-desc {
-    border-radius: 10px;
-    padding: 15px;
-    position: relative;
-    top: -10px;
-    display: grid;
-    gap: 1px;
-
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+  display: grid;
+  gap: 1px;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
 }
 
 .card-time {
@@ -175,6 +196,7 @@
     font-weight: 500;
     font-family: 'Uber Move';
 }
+
 
 
 
