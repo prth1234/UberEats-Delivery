@@ -106,38 +106,83 @@
                 <input type="checkbox" id="vegetarian" name="vegetarian" value="Vegetarian">
                 <span class="checkmark"></span>
               </label>
-              <h4>Vegetarian</h4>
+              <h4 style="font-family:'Uber Move Light'; ">Vegetarian</h4>
+
+
             </label>
+            <hr class="divider">
 
             <label class="checkbox-label">
               <label class="custom-checkbox">
                 <input type="checkbox" id="vegan" name="vegan" value="Vegan" checked>
                 <span class="checkmark"></span>
               </label>
-              <h4>Vegan</h4>
+              <h4 style="font-family:'Uber Move Light'; ">Vegan</h4>
             </label>
+            <hr class="divider">
+
 
             <label class="checkbox-label">
               <label class="custom-checkbox">
                 <input type="checkbox" id="gluten" name="gluten-free" value="Gluten-free" checked>
                 <span class="checkmark"></span>
               </label>
-              <h4>Gluten Free</h4>
+              <h4 style="font-family:'Uber Move Light'; ">Gluten Free</h4>
             </label>
+            <hr class="divider">
+
 
             <label class="checkbox-label">
               <label class="custom-checkbox">
                 <input type="checkbox" id="halal" name="halal" value="Halal">
                 <span class="checkmark"></span>
               </label>
-              <h4>Halal</h4>
+              <h4 style="font-family:'Uber Move Light'; ">Halal</h4>
             </label>
+            <hr class="divider">
+
 
           </form>
           <button class="apply-button" @click="applyDietaryFilters">Apply</button>
         </div>
         <div v-else-if="selectedTab.text === 'Sort'" class="input-container" style="color: black">
-          <p>Sort content goes here.</p>
+          <form style="display: flex; gap: 15px; flex-direction: column;">
+            <label class="checkbox-label">
+              <label class="custom-radio">
+                <input type="radio" id="vegetarian" name="option" value="Vegetarian">
+                <span class="checkmark1"></span>
+              </label>
+              <h4 style="font-family: 'Uber Move Light';">Recommended</h4>
+            </label>
+            <hr class="divider">
+
+            <label class="checkbox-label">
+              <label class="custom-radio">
+                <input type="radio" id="vegan" name="option" value="Vegan" checked>
+                <span class="checkmark1"></span>
+              </label>
+              <h4 style="font-family: 'Uber Move Light';">Rating</h4>
+            </label>
+            <hr class="divider">
+
+            <label class="checkbox-label">
+              <label class="custom-radio">
+                <input type="radio" id="gluten" name="option" value="Gluten-free">
+                <span class="checkmark1"></span>
+              </label>
+              <h4 style="font-family: 'Uber Move Light';">Delivery Time</h4>
+            </label>
+            <hr class="divider">
+
+            <label class="checkbox-label">
+              <label class="custom-radio">
+                <input type="radio" id="halal" name="option" value="Halal">
+                <span class="checkmark1"></span>
+              </label>
+              <h4 style="font-family: 'Uber Move Light';">Offers</h4>
+            </label>
+            <hr class="divider">
+          </form>           <button class="apply-button" @click="applyOffer">Apply</button>
         </div>
       </div>
     </div>
@@ -410,6 +455,13 @@ export default {
   .slider-container {
     width: 200px;
     height: 30px;
+  }
+  .divider {
+    width: 350px;
+    border: 0.1px solid;
+    border-color: #ececec;
+    background-color: #ffffff;
+    margin:0px;
   }
 
   .slider {
@@ -739,7 +791,7 @@ export default {
     display: inline-block;
     width: 20px;
     height: 20px;
-    margin-right: 15px; /* Adjust as needed */
+    margin-right: 25px; /* Adjust as needed */
   }
 
   .custom-checkbox input[type="checkbox"] {
@@ -760,6 +812,8 @@ export default {
 
   .custom-checkbox input[type="checkbox"]:checked ~ .checkmark {
     background-color: #000;
+    border: 3px solid black;
+
   }
 
   .custom-checkbox .checkmark:after {
@@ -790,6 +844,46 @@ export default {
   .checkbox-label h4 {
     margin: 0;
   }
+
+
+
+
+  .custom-radio {
+    position: relative;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 2px solid #818181;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-right:15px;
+  }
+
+  .custom-radio input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .custom-radio .checkmark1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease;
+  }
+
+  .custom-radio input:checked ~ .checkmark1 {
+    background-color: #000000;
+  }
+
+
 
 
   </style>
