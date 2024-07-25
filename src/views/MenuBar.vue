@@ -107,7 +107,7 @@ export default {
     return {
       showPopup: false,
       selectedTab: null,
-      deliveryFee: 5,
+      deliveryFee: 0,
       deliveryOffer: 10,
       initialOffer: 10,
       deliveryOfferStep: 0, // This will correspond to the slider position
