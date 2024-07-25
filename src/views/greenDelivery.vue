@@ -1,6 +1,6 @@
 <template>
     <div class='crave-text'>
-      Uber goes <span style="color: #06C167;"><b> Green 🌱</b></span>
+      Uber is  <span style="color: #06C167;"><b> Green 🌱</b></span>
     </div>
   
     <div class="mmm">

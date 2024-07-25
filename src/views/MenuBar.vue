@@ -438,7 +438,7 @@ export default {
   }
 
   .price-button.selected {
-    border-color: lightblue;
+    border-color: black;
     border-width: 2px;
   }
 

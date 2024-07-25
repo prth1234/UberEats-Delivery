@@ -1,4 +1,6 @@
 <template>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <nav class="navbar">
     <div class="container">
       <div class="logo-container" style="margin-right: 100px;">
@@ -34,16 +36,22 @@
             <li><a href="#" style="font-family: 'Uber Move';">About us</a></li>
             <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look ✨</a></li>
 <!--            <div class="svg1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><title>Cart</title><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 18H21l2-12.5H6.5l-.5-3H.9v3h2.5L5.5 18Zm14-9.5-1 6.5H8L7 8.5h12.5ZM7.5 23a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></div>-->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <title>Cart</title>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 18H21l2-12.5H6.5l-.5-3H.9v3h2.5L5.5 18Zm14-9.5-1 6.5H8L7 8.5h12.5ZM7.5 23a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>
+<!--            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">-->
+<!--              <title>Cart</title>-->
+<!--              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 18H21l2-12.5H6.5l-.5-3H.9v3h2.5L5.5 18Zm14-9.5-1 6.5H8L7 8.5h12.5ZM7.5 23a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>-->
 
-              <!-- Larger Bubble -->
-              <circle cx="20" cy="4" r="5" fill="#4CAF50"/>
+<!--              &lt;!&ndash; Larger Bubble &ndash;&gt;-->
+<!--              <circle cx="20" cy="4" r="5" fill="#4CAF50"/>-->
 
-              <!-- Adjusted Number -->
-              <text x="20" y="4" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle" dy=".3em">0</text>
-            </svg>
+<!--              &lt;!&ndash; Adjusted Number &ndash;&gt;-->
+<!--              <text x="20" y="4" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle" dy=".3em">0</text>-->
+<!--            </svg>-->
+            <a  class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+              <i class="fas fa fa-shopping-cart fa-lg"></i>
+              <span class="cart-basket d-flex align-items-center justify-content-center">
+            3
+          </span>
+            </a>
           </ul>
         </div>
       </ul>
@@ -120,6 +128,7 @@ function searchAreas() {
 function onAreaChange() {
   console.log('Selected Area:', selectedArea.value); // Log the selected area for demonstration
 }
+
 </script>
 
 <style scoped>
@@ -343,5 +352,58 @@ function onAreaChange() {
   border-radius: 500; /* Change to 0 to remove rounded edges */
   cursor: pointer;
   font-family: 'Uber Move';
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+}
+
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #ffffff;
+}
+#lblCartCount {
+  font-size: 12px;
+  background:  #06C167;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
+
+li {
+  list-style: none;
+}
+
+.fa,
+.fas {
+  font-family: 'FontAwesome';
+}
+
+ul li a {
+  font-size: 1.1rem;
+  color: #343a40;
+}
+
+ul li a.cart:hover {
+  text-decoration: none;
+  color: #b40808;
+}
+
+ul li a.cart .cart-basket {
+  font-size: .6rem;
+  position: absolute;
+  top: -6px;
+  right: -5px;
+  width: 15px;
+  height: 15px;
+  color: #fff;
+  background-color: #ffffff;
+  border-radius: 50%;
 }
 </style>
