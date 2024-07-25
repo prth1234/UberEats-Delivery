@@ -86,19 +86,55 @@
         </div>
         <div v-else-if="selectedTab.text === 'Price'" class="input-container" style="color: black">
           <div style="display: flex; gap: 10px;">
-            <div class="rounded-rectangle" onclick="selectButton(this)">$</div>
-            <div class="rounded-rectangle" onclick="selectButton(this)">$$</div>
-            <div class="rounded-rectangle" onclick="selectButton(this)">$$$</div>
-            <div class="rounded-rectangle" onclick="selectButton(this)">$$$$</div>
+            <button
+                v-for="price in ['$', '$$', '$$$', '$$$$']"
+                :key="price"
+                class="price-button"
+                :class="{ 'selected': selectedPrice === price }"
+                @click="selectPrice(price)"
+            >
+              {{ price }}
+            </button>
           </div>
-
-
-
           <button class="apply-button" @click="applyOffer">Apply</button>
-
         </div>
         <div v-else-if="selectedTab.text === 'Dietary'" class="input-container" style="color: black">
-          <p>Dietary content goes here.</p>
+          <form style="display: flex; gap: 15px; flex-direction: column;">
+
+            <label class="checkbox-label">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="vegetarian" name="vegetarian" value="Vegetarian">
+                <span class="checkmark"></span>
+              </label>
+              <h4>Vegetarian</h4>
+            </label>
+
+            <label class="checkbox-label">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="vegan" name="vegan" value="Vegan" checked>
+                <span class="checkmark"></span>
+              </label>
+              <h4>Vegan</h4>
+            </label>
+
+            <label class="checkbox-label">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="gluten" name="gluten-free" value="Gluten-free" checked>
+                <span class="checkmark"></span>
+              </label>
+              <h4>Gluten Free</h4>
+            </label>
+
+            <label class="checkbox-label">
+              <label class="custom-checkbox">
+                <input type="checkbox" id="halal" name="halal" value="Halal">
+                <span class="checkmark"></span>
+              </label>
+              <h4>Halal</h4>
+            </label>
+
+          </form>
+          <button class="apply-button" @click="applyDietaryFilters">Apply</button>
         </div>
         <div v-else-if="selectedTab.text === 'Sort'" class="input-container" style="color: black">
           <p>Sort content goes here.</p>
@@ -119,10 +155,17 @@ export default {
       selectedTab: null,
       deliveryFee: 0,
       deliveryOffer: 10,
+      selectedPrice: null,
+
       initialOffer: 10,
       deliveryOfferStep: 0, // This will correspond to the slider position
       ratingValue:5,
-
+      dietaryOptions: [
+        { id: 'vegetarian', label: 'Vegetarian', checked: false },
+        { id: 'vegan', label: 'Vegan', checked: false },
+        { id: 'gluten-free', label: 'Gluten-free', checked: false },
+        { id: 'halal', label: 'Halal', checked: false },
+      ],
       deliveryOfferValues: [10, 25, 35, 36],
       formattedDeliveryFeeValue: "Under $5 delivery",
       formattedOfferValue: "10% off on delivery",
@@ -211,11 +254,22 @@ export default {
         });
       }
     },
+    applyDietaryFilters() {
+      // Implement the logic to apply the selected dietary filters
+      const selectedFilters = this.dietaryOptions
+          .filter(option => option.checked)
+          .map(option => option.label);
+      console.log('Applied dietary filters:', selectedFilters);
+      this.closePopup();
+    },
     toggleBestOverall() {
       if (this.selectedTab.text === 'Best overall') {
         this.selectedTab.selected = !this.selectedTab.selected;
         this.bestOverallSelected = this.selectedTab.selected;
       }
+    },
+    selectPrice(price) {
+      this.selectedPrice = price;
     },
     closePopup() {
       this.showPopup = false;
@@ -324,7 +378,7 @@ export default {
 };
 </script>
   <style scoped>
-  .rounded-rectangle {
+  .price-button {
     width: 80px;
     height: 40px;
     background-color: #F3F3F3;
@@ -338,10 +392,11 @@ export default {
     cursor: pointer;
   }
 
-  .rounded-rectangle.selected {
+  .price-button.selected {
     border-color: lightblue;
-    border-radius: 50%;
+    border-width: 2px;
   }
+
   .menu-bar {
     display: flex;
     gap: 25px;
@@ -678,4 +733,63 @@ export default {
     margin-top: 20px;
     font-size: 16px;
   }
+
+  .custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 15px; /* Adjust as needed */
+  }
+
+  .custom-checkbox input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .custom-checkbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    border: 3px solid grey;
+  }
+
+  .custom-checkbox input[type="checkbox"]:checked ~ .checkmark {
+    background-color: #000;
+  }
+
+  .custom-checkbox .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .custom-checkbox input[type="checkbox"]:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .custom-checkbox .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+  }
+
+  .checkbox-label h4 {
+    margin: 0;
+  }
+
+
   </style>
