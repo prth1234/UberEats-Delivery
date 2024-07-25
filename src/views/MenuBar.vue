@@ -46,7 +46,7 @@
               <span :class="{ 'selected': selectedDeliveryClass['35'] }">$5</span>
               <span :class="{ 'selected': selectedDeliveryClass['35plus'] }">$10+</span>
             </div>
-            <input type="range" min="0" max="3" v-model.number="deliveryFee" step="1" class="slider"
+            <input type="range" min="0" max="3" v-model.number="deliveryFee" step="$1" class="slider"
                    @input="updateSliderBackground($event); updateDeliveryFee()" />
           </div>
 <!--          <p>{{ formattedDeliveryFee }}</p>-->
@@ -323,6 +323,20 @@ export default {
     border-radius: 10px;
     outline: none;
     cursor: pointer;
+    background: linear-gradient(to right, #000 100%, #000 100%, #ddd 50%, #ddd 100%);
+
+  }
+  .slider1 {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 3px;
+    background: black;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    background: linear-gradient(to left, #000 100%, #000 100%, #ddd 50%, #ddd 100%);
+
   }
 
 
