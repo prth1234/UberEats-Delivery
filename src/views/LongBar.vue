@@ -124,8 +124,8 @@
   
   .card {
     --bg-card: #0000;
-    --primary: #6d28d9;
-    --primary-800: #4c1d95;
+    --primary: #ffffff;
+    --primary-800: #ffffff;
     --primary-shadow: #2e1065;
     --light: #d9d9d9;
     --zinc-800: #18181b;

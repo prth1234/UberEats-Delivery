@@ -4,7 +4,7 @@
       <div class="logo-container" style="margin-right: 100px;">
         <a href="#" class="navbar-brand">
           <span style="background-image: linear-gradient(135deg, #8a4ba8, #ff66c4, #282c3d); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Uber</span>
-          <span style="color: #06C167;"><b>Eats</b></span>
+          <span style="color: #06C167;"><b> Eats</b></span>
         </a>
       </div>
       <a @click="openPopup" class="location-button" href="#" style="display: fixed; margin-right: 40px;">
@@ -33,6 +33,17 @@
             <li><a href="#" style="font-family: 'Uber Move';">Business</a></li>
             <li><a href="#" style="font-family: 'Uber Move';">About us</a></li>
             <li><a href="#" style="font-family: 'Uber Move'; color: #06C167;">Uber has a New Look ✨</a></li>
+<!--            <div class="svg1"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><title>Cart</title><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 18H21l2-12.5H6.5l-.5-3H.9v3h2.5L5.5 18Zm14-9.5-1 6.5H8L7 8.5h12.5ZM7.5 23a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></div>-->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <title>Cart</title>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 18H21l2-12.5H6.5l-.5-3H.9v3h2.5L5.5 18Zm14-9.5-1 6.5H8L7 8.5h12.5ZM7.5 23a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm14-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>
+
+              <!-- Larger Bubble -->
+              <circle cx="20" cy="4" r="5" fill="#4CAF50"/>
+
+              <!-- Adjusted Number -->
+              <text x="20" y="4" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle" dy=".3em">0</text>
+            </svg>
           </ul>
         </div>
       </ul>
@@ -119,6 +130,9 @@ function onAreaChange() {
   left: 0;
   right: 0;
   z-index: 1000;
+}
+.svg1{
+  margin-left:10px;
 }
 
 .container {

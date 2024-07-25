@@ -63,41 +63,48 @@ export default {
   margin-top: 50px;
 }
 
-.card {
-  --bg-card: #0000;
-  --primary: #6d28d9;
-  --primary-800: #4c1d95;
-  --primary-shadow: #2e1065;
-  --light: #d9d9d9;
-  --zinc-800: #18181b;
-  --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
+    .card {
+      --bg-card: #0000;
+      --primary: #6d28d9;
+      --primary-800: #4c1d95;
+      --primary-shadow: #2e1065;
+      --light: #d9d9d9;
+      --zinc-800: #18181b;
+      --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
 
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  width: calc(50% - 10px);
-  height: 21rem;
-  background-color: var(--bg-card);
-  border-radius: 1rem;
-}
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      width: calc(50% - 10px);
+      height: 21rem;
+      background-color: var(--bg-card);
+      border-radius: 1rem;
+      overflow: hidden; /* Add this to prevent image from overflowing on zoom */
+    }
 
-.image_container {
-  overflow: hidden;
-  cursor: pointer;
-  position: relative;
-  z-index: 5;
-  height: 100%;
-  background-color: var(--primary-800);
-  border-radius: 0.9rem;
-  width: 100%;
-}
 
-.image_container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .image_container {
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      background-color: var(--primary-800);
+      border-radius: 0.9rem;
+      width: 100%;
+    }
+
+    .image_container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease; /* Add transition for smooth animation */
+    }
+
+    .card:hover .image_container img {
+      transform: scale(1.1); /* Zoom in by 10% on hover */
+    }
 
 .title {
   overflow: hidden;

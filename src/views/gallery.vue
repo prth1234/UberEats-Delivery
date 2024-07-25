@@ -175,18 +175,18 @@ export default {
     max-width: 1200px; /* Optional: Set maximum width for the cards */
     margin-bottom: 35px;
   }
-  
-  
-  
+
+
+
   .card {
     --bg-card: #0000;
-    --primary: #6d28d9;
-    --primary-800: #4c1d95;
+    --primary: #ffffff;
+    --primary-800: #ffffff;
     --primary-shadow: #2e1065;
     --light: #d9d9d9;
     --zinc-800: #18181b;
     --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
-  
+
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -195,8 +195,9 @@ export default {
     height: 14.5rem;
     background-color: var(--bg-card);
     border-radius: 1rem;
+    overflow: hidden; /* Add this to prevent image from overflowing on zoom */
   }
-  
+
   .image_container {
     overflow: hidden;
     cursor: pointer;
@@ -207,11 +208,17 @@ export default {
     border-radius: 0.9rem;
     width: 100%;
   }
-  
+
   .image_container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+  }
+
+  /* Add this new rule for the hover effect */
+  .card:hover .image_container img {
+    transform: scale(1.1); /* Zoom in by 10% on hover */
   }
   
   .title {

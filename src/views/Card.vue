@@ -180,11 +180,11 @@ export default {
 
 .card {
   --bg-card: #0000;
-  --primary: #6d28d9;
-  --primary-800: #4c1d95;
-  --primary-shadow: #2e1065;
+  --primary: #ffffff;
+  --primary-800: #ffffff;
+  --primary-shadow: #ffffff;
   --light: #d9d9d9;
-  --zinc-800: #18181b;
+  --zinc-800: #ffffff;
   --bg-linear: linear-gradient(0deg, var(--primary) 50%, var(--light) 125%);
 
   display: flex;
@@ -195,6 +195,7 @@ export default {
   height: 10.5rem;
   background-color: var(--bg-card);
   border-radius: 1rem;
+  overflow:hidden;
 }
 
 .image_container {
@@ -203,15 +204,20 @@ export default {
   position: relative;
   z-index: 5;
   height: 19rem;
-  background-color: var(--primary-800);
+  background-color: var(--primary-400);
   border-radius: 0.9rem;
   width: 100%;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
+}
+.card:hover .image_container img {
+  transform: scale(1.1); /* Zoom in by 10% on hover */
 }
 
 .image_container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease; /* Add transition for smooth animation */
 }
 
 .title {
