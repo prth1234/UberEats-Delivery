@@ -89,11 +89,23 @@
       <ToppicksSlider />
       <div class="top-picks-slider">
     <div class="header">
-      <h2>Featured items</h2>
-      <div class="nav-buttons">
-        <button class="nav-button prev" @click="prevSlide">&lt;</button>
-        <button class="nav-button next" @click="nextSlide">&gt;</button>
-      </div>
+      <div class="header-container">
+  <h2 style="text-align: left; font-family: Uber Move;">Featured items</h2>
+  <div class="nav-buttons">
+              <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="prev-icon">
+                  <path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path>
+                </svg>
+              </button>
+              <button class="nav-button next" @click="nextSlide" aria-label="Next slide">
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+                  <path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z" fill="white"></path>
+                </svg>
+              </button>
+            </div>
+</div>
+
+
     </div>
     <div class="slider-container">
   <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
@@ -654,13 +666,41 @@ h1 {
   
   .price {
     font-weight: bold;
+
+
   }
   
-  .nav-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-  }
+  .header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-buttons {
+  display: flex;
+}
+
+.nav-button {
+  width: 36px;  /* Set a specific width */
+  height: 36px; /* Ensure height is the same as width to form a perfect circle */
+  border-radius: 18px; /* Half of width/height to make it round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f3f3f3; /* Or any color you prefer */
+  border: none;
+  cursor: pointer;
+  margin: 0 5px; /* Add some space around the buttons */
+}
+
+.nav-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-button svg path {
+  fill: rgb(182, 63, 63); /* Use currentColor to inherit the button's color */
+}
+
  
 </style>
