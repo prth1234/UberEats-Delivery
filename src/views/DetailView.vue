@@ -4,6 +4,7 @@
       <img
         src="https://tb-static.uber.com/prod/image-proc/processed_images/4c7252776091efae1198aef7d3922e89/c9252e6c6cd289c588c3381bc77b1dfc.jpeg"
         alt="Chick-fil-A food"
+        style="border-radius: 20px;"
       />
       <div class="poster-actions">
         <button class="favorite" @click="toggleFavorite">
@@ -401,7 +402,7 @@ h1 {
 .modal-content {
   background: white;
   padding: 20px; 
-  border-radius: 8px;
+  border-radius: 20px;
   position: relative;
   width: 500px;
 }

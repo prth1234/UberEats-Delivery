@@ -534,7 +534,7 @@ export default {
   .popup-content {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 400px;
