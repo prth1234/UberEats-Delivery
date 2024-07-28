@@ -114,8 +114,13 @@
               <span>{{ restaurant.categories.join(" • ") }} • </span>
               <span class="info-link">Info</span>
               <hr class="divider" />
-             <span><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></span> 
-             <span> <h3>{{ restaurant.fullAddress }}</h3></span>
+              <div class="address">
+                <svg width="29" height="29" viewBox="0 0 24 24" fill="none">
+                  <title>Location marker</title>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>
+                </svg>
+                <h3>{{ restaurant.fullAddress }}</h3>
+              </div>
 
             </div>
           </div>
@@ -439,5 +444,13 @@ h1 {
   height: 200px; /* Adjust the height as needed */
 
   width: 100%; /* The width is the width of the container */
+}
+.address {
+  display: flex;
+  align-items: center;
+}
+
+.address svg {
+  margin-right: 10px;
 }
 </style>
