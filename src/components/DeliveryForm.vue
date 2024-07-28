@@ -35,7 +35,7 @@
           </a>
         </div>
       </div>
-      <button class="button">Search here</button>
+      <button class="button1">Search here</button>
     </div>
     <p>Or <router-link to="/sign-in"><u>Sign In</u></router-link></p>
   </div>
@@ -161,7 +161,6 @@ export default {
   display: flex;
   margin-top: 30px;
 }
-
 .dropdown {
   position: relative;
 }
@@ -219,6 +218,17 @@ button {
   border-radius: 4px;
   background-color: white;
   color: #0d0c22;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  font-family: 'Uber Move', sans-serif;
+}
+
+.button1 {
+  padding: 20px 30px;
+  border-radius: 4px;
+  background-color: #1a1a1a;
+  color: white;
   border: none;
   cursor: pointer;
   margin-right: 10px;

@@ -7,7 +7,7 @@ import Main from '@/views/main.vue'
 import Green from '@/views/green.vue'
 import JoinUs from '@/views/joinus.vue'
 import SignInGreen from '@/views/signingreen.vue'; // Assuming you have a SignIn view component
-
+import DetailView from '../views/DetailView.vue';
 
 const routes = [
   {
@@ -41,7 +41,13 @@ const routes = [
     name: 'JoinUs',
     component: JoinUs,
   },
+  {
+    path: '/detail-view',
+    name: 'DetailView',
+    component: DetailView,
+  },
 ];
+
 
 const router = createRouter({
   history: createWebHistory(),
