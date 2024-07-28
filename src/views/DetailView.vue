@@ -148,9 +148,11 @@
     </nav>
     <main class="content">
       <section v-for="section in sections" :key="section.id" :id="section.id">
-        <h2 style="text-align: left; margin-top: -72px;" >{{ section.name }}</h2>
-<Sidebarbody/> 
-      </section>
+  <h2 style="text-align: left; margin-top: -72px; font-family: Uber Move;">{{ section.name }}</h2>
+  <div v-if="section.id === 'breakfast'" style="color: green">
+    <h1>fderwtew</h1>
+  </div>
+</section>
     </main>
   </div>
 
@@ -277,9 +279,11 @@
   </div>
 </template>
 <script>
-import ToppicksSlider from "./ToppicksSlider.vue";
 import Sidebarbody from "./Sidebarbody.vue";
 export default {
+  components: {
+    Sidebarbody,
+  },
   name: "RestaurantDetailView",
   data() {
     return {

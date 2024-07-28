@@ -194,7 +194,9 @@
 <script>
 
 export default {
+ 
   data() {
+  
     return {
       showPopup: false,
       selectedTab: null,
