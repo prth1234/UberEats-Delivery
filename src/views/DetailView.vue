@@ -132,6 +132,8 @@
   <div class="page-layout">
     <nav class="sidebar">
       <ul>
+        <h1>Menu</h1>
+        <p style="font-family: Uber Move Light; font-size: small; margin-top: -10px; margin-bottom: 30px;">Open 24 hrs</p>
         <li v-for="section in sections" :key="section.id">
           <a 
             :href="`#${section.id}`"
@@ -139,14 +141,14 @@
             @click="scrollToSection(section.id)"
             
           >
-            <div style="margin-left: 10px;">{{ section.name }}</div>
+            <div style="margin-left: 25px; font-size: 20px; ">{{ section.name }}</div>
           </a>
         </li>
       </ul>
     </nav>
     <main class="content">
       <section v-for="section in sections" :key="section.id" :id="section.id">
-        <h2>{{ section.name }}</h2>
+        <h2 style="text-align: left;">{{ section.name }}</h2>
 
       </section>
     </main>
@@ -299,7 +301,6 @@ export default {
         { id: 'treats', name: 'Treats' },
         { id: 'burgers', name: 'Burgers' },
         { id: 'seafood', name: 'Seafood' },
-        { id: 'new', name: 'New' },
         { id: 'desserts', name: 'Desserts' },
 
 
@@ -942,17 +943,17 @@ h3 {
 }
 
 .sidebar {
-  width: 200px;
+  width: 270px;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   background-color: transparent;
-  padding: 0px 0px 0px 0px;
+  padding: 25px 0px 0px 0px;
   text-align: left;
   font-size: 25px;
   font-family: Uber Move;
-  margin-top: -60px;
+  margin-top: -30px;
 }
 
 
@@ -976,7 +977,7 @@ h3 {
 .sidebar a.active {
   /* border: 1px solid grey; */
   background-color: #1a1a1a;
-  padding: 14px 0px 14px 0px;
+  padding: 10px 0px 10px 0px;
   border-radius: 0px;
   width: 100%;
   display: block; /* added */
