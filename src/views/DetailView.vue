@@ -287,7 +287,7 @@ export default {
       selectedTab: { text: "Details" },
       activeSection: '',
       sections: [
-        { id: 'featured-items', name: 'Featured items' },
+      { id: 'ratings', name: 'Ratings' },
         { id: 'picked-for-you', name: 'Picked for you' },
         { id: 'breakfast', name: 'Breakfast' },
         { id: 'meals', name: 'Meals' },
@@ -296,6 +296,10 @@ export default {
         { id: 'beverages', name: 'Beverages' },
         { id: 'salads', name: 'Salads' },
         { id: 'treats', name: 'Treats' },
+        { id: 'burgers', name: 'Burgers' },
+        { id: 'seafood', name: 'Seafood' },
+        { id: 'desserts', name: 'Desserts' },
+
       ],
       items: [
         {
@@ -940,9 +944,14 @@ h3 {
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  background-color: #f0f0f0;
-  padding: 20px;
+  background-color: transparent;
+  padding: 0px 20px 20px 20px;
+  border-right: #333 2px solid;
+  text-align: left;
+  font-size: 25px;
+  font-family: Uber Move;
 }
+
 
 .sidebar ul {
   list-style-type: none;
@@ -950,7 +959,7 @@ h3 {
 }
 
 .sidebar li {
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .sidebar a {
@@ -960,7 +969,12 @@ h3 {
 }
 
 .sidebar a.active {
-  color: #007bff;
+  /* border: 1px solid grey; */
+  background-color: #1a1a1a;
+  padding: 14px 12px 14px 16px;
+  border-radius: 4px;
+  width: 100%;
+  display: block; /* added */
 }
 
 .content {
