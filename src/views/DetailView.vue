@@ -108,11 +108,13 @@
           <div class="popup-body" style="color: black; text-align: left">
             <div id="map"></div>
             <h1>{{ restaurant.name }} </h1>
-            <div class="restaurant-info">
+            <div class="restaurant-info" >
               <span class="rating">{{ restaurant.rating }} ★ | </span>
               <span>({{ restaurant.ratingCount }}+) | </span>
               <span>{{ restaurant.categories.join(" • ") }} • </span>
               <span class="info-link">Info</span>
+              
+              
               <hr class="divider" />
               <div class="address">
                 <svg width="29" height="29" viewBox="0 0 24 24" fill="none">
@@ -296,7 +298,6 @@ h1 {
 
 .restaurant-info {
   font-size: 14px;
-  margin-bottom: 10px;
   text-align: left;
 }
 
@@ -401,7 +402,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  width: 400px;
+  width: 500px;
 }
 
 .modal-close {
@@ -462,6 +463,9 @@ h1 {
   display: flex;
   align-items: center;
   margin-left: 15px;
+  margin-top: -7px;
+  margin-bottom: -7px;
+
 
 }
 
@@ -472,10 +476,14 @@ h1 {
   display: flex;
   align-items: center;
   margin-left: 15px;
+  margin-top: -7px;
+  margin-bottom: -7px;
 }
 
 .opens-at svg {
   margin-right: 10px;
+  margin-top: -10px;
+  margin-bottom: -10px;
   
 }
 </style>
