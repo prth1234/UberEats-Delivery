@@ -90,7 +90,7 @@
       <div class="top-picks-slider">
     <div class="header">
       <div class="header-container">
-        <h2 style="text-align: left; font-family: Uber Move; font-size: 35px;">Featured items</h2>
+        <h2 style="text-align: left; font-family: Uber Move; font-size: 30px;">Featured items</h2>
         <div class="nav-buttons">
           <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
             <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
