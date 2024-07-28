@@ -76,16 +76,17 @@
         </svg>
         Group order
       </button>
-      <h1 style="font-size: 30px">
+      <h1 style="font-size: 50px">
         {{ restaurant.name }} ({{ restaurant.address }})
       </h1>
       <div class="restaurant-info">
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
         <span>{{ restaurant.categories.join(" • ") }} • </span>
-        <span class="info-link">Info</span>
+        <button  @onClick="openInfo" class="infobutton" >Info</button>
+
       </div>
-      <p class="description">{{ restaurant.description }}</p>
+      <!-- <p class="description">{{ restaurant.description }}</p> -->
       <ToppicksSlider />
       <div class="top-picks-slider">
     <div class="header">
@@ -151,7 +152,7 @@
           >
         </div>
       </transition>
-      <div v-if="showPopup" class="modal-overlay">
+      <div v-if="showPopup" class="modal-overlay" >
         <div class="modal-content">
           <div class="popup-header">
             <h2>{{ selectedTab.text }}</h2>
@@ -234,6 +235,19 @@
           </div>
         </div>
       </div>
+      <div v-if="showInfo" class="modal-overlay">
+        <div class="modal-content">
+          <div class="popup-header">
+            <h2>{{ selectedTab.text }}</h2>
+            <button @click="closeInfo" aria-label="Close" class="close-button">
+              x
+            </button>
+          </div>
+          <div class="popup-body" style="color: black; text-align: left">
+            
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -247,6 +261,7 @@ export default {
       showNotification: false,
       notificationMessage: "",
       showPopup: false,
+      showInfo:false,
       selectedTab: { text: "Details" },
       items: [
         {
@@ -340,6 +355,13 @@ export default {
         this.loadGoogleMapsScript();
       });
     },
+    openInfo(){
+      this.showInfo = true;
+      console.log(this.showInfo);
+    },
+    closeInfo(){
+      this.showInfo=false;
+    },
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
       this.notificationMessage = this.isFavorite
@@ -412,10 +434,11 @@ export default {
 <style scoped>
 .restaurant-detail {
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  max-width: 1700px;
   margin: 0 auto;
   background-color: #101010;
   color: #ffffff;
+  width: 1300px;
 }
 
 .poster {
@@ -495,6 +518,7 @@ h1 {
   display: flex;
   align-items: center;
   padding: 8px 16px;
+  width:120px;
   background-color: #eee;
   border: none;
   border-radius: 20px;
@@ -668,7 +692,7 @@ h1 {
   transform: scale(0.7);
   align-items: left;
   margin-left: -190px;
-  margin-top: -90px;
+  margin-top: -70px;
 
 }
 
@@ -833,6 +857,12 @@ h3 {
 .img-stuff{
   width: 100%;
   height: 100%;
+}
+
+.infobutton{
+  background-color: transparent;
+  padding: 0px;
+  color: #5557ca;
 }
 
 </style>
