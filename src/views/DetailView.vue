@@ -107,7 +107,7 @@
           </div>
           <div class="popup-body" style="color: black; text-align: left">
             <div id="map"></div>
-            <h1>{{ restaurant.name }} ({{ restaurant.address }})</h1>
+            <h1>{{ restaurant.name }} </h1>
             <div class="restaurant-info">
               <span class="rating">{{ restaurant.rating }} ★ | </span>
               <span>({{ restaurant.ratingCount }}+) | </span>
@@ -119,8 +119,21 @@
                   <title>Location marker</title>
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>
                 </svg>
-                <h3>{{ restaurant.fullAddress }}</h3>
+                <h3 style="margin-left: 5px;">{{ restaurant.fullAddress }}</h3>
               </div>
+              <hr class="divider" />
+              <div class="opens-at">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="currentColor"></path></svg>
+                <h3 style="margin-left: 5px;">{{ restaurant.OpeningTime }}</h3>
+              </div>
+              <hr class="divider" />
+              <div class="opens-at">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Star</title><path d="M23.917 8.5 16.104 8l-3.646-7-3.646 7L1 8.5 6.73 14l-2.084 8 7.812-4 7.813 4-2.084-8 5.73-5.5Zm-8.855 4.7L16 16.8 12.458 15l-3.541 1.8.937-3.6-2.5-2.4 3.23-.2L12.457 7l1.875 3.6 3.23.2-2.5 2.4Z" fill="currentColor"></path></svg>               
+                <h3 style="margin-left: 5px;">{{ restaurant.rating }} | ({{ restaurant.ratingCount }}+ ratings)</h3>
+
+              </div>
+              
+              
 
             </div>
           </div>
@@ -144,7 +157,7 @@ export default {
         name: "Chick-fil-A",
         address: "3707 State St",
         fullAddress: "3707 State St, Santa Clara, United Status",
-        OpeningTime:"Everyday at 9am till 11pm",
+        OpeningTime:"Everyday from 9am till 11pm",
         rating: 4.7,
         ratingCount: 1500,
         categories: [
@@ -266,7 +279,7 @@ export default {
 .divider {
   border: none;
   height: 2px;
-  background-color: #dddcdc;
+  background-color: #ebeaea;
   width: 100%;
 }
 
@@ -448,9 +461,21 @@ h1 {
 .address {
   display: flex;
   align-items: center;
+  margin-left: 15px;
+
 }
 
 .address svg {
   margin-right: 10px;
+}
+.opens-at {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.opens-at svg {
+  margin-right: 10px;
+  
 }
 </style>
