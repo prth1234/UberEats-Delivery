@@ -148,8 +148,8 @@
     </nav>
     <main class="content">
       <section v-for="section in sections" :key="section.id" :id="section.id">
-        <h2 style="text-align: left;">{{ section.name }}</h2>
-
+        <h2 style="text-align: left; margin-top: -72px;" >{{ section.name }}</h2>
+<Sidebarbody/> 
       </section>
     </main>
   </div>
@@ -278,6 +278,7 @@
 </template>
 <script>
 import ToppicksSlider from "./ToppicksSlider.vue";
+import Sidebarbody from "./Sidebarbody.vue";
 export default {
   name: "RestaurantDetailView",
   data() {
@@ -953,7 +954,7 @@ h3 {
   text-align: left;
   font-size: 25px;
   font-family: Uber Move;
-  margin-top: -30px;
+  margin-top: -100px;
 }
 
 
@@ -970,7 +971,7 @@ h3 {
 
 .sidebar a {
   text-decoration: none;
-  color: #333;
+  color: white;
   font-weight: bold;
 }
 
@@ -980,9 +981,19 @@ h3 {
   padding: 10px 0px 10px 0px;
   border-radius: 0px;
   width: 100%;
-  display: block; /* added */
+  display: block;
+  position: relative; /* added */
 }
 
+.sidebar a.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 5px; /* adjust width as needed */
+  background-color: rgb(54, 54, 54);
+}
 .content {
   flex-grow: 1;
   padding: 20px;
