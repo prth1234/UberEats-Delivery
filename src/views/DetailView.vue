@@ -76,6 +76,7 @@
         <span class="info-link">Info</span>
       </div>
       <p class="description">{{ restaurant.description }}</p>
+      <ToppicksSlider/>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
           <svg
@@ -148,6 +149,7 @@
   </div>
 </template>
 <script>
+import ToppicksSlider from './ToppicksSlider.vue';
 export default {
   name: "RestaurantDetailView",
   data() {
