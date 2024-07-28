@@ -364,8 +364,10 @@ export default {
       this.items[index].quantity++;
     },
     removeFromCart(index) {
-      this.items[index].quantity--;
-    },
+  if (this.items[index].quantity > 0) {
+    this.items[index].quantity--;
+  }
+},
     closePopup() {
       this.showPopup = false;
     },
