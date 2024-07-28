@@ -4,55 +4,53 @@
       <img
         src="https://tb-static.uber.com/prod/image-proc/processed_images/4c7252776091efae1198aef7d3922e89/c9252e6c6cd289c588c3381bc77b1dfc.jpeg"
         alt="Chick-fil-A food"
-        style="border-radius: 20px;"
+        style="border-radius: 20px"
       />
       <div class="poster-actions">
         <button class="favorite" @click="toggleFavorite">
           <svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    :class="{ filled: isFavorite }"
-    fill-rule="evenodd"
-    clip-rule="evenodd"
-    d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
-    stroke="black"
-    stroke-width="2"
-  />
-</svg>
-
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              :class="{ filled: isFavorite }"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
+              stroke="black"
+              stroke-width="2"
+            />
+          </svg>
         </button>
         <button class="more" @click="openPopup">
           <svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12Z"
-    fill="black"
-    stroke="black"
-    stroke-width="2"
-  />
-  <path
-    d="M11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
-    fill="black"
-    stroke="black"
-    stroke-width="2"
-  />
-  <path
-    d="M17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12Z"
-    fill="black"
-    stroke="black"
-    stroke-width="2"
-  />
-</svg>
-
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12Z"
+              fill="black"
+              stroke="black"
+              stroke-width="2"
+            />
+            <path
+              d="M11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
+              fill="black"
+              stroke="black"
+              stroke-width="2"
+            />
+            <path
+              d="M17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12Z"
+              fill="black"
+              stroke="black"
+              stroke-width="2"
+            />
+          </svg>
         </button>
       </div>
     </div>
@@ -78,7 +76,9 @@
         </svg>
         Group order
       </button>
-      <h1 style="font-size: 30px;">{{ restaurant.name }} ({{ restaurant.address }})</h1>
+      <h1 style="font-size: 30px">
+        {{ restaurant.name }} ({{ restaurant.address }})
+      </h1>
       <div class="restaurant-info">
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
@@ -86,7 +86,30 @@
         <span class="info-link">Info</span>
       </div>
       <p class="description">{{ restaurant.description }}</p>
-      <ToppicksSlider/>
+      <ToppicksSlider />
+      <div class="top-picks-slider">
+    <div class="header">
+      <h2>Featured items</h2>
+      <div class="nav-buttons">
+        <button class="nav-button prev" @click="prevSlide">&lt;</button>
+        <button class="nav-button next" @click="nextSlide">&gt;</button>
+      </div>
+    </div>
+    <div class="slider-container">
+  <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
+    <div class="slide" v-for="(item, index) in items" :key="index">
+      <div class="item-image">
+            <img :src="item.image" :alt="item.name">
+            <span v-if="item.rank" class="rank-badge">{{ item.rank }}</span>
+            <button class="add-button">+</button>
+          </div>
+          <h3>{{ item.name }}</h3>
+          <p class="price">${{ item.price.toFixed(2) }}</p>
+
+    </div>
+  </div>
+</div>
+  </div>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
           <svg
@@ -119,38 +142,75 @@
           </div>
           <div class="popup-body" style="color: black; text-align: left">
             <div id="map"></div>
-            <h1>{{ restaurant.name }} </h1>
-            <div class="restaurant-info" >
+            <h1>{{ restaurant.name }}</h1>
+            <div class="restaurant-info">
               <div class="information">
-              <span class="rating">{{ restaurant.rating }} ★ | </span>
-              <span>({{ restaurant.ratingCount }}+) | </span>
-              <span>{{ restaurant.categories.join(" • ") }} • </span>
-              <span class="info-link">Info</span>
-            </div>
-              
+                <span class="rating">{{ restaurant.rating }} ★ | </span>
+                <span>({{ restaurant.ratingCount }}+) | </span>
+                <span>{{ restaurant.categories.join(" • ") }} • </span>
+                <span class="info-link">Info</span>
+              </div>
+
               <hr class="divider" />
               <div class="address">
                 <svg width="29" height="29" viewBox="0 0 24 24" fill="none">
                   <title>Location marker</title>
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                    fill="currentColor"
+                  ></path>
                 </svg>
-                <h3 style="margin-left: 5px; font-family: Uber Move;">{{ restaurant.fullAddress }}</h3>
-                <svg style="margin-left: 100px;" width="21" height="21" viewBox="0 0 24 24" fill="none" color="#A6A6A6"><title>Copy</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 1h17v17H1V1Zm3 14h11V4H4v11Zm16 5V6h3v17H6v-3h14Z" fill="currentColor"></path></svg>
+                <h3 style="margin-left: 5px; font-family: Uber Move">
+                  {{ restaurant.fullAddress }}
+                </h3>
+                <svg
+                  style="margin-left: 100px"
+                  width="21"
+                  height="21"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  color="#A6A6A6"
+                >
+                  <title>Copy</title>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1 1h17v17H1V1Zm3 14h11V4H4v11Zm16 5V6h3v17H6v-3h14Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
               </div>
               <hr class="divider" />
               <div class="opens-at">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="currentColor"></path></svg>
-                <h3 style="margin-left: 5px; font-family: Uber Move;">{{ restaurant.OpeningTime }}</h3>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <title>Clock</title>
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <h3 style="margin-left: 5px; font-family: Uber Move">
+                  {{ restaurant.OpeningTime }}
+                </h3>
               </div>
               <hr class="divider" />
               <div class="opens-at">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Star</title><path d="M23.917 8.5 16.104 8l-3.646-7-3.646 7L1 8.5 6.73 14l-2.084 8 7.812-4 7.813 4-2.084-8 5.73-5.5Zm-8.855 4.7L16 16.8 12.458 15l-3.541 1.8.937-3.6-2.5-2.4 3.23-.2L12.457 7l1.875 3.6 3.23.2-2.5 2.4Z" fill="currentColor"></path></svg>               
-                <h3 style="margin-left: 5px; font-family: Uber Move;">{{ restaurant.rating }} | ({{ restaurant.ratingCount }}+ ratings)</h3>
-
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <title>Star</title>
+                  <path
+                    d="M23.917 8.5 16.104 8l-3.646-7-3.646 7L1 8.5 6.73 14l-2.084 8 7.812-4 7.813 4-2.084-8 5.73-5.5Zm-8.855 4.7L16 16.8 12.458 15l-3.541 1.8.937-3.6-2.5-2.4 3.23-.2L12.457 7l1.875 3.6 3.23.2-2.5 2.4Z"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+                <h3 style="margin-left: 5px; font-family: Uber Move">
+                  {{ restaurant.rating }} | ({{ restaurant.ratingCount }}+
+                  ratings)
+                </h3>
               </div>
-              
-              
-
             </div>
           </div>
         </div>
@@ -159,7 +219,7 @@
   </div>
 </template>
 <script>
-import ToppicksSlider from './ToppicksSlider.vue';
+import ToppicksSlider from "./ToppicksSlider.vue";
 export default {
   name: "RestaurantDetailView",
   data() {
@@ -169,12 +229,25 @@ export default {
       notificationMessage: "",
       showPopup: false,
       selectedTab: { text: "Details" },
+      items: [
+          { name: 'Chick-fil-A® Nuggets Meal', price: 15.29, image: 'https://www.kitchenathoskins.com/wp-content/uploads/2020/09/air-fryer-chicken-nuggets-28.jpg', rank: '#1 most liked' },
+          { name: 'Chick-fil-A® Nuggets', price: 8.55, image: 'https://girlscangrill.com/wp-content/uploads/2015/12/copycat-chick-fil-a-chicken-nuggets-500x500.jpg', rank: '#2 most liked' },
+          { name: 'Spicy Southwest Salad', price: 14.55, image: 'https://realhousemoms.com/wp-content/uploads/Copycat-Chick-Fil-A-Spicy-Southwest-Salad-RECIPE-CARD.jpg', rank: '#3 most liked' },
+          { name: 'Chick-fil-A ChickMeal® Meal', price: 13.09, image: 'https://media.bizj.us/view/img/11579235/chick-fil-a-9jv*1200xx2918-2918-185-0.jpg' },
+
+          { name: 'Chick-fil-A ChickSalad® Meal', price: 13.09, image: 'https://summeryule.com/wp-content/uploads/2022/04/southwest-salad-chick-fil-a.jpeg' },
+
+          { name: 'Chick-fil-A Chick-n-Macros Meal', price: 13.09, image: 'https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/Winter23/Winter23-DotCom-ChickenSandwich-D_720x748.jpg?h=748&w=720&la=en' },
+
+
+        ],
+        currentIndex: 0,
 
       restaurant: {
         name: "Chick-fil-A",
         address: "3707 State St",
         fullAddress: "3707 State St, Santa Clara, United States",
-        OpeningTime:"Everyday from 9am till 11pm",
+        OpeningTime: "Everyday from 9am till 11pm",
         rating: 4.7,
         ratingCount: 1500,
         categories: [
@@ -208,6 +281,16 @@ export default {
         this.showNotification = false;
       }, 2000); // Notification will disappear after 2 seconds
     },
+    prevSlide() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+    }
+  },
+  nextSlide() {
+    if (this.currentIndex < this.items.length - 4) {
+      this.currentIndex++;
+    }
+  },
     closePopup() {
       this.showPopup = false;
     },
@@ -414,7 +497,7 @@ h1 {
 
 .modal-content {
   background: white;
-  padding: 20px; 
+  padding: 20px;
   border-radius: 20px;
   position: relative;
   width: 500px;
@@ -480,8 +563,6 @@ h1 {
   margin-left: 15px;
   margin-top: -7px;
   margin-bottom: -7px;
-
-
 }
 
 .address svg {
@@ -499,9 +580,87 @@ h1 {
   margin-right: 10px;
   margin-top: -10px;
   margin-bottom: -10px;
-  
 }
-.information{
+.information {
   margin-bottom: 15px;
 }
+.top-picks-slider {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .slider-container {
+  overflow: hidden;
+  width: 100%;
+}
+  
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.3s ease;
+  width: fit-content;
+}
+  
+.slide {
+  flex: 0 0 25%;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 25%;
+}
+  
+  .item-image {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .item-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .rank-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+  }
+  
+  .add-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .price {
+    font-weight: bold;
+  }
+  
+  .nav-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+ 
 </style>
