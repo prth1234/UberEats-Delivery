@@ -86,7 +86,7 @@
         <button class="more1" @click="openInfo">Info</button>
       </div>
       <!-- <p class="description">{{ restaurant.description }}</p> -->
-      <ToppicksSlider />
+<div class="main-body-content">
       <div class="top-picks-slider">
     <div class="header">
       <div class="header-container">
@@ -129,6 +129,29 @@
       </div>
     </div>
   </div>
+  <div class="page-layout">
+    <nav class="sidebar">
+      <ul>
+        <li v-for="section in sections" :key="section.id">
+          <a 
+            :href="`#${section.id}`"
+            :class="{ 'active': activeSection === section.id }"
+            @click="scrollToSection(section.id)"
+          >
+            {{ section.name }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main class="content">
+      <section v-for="section in sections" :key="section.id" :id="section.id">
+        <h2>{{ section.name }}</h2>
+
+      </section>
+    </main>
+  </div>
+
+</div>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
           <svg
@@ -262,6 +285,18 @@ export default {
       showPopup: false,
       showInfo:false,
       selectedTab: { text: "Details" },
+      activeSection: '',
+      sections: [
+        { id: 'featured-items', name: 'Featured items' },
+        { id: 'picked-for-you', name: 'Picked for you' },
+        { id: 'breakfast', name: 'Breakfast' },
+        { id: 'meals', name: 'Meals' },
+        { id: 'entrees', name: 'Entrées' },
+        { id: 'sides', name: 'Sides' },
+        { id: 'beverages', name: 'Beverages' },
+        { id: 'salads', name: 'Salads' },
+        { id: 'treats', name: 'Treats' },
+      ],
       items: [
         {
           name: "Chick-fil-A® Nuggets Meal",
@@ -348,6 +383,22 @@ export default {
     };
   },
   methods: {
+
+    
+    handleScroll() {
+      const scrollPosition = window.scrollY;
+      for (let i = this.sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(this.sections[i].id);
+        if (section.offsetTop <= scrollPosition) {
+          this.activeSection = this.sections[i].id;
+          break;
+        }
+      }
+    },
+    scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      element.scrollIntoView({ behavior: 'smooth' });
+    },
     openPopup() {
       this.showPopup = true;
       this.$nextTick(() => {
@@ -425,6 +476,13 @@ export default {
         map: map,
       });
     },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll);
+    this.handleScroll(); // Initial check
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   },
   // ... methods and other component options
 };
@@ -872,4 +930,45 @@ h3 {
   color: #5557ca;
 }
 
+.page-layout {
+  display: flex;
+}
+
+.sidebar {
+  width: 200px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f0f0f0;
+  padding: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.sidebar a.active {
+  color: #007bff;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 20px;
+}
+
+section {
+  min-height: 500px; /* Adjust as needed to ensure scrolling */
+}
 </style>
