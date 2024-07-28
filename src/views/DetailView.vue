@@ -96,8 +96,9 @@
                 <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
               </button>
               <button class="nav-button next" @click="nextSlide" aria-label="Next slide">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5 k8"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
-              </button> 
+                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5 k8" style="transform: scaleX(-1);">
+  <path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path>
+</svg>              </button> 
         </div>
 </div>
 
@@ -683,10 +684,12 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap:10px;
   background-color: #1a1a1a; /* Or any color you prefer */
   border: none;
   cursor: pointer;
   margin: 0 5px; /* Add some space around the buttons */
+  margin-right:55px;
 }
 
 .nav-button svg {
