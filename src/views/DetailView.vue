@@ -247,6 +247,7 @@ export default {
           { name: 'Chick-fil-A ChickSalad® Meal', price: 13.09, image: 'https://summeryule.com/wp-content/uploads/2022/04/southwest-salad-chick-fil-a.jpeg' },
 
           { name: 'Chick-fil-A Chick-n-Macros Meal', price: 13.09, image: 'https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/Winter23/Winter23-DotCom-ChickenSandwich-D_720x748.jpg?h=748&w=720&la=en' },
+          { name: 'Chick-fil-A Waffles', price: 13.09, image: 'https://assets.entrepreneur.com/content/3x2/2000/20180403185342-12030542-10153912476520101-9019529450634602395-o.jpeg?format=pjeg&auto=webp&crop=1:1' },
 
 
         ],
@@ -607,6 +608,7 @@ h1 {
   .slider-container {
   overflow: hidden;
   width: 100%;
+  text-align: left;
 }
   
 .slides-wrapper {
@@ -645,17 +647,23 @@ h1 {
   
   .add-button {
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     right: 10px;
-    background-color: white;
+    background-color:transparent; /* White color with 50% opacity */
+    color:#06c167;
     border: none;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     font-size: 20px;
     cursor: pointer;
-  }
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+
   h3 {
     font-size: 16px;
     margin-bottom: 5px;
@@ -663,6 +671,7 @@ h1 {
   
   .price {
     font-weight: bold;
+    margin-top:-10px;
 
 
   }
@@ -678,9 +687,8 @@ h1 {
 }
 
 .nav-buttons {
-  width: 36px;  /* Set a specific width */
-  height: 36px; /* Ensure height is the same as width to form a perfect circle */
-  border-radius: 18px; /* Half of width/height to make it round */
+  
+  border-radius: 100px; /* Half of width/height to make it round */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -689,16 +697,22 @@ h1 {
   border: none;
   cursor: pointer;
   margin: 0 5px; /* Add some space around the buttons */
-  margin-right:55px;
+  margin-right:10px;
 }
 
-.nav-button svg {
+.nav-buttons svg {
   width: 24px;
   height: 24px;
 }
 
-.nav-button svg path {
+.nav-buttons svg path {
   fill: rgb(255, 255, 255); /* Use currentColor to inherit the button's color */
+}
+.nav-button.prev{
+  border-radius: 1000px;
+}
+.nav-button.next{
+  border-radius: 1000px;
 }
 
  
