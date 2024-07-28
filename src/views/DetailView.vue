@@ -82,6 +82,11 @@ export default {
   methods: {
     openPopup() {
       this.showPopup = true;
+      this.$nextTick(() => {
+
+this.loadGoogleMapsScript();
+
+});
     },
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
@@ -94,6 +99,52 @@ export default {
     closePopup() {
       this.showPopup = false;
     },
+    loadGoogleMapsScript() {
+
+if (typeof google === 'undefined') {
+
+  const script = document.createElement('script');
+
+  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAgrmQKFgTQNPpdwbyrobLDlBkNxtCu0v4&callback=initMap`;
+
+  script.async = true;
+
+  script.defer = true;
+
+  script.onload = this.initMap;
+
+  document.head.appendChild(script);
+
+} else {
+
+  this.initMap();
+
+}
+
+},
+
+initMap() {
+
+const uluru = { lat: -25.344, lng: 131.036 };
+
+const map = new google.maps.Map(document.getElementById('map'), {
+
+  zoom: 4,
+
+  center: uluru,
+
+});
+
+const marker = new google.maps.Marker({
+
+  position: uluru,
+
+  map: map,
+
+});
+
+},
+    
   },
   // ... methods and other component options
 }
@@ -312,5 +363,13 @@ h1 {
 .popup-body {
   display: flex;
   flex-direction: column;
+}
+
+#map {
+
+height: 400px; /* Adjust the height as needed */
+
+width: 100%; /* The width is the width of the container */
+
 }
 </style>
