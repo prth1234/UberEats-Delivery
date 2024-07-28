@@ -109,11 +109,12 @@
             <div id="map"></div>
             <h1>{{ restaurant.name }} </h1>
             <div class="restaurant-info" >
+              <div class="information">
               <span class="rating">{{ restaurant.rating }} ★ | </span>
               <span>({{ restaurant.ratingCount }}+) | </span>
               <span>{{ restaurant.categories.join(" • ") }} • </span>
               <span class="info-link">Info</span>
-              
+            </div>
               
               <hr class="divider" />
               <div class="address">
@@ -158,7 +159,7 @@ export default {
       restaurant: {
         name: "Chick-fil-A",
         address: "3707 State St",
-        fullAddress: "3707 State St, Santa Clara, United Status",
+        fullAddress: "3707 State St, Santa Clara, United States",
         OpeningTime:"Everyday from 9am till 11pm",
         rating: 4.7,
         ratingCount: 1500,
@@ -399,7 +400,7 @@ h1 {
 
 .modal-content {
   background: white;
-  padding: 20px;
+  padding: 20px; 
   border-radius: 8px;
   position: relative;
   width: 500px;
@@ -485,5 +486,8 @@ h1 {
   margin-top: -10px;
   margin-bottom: -10px;
   
+}
+.information{
+  margin-bottom: 15px;
 }
 </style>
