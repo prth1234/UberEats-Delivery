@@ -47,6 +47,9 @@
           </div>
           <div class="popup-body">
             <div id="map"></div>
+            <h1 style="color: black;">{{ restaurant.name }} ({{ restaurant.address }})</h1>
+
+
 
           </div>
         </div>
