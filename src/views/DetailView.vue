@@ -774,6 +774,7 @@ h3 {
 
 .nav-button {
   display: flex;
+  border-radius: 50%;
 }
 
 .nav-buttons {
@@ -809,12 +810,13 @@ h3 {
     color: green;
     font-size: 18px;
     cursor: pointer;
-    padding: 10px;
+    padding: 0px;
     width: 40px;  /* Adjust width */
     height: 40px;  /* Adjust height */
     border-radius: 50%;  /* Make the button a circle */
+    margin-left: 5px;
+    margin-right: 5px;
     transition: background-color 0.3s;
-    margin-left: 5px; /* Space between buttons */
     display: flex;
     justify-content: center;
     align-items: center;
