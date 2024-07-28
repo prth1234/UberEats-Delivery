@@ -152,16 +152,16 @@
   <div v-if="section.id === 'ratings'" style="color: green">
     <div class="container-rect">
       <div class="rectangle">
-        <span class="rating">{{ restaurant.rating }}</span>
-        <span class="rating-count">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" color="#F6BC2F">
-            <title>Star</title>
-            <path d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z" fill="currentColor"></path>
-          </svg>
-        </span>
-        <div class="rating-count-text" style="
-  margin-left: 5px;
-  color: #F6BC2F; /* Color for the star */">{{ restaurant.ratingCount }}+ ratings</div>
+        <div class="rating-container">
+          <span class="rating" style="font-size: 40px;">{{ restaurant.rating }}</span>
+          <span class="rating-count" style="margin-left: 10px;">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" color="#F6BC2F">
+              <title>Star</title>
+              <path d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z" fill="currentColor"></path>
+            </svg>
+          </span>
+        </div>
+        <!-- <div class="rating-count-text" style="display: inline;">{{ restaurant.ratingCount }}+ ratings</div> -->
       </div>
       <div class="rectangle"></div>
       <div class="rectangle">3</div>
@@ -169,6 +169,7 @@
     </div>
   </div>
 </section>
+
 
     </main>
   </div>
