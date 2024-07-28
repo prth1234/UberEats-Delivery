@@ -137,8 +137,9 @@
             :href="`#${section.id}`"
             :class="{ 'active': activeSection === section.id }"
             @click="scrollToSection(section.id)"
+            
           >
-            {{ section.name }}
+            <div style="margin-left: 10px;">{{ section.name }}</div>
           </a>
         </li>
       </ul>
@@ -298,7 +299,9 @@ export default {
         { id: 'treats', name: 'Treats' },
         { id: 'burgers', name: 'Burgers' },
         { id: 'seafood', name: 'Seafood' },
+        { id: 'new', name: 'New' },
         { id: 'desserts', name: 'Desserts' },
+
 
       ],
       items: [
@@ -945,21 +948,23 @@ h3 {
   height: 100vh;
   overflow-y: auto;
   background-color: transparent;
-  padding: 0px 20px 20px 20px;
-  border-right: #333 2px solid;
+  padding: 0px 0px 0px 0px;
   text-align: left;
   font-size: 25px;
   font-family: Uber Move;
+  margin-top: -60px;
 }
 
 
 .sidebar ul {
   list-style-type: none;
   padding: 0;
+  margin-left: 0px;
 }
 
 .sidebar li {
   margin-bottom: 30px;
+  margin-left: 0px;
 }
 
 .sidebar a {
@@ -971,8 +976,8 @@ h3 {
 .sidebar a.active {
   /* border: 1px solid grey; */
   background-color: #1a1a1a;
-  padding: 14px 12px 14px 16px;
-  border-radius: 4px;
+  padding: 14px 0px 14px 0px;
+  border-radius: 0px;
   width: 100%;
   display: block; /* added */
 }
