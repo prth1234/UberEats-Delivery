@@ -147,12 +147,29 @@
       </ul>
     </nav>
     <main class="content">
-      <section v-for="section in sections" :key="section.id" :id="section.id">
+<section v-for="section in sections" :key="section.id" :id="section.id">
   <h2 style="text-align: left; margin-top: -72px; font-family: Uber Move;">{{ section.name }}</h2>
-  <div v-if="section.id === 'breakfast'" style="color: green">
-    <h1>fderwtew</h1>
+  <div v-if="section.id === 'ratings'" style="color: green">
+    <div class="container-rect">
+      <div class="rectangle">
+        <span class="rating">{{ restaurant.rating }}</span>
+        <span class="rating-count">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" color="#F6BC2F">
+            <title>Star</title>
+            <path d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z" fill="currentColor"></path>
+          </svg>
+        </span>
+        <div class="rating-count-text" style="
+  margin-left: 5px;
+  color: #F6BC2F; /* Color for the star */">{{ restaurant.ratingCount }}+ ratings</div>
+      </div>
+      <div class="rectangle"></div>
+      <div class="rectangle">3</div>
+      <div class="rectangle">4</div>
+    </div>
   </div>
 </section>
+
     </main>
   </div>
 
@@ -1005,5 +1022,25 @@ h3 {
 
 section {
   min-height: 500px; /* Adjust as needed to ensure scrolling */
+}
+.container-rect {
+  display: flex;
+  justify-content: space-between; /* Adjust spacing as needed */
+  gap: 6px; /* Space between rectangles */
+  padding: 0px; /* Optional padding for the container */
+}
+
+.rectangle {
+  width: 220px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  background-color:transparent;
+  border: 0.5px solid;
+  border-color: #3a3a3a; /* Rectangle color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Text color */
+  font-size: 24px; /* Text size */
+  border-radius: 8px; /* Optional rounded corners */
 }
 </style>
