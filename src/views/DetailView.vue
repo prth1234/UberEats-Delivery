@@ -90,34 +90,44 @@
       <div class="top-picks-slider">
     <div class="header">
       <div class="header-container">
-  <h2 style="text-align: left; font-family: Uber Move;">Featured items</h2>
-  <div class="nav-buttons">
-              <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
-              </button>
-              <button class="nav-button next" @click="nextSlide" aria-label="Next slide">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5 k8" style="transform: scaleX(-1);">
-  <path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path>
-</svg>              </button> 
+        <h2 style="text-align: left; font-family: Uber Move;">Featured items</h2>
+        <div class="nav-buttons">
+          <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
+          </button>
+          <button class="nav-button next" @click="nextSlide" aria-label="Next slide">
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5 k8" style="transform: scaleX(-1);"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
+          </button> 
         </div>
-</div>
-
-
+      </div>
     </div>
     <div class="slider-container">
-  <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
-    <div class="slide" v-for="(item, index) in items" :key="index">
-      <div class="item-image">
+      <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
+        <div class="slide" v-for="(item, index) in items" :key="index">
+          <div class="item-image">
             <img :src="item.image" :alt="item.name">
             <span v-if="item.rank" class="rank-badge">{{ item.rank }}</span>
-            <button class="add-button">+</button>
           </div>
-          <h3>{{ item.name }}</h3>
-          <p class="price">${{ item.price.toFixed(2) }}</p>
+          <div class="item-details">
+            <div class="item-info">
+              <h3>{{ item.name }}</h3>
+              <p class="price">${{ item.price.toFixed(2) }}</p>
+            </div>
+            <button class="cart-button" @click="addToCart(index)">
+              <span v-if="item.quantity > 0">+ </span>
+              <span v-else>+</span>
+            </button>
+            <div v-if="item.quantity==0">0</div>
 
+            <div v-if="item.quantity>0">{{ item.quantity }}</div>
+            
+            <button class="cart-button" @click="removeFromCart(index)">
+              <span >-</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </div>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
@@ -239,19 +249,68 @@ export default {
       showPopup: false,
       selectedTab: { text: "Details" },
       items: [
-          { name: 'Chick-fil-A® Nuggets Meal', price: 15.29, image: 'https://www.kitchenathoskins.com/wp-content/uploads/2020/09/air-fryer-chicken-nuggets-28.jpg', rank: '#1 most liked' },
-          { name: 'Chick-fil-A® Nuggets', price: 8.55, image: 'https://girlscangrill.com/wp-content/uploads/2015/12/copycat-chick-fil-a-chicken-nuggets-500x500.jpg', rank: '#2 most liked' },
-          { name: 'Spicy Southwest Salad', price: 14.55, image: 'https://realhousemoms.com/wp-content/uploads/Copycat-Chick-Fil-A-Spicy-Southwest-Salad-RECIPE-CARD.jpg', rank: '#3 most liked' },
-          { name: 'Chick-fil-A ChickMeal® Meal', price: 13.09, image: 'https://media.bizj.us/view/img/11579235/chick-fil-a-9jv*1200xx2918-2918-185-0.jpg' },
+        {
+          name: "Chick-fil-A® Nuggets Meal",
+          price: 15.29,
+          image:
+            "https://www.kitchenathoskins.com/wp-content/uploads/2020/09/air-fryer-chicken-nuggets-28.jpg",
+          rank: "#1 most liked",
+          quantity:0,
+        },
+        {
+          name: "Chick-fil-A® Nuggets",
+          price: 8.55,
+          image:
+            "https://girlscangrill.com/wp-content/uploads/2015/12/copycat-chick-fil-a-chicken-nuggets-500x500.jpg",
+          rank: "#2 most liked",
+          quantity:0,
 
-          { name: 'Chick-fil-A ChickSalad® Meal', price: 13.09, image: 'https://summeryule.com/wp-content/uploads/2022/04/southwest-salad-chick-fil-a.jpeg' },
+        },
+        {
+          name: "Spicy Southwest Salad",
+          price: 14.55,
+          image:
+            "https://realhousemoms.com/wp-content/uploads/Copycat-Chick-Fil-A-Spicy-Southwest-Salad-RECIPE-CARD.jpg",
+          rank: "#3 most liked",
+          quantity:0,
 
-          { name: 'Chick-fil-A Chick-n-Macros Meal', price: 13.09, image: 'https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/Winter23/Winter23-DotCom-ChickenSandwich-D_720x748.jpg?h=748&w=720&la=en' },
-          { name: 'Chick-fil-A Waffles', price: 13.09, image: 'https://assets.entrepreneur.com/content/3x2/2000/20180403185342-12030542-10153912476520101-9019529450634602395-o.jpeg?format=pjeg&auto=webp&crop=1:1' },
+        },
+        {
+          name: "Chick-fil-A ChickMeal® Meal",
+          price: 13.09,
+          image:
+            "https://i.ibb.co/8XBLVc3/chick-fil-a-9jv-1200xx2918-2918-185-0.jpg",
+            quantity:0,
 
+        },
 
-        ],
-        currentIndex: 0,
+        {
+          name: "Chick-fil-A ChickSalad® Meal",
+          price: 13.09,
+          image:
+            "https://summeryule.com/wp-content/uploads/2022/04/southwest-salad-chick-fil-a.jpeg",
+            quantity:0,
+
+        },
+
+        {
+          name: "Chick-fil-A Chick-n-Macros Meal",
+          price: 13.09,
+          image:
+            "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/Winter23/Winter23-DotCom-ChickenSandwich-D_720x748.jpg?h=748&w=720&la=en",
+            quantity:0,
+
+        },
+        {
+          name: "Chick-fil-A Waffles",
+          price: 13.09,
+          image:
+            "https://assets.entrepreneur.com/content/3x2/2000/20180403185342-12030542-10153912476520101-9019529450634602395-o.jpeg?format=pjeg&auto=webp&crop=1:1",
+            quantity:0,
+
+        },
+      ],
+      currentIndex: 0,
 
       restaurant: {
         name: "Chick-fil-A",
@@ -292,15 +351,21 @@ export default {
       }, 2000); // Notification will disappear after 2 seconds
     },
     prevSlide() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-    }
-  },
-  nextSlide() {
-    if (this.currentIndex < this.items.length - 4) {
-      this.currentIndex++;
-    }
-  },
+      if (this.currentIndex > 0) {
+        this.currentIndex--;
+      }
+    },
+    nextSlide() {
+      if (this.currentIndex < this.items.length - 4) {
+        this.currentIndex++;
+      }
+    },
+    addToCart(index) {
+      this.items[index].quantity++;
+    },
+    removeFromCart(index) {
+      this.items[index].quantity--;
+    },
     closePopup() {
       this.showPopup = false;
     },
@@ -595,88 +660,111 @@ h1 {
   margin-bottom: 15px;
 }
 .top-picks-slider {
-    font-family: Arial, sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .slider-container {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.slider-container {
   overflow: hidden;
   width: 100%;
   text-align: left;
 }
-  
+
 .slides-wrapper {
   display: flex;
   transition: transform 0.3s ease;
   width: fit-content;
 }
-  
+
 .slide {
   flex: 0 0 25%;
   padding: 10px;
   box-sizing: border-box;
   width: 25%;
 }
-  
-  .item-image {
-    position: relative;
-    margin-bottom: 10px;
-  }
-  
-  .item-image img {
-    width: 100%;
-    border-radius: 8px;
-  }
-  
-  .rank-badge {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 12px;
-  }
-  
-  .add-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color:transparent; /* White color with 50% opacity */
-    color:#06c167;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
+
+.item-image {
+  position: relative;
+}
+
+.item-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.rank-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+}
+
+.item-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info {
+  flex-grow: 1;
+  text-align: left;
+}
+
+h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.add-button {
+  background-color: transparent;
+  border: none;
+  color: green;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.rank-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
 }
 
 
-  h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .price {
-    font-weight: bold;
-    margin-top:-10px;
 
 
-  }
-  
-  .header-container {
+h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.price {
+  font-weight: bold;
+  margin-top: -10px;
+}
+
+.header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -687,17 +775,16 @@ h1 {
 }
 
 .nav-buttons {
-  
   border-radius: 100px; /* Half of width/height to make it round */
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
   background-color: #1a1a1a; /* Or any color you prefer */
   border: none;
   cursor: pointer;
   margin: 0 5px; /* Add some space around the buttons */
-  margin-right:10px;
+  margin-right: 10px;
 }
 
 .nav-buttons svg {
@@ -708,12 +795,31 @@ h1 {
 .nav-buttons svg path {
   fill: rgb(255, 255, 255); /* Use currentColor to inherit the button's color */
 }
-.nav-button.prev{
+.nav-button.prev {
   border-radius: 1000px;
 }
-.nav-button.next{
+.nav-button.next {
   border-radius: 1000px;
+}
+.cart-button {
+    background-color: transparent;
+    border: none;
+    color: green;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+    width: 40px;  /* Adjust width */
+    height: 40px;  /* Adjust height */
+    border-radius: 50%;  /* Make the button a circle */
+    transition: background-color 0.3s;
+    margin-left: 5px; /* Space between buttons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
- 
+.cart-button:hover {
+  background-color: rgba(0, 128, 0, 0.1);
+}
+
 </style>
