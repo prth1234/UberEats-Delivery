@@ -105,7 +105,7 @@
       <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
         <div class="slide" v-for="(item, index) in items" :key="index">
           <div class="item-image">
-            <img :src="item.image" :alt="item.name">
+            <img :src="item.image" :alt="item.name" class="img-stuff">
             <span v-if="item.rank" class="rank-badge">{{ item.rank }}</span>
           </div>
           <div class="item-details">
@@ -254,7 +254,7 @@ export default {
           price: 15.29,
           image:
             "https://www.kitchenathoskins.com/wp-content/uploads/2020/09/air-fryer-chicken-nuggets-28.jpg",
-          rank: "#1 most liked",
+          rank: " ＃ 1 most liked",
           quantity:0,
         },
         {
@@ -262,7 +262,7 @@ export default {
           price: 8.55,
           image:
             "https://girlscangrill.com/wp-content/uploads/2015/12/copycat-chick-fil-a-chicken-nuggets-500x500.jpg",
-          rank: "#2 most liked",
+          rank: "＃ 2 most liked",
           quantity:0,
 
         },
@@ -271,7 +271,7 @@ export default {
           price: 14.55,
           image:
             "https://realhousemoms.com/wp-content/uploads/Copycat-Chick-Fil-A-Spicy-Southwest-Salad-RECIPE-CARD.jpg",
-          rank: "#3 most liked",
+          rank: "＃ 3 most liked",
           quantity:0,
 
         },
@@ -665,6 +665,11 @@ h1 {
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
+  transform: scale(0.7);
+  align-items: left;
+  margin-left: -190px;
+  margin-top: -90px;
+
 }
 
 h2 {
@@ -824,6 +829,10 @@ h3 {
 
 .cart-button:hover {
   background-color: rgba(0, 128, 0, 0.1);
+}
+.img-stuff{
+  width: 100%;
+  height: 100%;
 }
 
 </style>
