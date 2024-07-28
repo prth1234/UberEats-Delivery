@@ -20,7 +20,7 @@
 
     <div class="content">
       <button class="group-order">
-          <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="gj dz gk gl"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"></path></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath></defs></svg>
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="gj dz gk gl"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"></path></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath></defs></svg>
         Group order
       </button>
       <h1>{{ restaurant.name }} ({{ restaurant.address }})</h1>
@@ -29,10 +29,7 @@
         <span>({{ restaurant.ratingCount }}+) | </span>
         <span>{{ restaurant.categories.join(' • ') }} • </span>
         <span class="info-link">Info</span>
-  
       </div>
-  
-
       <p class="description">{{ restaurant.description }}</p>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
@@ -43,16 +40,16 @@
         </div>
       </transition>
       <div v-if="showPopup" class="popup">
-    <div class="popup-content">
-      <div class="popup-header">
-        <h2>{{ selectedTab.text }}</h2>
-        <button @click="closePopup" aria-label="Close" class="close-button">
-          x
-        </button>
+        <div class="popup-content">
+          <div class="popup-header">
+            <h2>{{ selectedTab.text }}</h2>
+            <button @click="closePopup" aria-label="Close" class="close-button">
+              x
+            </button>
+          </div>
+          <div class="popup-body"></div>
+        </div>
       </div>
-      <div class="popup-body"></div></div></div>
-
-      <!-- Rest of your component content... -->
     </div>
   </div>
 </template>
@@ -66,7 +63,7 @@ export default {
       showNotification: false,
       notificationMessage: '',
       showPopup: false,
-
+      selectedTab: { text: 'Details' },
 
       restaurant: {
         name: 'Chick-fil-A',
@@ -81,42 +78,23 @@ export default {
       },
       // ... other data properties
     }
-    
-    
-
   },
   methods: {
-    openPopup(tab) {
-      if (tab.text === "Best overall") {
-        tab.selected = !tab.selected;
-      } else {
-        this.selectedTab = tab;
-        this.showPopup = true;
-        if (tab.text === "Offers") {
-          this.deliveryOfferStep = 0; // Reset to minimum value
-          this.initialOffer = this.deliveryOffer;
-        }
-        this.$nextTick(() => {
-          this.setInitialSliderBackground();
-        });
-      }
+    openPopup() {
+      this.showPopup = true;
     },
     toggleFavorite() {
-    this.isFavorite = !this.isFavorite;
-    this.notificationMessage = this.isFavorite ? 'Added to favorites' : 'Removed from favorites';
-    this.showNotification = true;
-    setTimeout(() => {
-      this.showNotification = false;
-    }, 2000); // Notification will disappear after 2 seconds
-  },
-  closePopup() {
-      this.showPopup = false;
-      if (this.selectedTab.text === "Offers") {
-        this.deliveryOffer = this.initialOffer;
-        this.updateOffer();
-      }
+      this.isFavorite = !this.isFavorite;
+      this.notificationMessage = this.isFavorite ? 'Added to favorites' : 'Removed from favorites';
+      this.showNotification = true;
+      setTimeout(() => {
+        this.showNotification = false;
+      }, 2000); // Notification will disappear after 2 seconds
     },
-}
+    closePopup() {
+      this.showPopup = false;
+    },
+  },
   // ... methods and other component options
 }
 </script>
@@ -270,7 +248,7 @@ h1 {
 
 
 
-  .modal-overlay {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -304,7 +282,41 @@ h1 {
   max-width: 100%;
   height: auto;
 }
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
 
-/* Add more styles as needed for the rest of your component */
+  .popup-header h2 {
+    font-family: "Uber Move";
+    color: black;
+    margin: 0;
+  }
+
+  .close-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: black;
+  }
+
+  .popup-body {
+    display: flex;
+    flex-direction: column;
+  }
+
 </style>
