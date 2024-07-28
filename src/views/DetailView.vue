@@ -83,15 +83,14 @@
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
         <span>{{ restaurant.categories.join(" • ") }} • </span>
-        <button  @onClick="openInfo" class="infobutton" >Info</button>
-
+        <button class="more1" @click="openInfo">Info</button>
       </div>
       <!-- <p class="description">{{ restaurant.description }}</p> -->
       <ToppicksSlider />
       <div class="top-picks-slider">
     <div class="header">
       <div class="header-container">
-        <h2 style="text-align: left; font-family: Uber Move;">Featured items</h2>
+        <h2 style="text-align: left; font-family: Uber Move; font-size: 30px;">Featured items</h2>
         <div class="nav-buttons">
           <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
             <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
@@ -238,13 +237,13 @@
       <div v-if="showInfo" class="modal-overlay">
         <div class="modal-content">
           <div class="popup-header">
-            <h2>{{ selectedTab.text }}</h2>
+            <h2>Store Info</h2>
             <button @click="closeInfo" aria-label="Close" class="close-button">
               x
             </button>
           </div>
           <div class="popup-body" style="color: black; text-align: left">
-            
+            <p style="font-weight: 100;">{{restaurant.description }}</p>
           </div>
         </div>
       </div>
@@ -342,7 +341,7 @@ export default {
         ],
         deliveryUnavailable: true,
         description:
-          "Chick-fil-A on State Street in Santa Barbara offers a variety of fast food options, specializing in chicken-based dishes. Popular menu items among customers include the Spicy Chicken Sandwich Deluxe Meal and th...",
+          "Chick-fil-A on State Street in Santa Barbara offers a variety of fast food options, specializing in chicken-based dishes. Popular menu items among customers include the Spicy Chicken Sandwich Deluxe Meal.",
         // ... other data
       },
       // ... other data properties
@@ -481,6 +480,7 @@ export default {
   height: 2px;
   background-color: #ebeaea;
   width: 100%;
+
 }
 
 .content {
@@ -662,12 +662,13 @@ h1 {
   display: flex;
   align-items: center;
   margin-left: 15px;
-  margin-top: -7px;
-  margin-bottom: -7px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .address svg {
   margin-right: 10px;
+  transform: scale(0.7);
 }
 .opens-at {
   display: flex;
@@ -681,6 +682,8 @@ h1 {
   margin-right: 10px;
   margin-top: -10px;
   margin-bottom: -10px;
+  transform: scale(0.7);
+
 }
 .information {
   margin-bottom: 15px;
@@ -691,7 +694,7 @@ h1 {
   margin: 0 auto;
   transform: scale(0.7);
   align-items: left;
-  margin-left: -190px;
+  margin-left: -180px;
   margin-top: -70px;
 
 }
@@ -753,7 +756,6 @@ h2 {
 
 h3 {
   font-size: 16px;
-  margin-bottom: 5px;
 }
 
 .price {
@@ -781,13 +783,17 @@ h3 {
   border-radius: 15px;
   font-size: 12px;
 }
-
+.more1{
+  padding: 0px;
+  background-color: transparent;
+  color: #5557ca;
+}
 
 
 
 h3 {
   font-size: 16px;
-  margin-bottom: 5px;
+  
 }
 
 .price {
