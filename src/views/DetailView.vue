@@ -8,8 +8,7 @@
             <path :class="{ filled: isFavorite }" fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" />
           </svg>
         </button>
-
-        <button class="more">
+        <button class="more" @click="openPopup">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12Z" fill="black"/>
             <path d="M11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z" fill="black"/>
@@ -43,7 +42,15 @@
           <span style="font-family: Uber Move;">&nbsp&nbsp&nbsp&nbsp{{ notificationMessage }}</span>
         </div>
       </transition>
-
+      <div v-if="showPopup" class="popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h2>{{ selectedTab.text }}</h2>
+        <button @click="closePopup" aria-label="Close" class="close-button">
+          x
+        </button>
+      </div>
+      <div class="popup-body"></div></div></div>
 
       <!-- Rest of your component content... -->
     </div>
@@ -58,6 +65,8 @@ export default {
       isFavorite: false,
       showNotification: false,
       notificationMessage: '',
+      showPopup: false,
+
 
       restaurant: {
         name: 'Chick-fil-A',
@@ -77,6 +86,21 @@ export default {
 
   },
   methods: {
+    openPopup(tab) {
+      if (tab.text === "Best overall") {
+        tab.selected = !tab.selected;
+      } else {
+        this.selectedTab = tab;
+        this.showPopup = true;
+        if (tab.text === "Offers") {
+          this.deliveryOfferStep = 0; // Reset to minimum value
+          this.initialOffer = this.deliveryOffer;
+        }
+        this.$nextTick(() => {
+          this.setInitialSliderBackground();
+        });
+      }
+    },
     toggleFavorite() {
     this.isFavorite = !this.isFavorite;
     this.notificationMessage = this.isFavorite ? 'Added to favorites' : 'Removed from favorites';
@@ -84,7 +108,14 @@ export default {
     setTimeout(() => {
       this.showNotification = false;
     }, 2000); // Notification will disappear after 2 seconds
-  }
+  },
+  closePopup() {
+      this.showPopup = false;
+      if (this.selectedTab.text === "Offers") {
+        this.deliveryOffer = this.initialOffer;
+        this.updateOffer();
+      }
+    },
 }
   // ... methods and other component options
 }
@@ -166,6 +197,10 @@ h1 {
   color: #ff4500;
   margin-bottom: 10px;
 }
+.popup-body {
+    display: flex;
+    flex-direction: column;
+  }
 
 .group-order {
   float: right;
