@@ -1,18 +1,46 @@
 <template>
   <div class="restaurant-detail">
     <div class="poster">
-      <img src="https://tb-static.uber.com/prod/image-proc/processed_images/4c7252776091efae1198aef7d3922e89/c9252e6c6cd289c588c3381bc77b1dfc.jpeg" alt="Chick-fil-A food">
+      <img
+        src="https://tb-static.uber.com/prod/image-proc/processed_images/4c7252776091efae1198aef7d3922e89/c9252e6c6cd289c588c3381bc77b1dfc.jpeg"
+        alt="Chick-fil-A food"
+      />
       <div class="poster-actions">
         <button class="favorite" @click="toggleFavorite">
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path :class="{ filled: isFavorite }" fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" />
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              :class="{ filled: isFavorite }"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
+            />
           </svg>
         </button>
         <button class="more" @click="openPopup">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12Z" fill="black"/>
-            <path d="M11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z" fill="black"/>
-            <path d="M17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12Z" fill="black"/>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M5 12C5 11.4477 5.44772 11 6 11C6.55228 11 7 11.4477 7 12C7 12.5523 6.55228 13 6 13C5.44772 13 5 12.5523 5 12Z"
+              fill="black"
+            />
+            <path
+              d="M11 12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12C13 12.5523 12.5523 13 12 13C11.4477 13 11 12.5523 11 12Z"
+              fill="black"
+            />
+            <path
+              d="M17 12C17 11.4477 17.4477 11 18 11C18.5523 11 19 11.4477 19 12C19 12.5523 18.5523 13 18 13C17.4477 13 17 12.5523 17 12Z"
+              fill="black"
+            />
           </svg>
         </button>
       </div>
@@ -20,37 +48,76 @@
 
     <div class="content">
       <button class="group-order">
-        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="gj dz gk gl"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"></path></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath></defs></svg>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 24 24"
+          class="gj dz gk gl"
+        >
+          <g clip-path="url(#clip0)">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"
+            ></path>
+          </g>
+          <defs>
+            <clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath>
+          </defs>
+        </svg>
         Group order
       </button>
       <h1>{{ restaurant.name }} ({{ restaurant.address }})</h1>
       <div class="restaurant-info">
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
-        <span>{{ restaurant.categories.join(' • ') }} • </span>
+        <span>{{ restaurant.categories.join(" • ") }} • </span>
         <span class="info-link">Info</span>
       </div>
       <p class="description">{{ restaurant.description }}</p>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
-          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" stroke="white" fill="white"/>
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
+              stroke="white"
+              fill="white"
+            />
           </svg>
-          <span style="font-family: Uber Move;">&nbsp&nbsp&nbsp&nbsp{{ notificationMessage }}</span>
+          <span style="font-family: Uber Move"
+            >&nbsp&nbsp&nbsp&nbsp{{ notificationMessage }}</span
+          >
         </div>
       </transition>
       <div v-if="showPopup" class="modal-overlay">
         <div class="modal-content">
           <div class="popup-header">
             <h2>{{ selectedTab.text }}</h2>
-            <button @click="closePopup" aria-label="Close" class="close-button">x</button>
+            <button @click="closePopup" aria-label="Close" class="close-button">
+              x
+            </button>
           </div>
-          <div class="popup-body">
+          <div class="popup-body" style="color: black; text-align: left">
             <div id="map"></div>
-            <h1 style="color: black;">{{ restaurant.name }} ({{ restaurant.address }})</h1>
+            <h1>{{ restaurant.name }} ({{ restaurant.address }})</h1>
+            <div class="restaurant-info">
+              <span class="rating">{{ restaurant.rating }} ★ | </span>
+              <span>({{ restaurant.ratingCount }}+) | </span>
+              <span>{{ restaurant.categories.join(" • ") }} • </span>
+              <span class="info-link">Info</span>
+              <hr class="divider" />
+             <span><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></span> 
+             <span> <h3>{{ restaurant.fullAddress }}</h3></span>
 
-
-
+            </div>
           </div>
         </div>
       </div>
@@ -59,41 +126,48 @@
 </template>
 <script>
 export default {
-  name: 'RestaurantDetailView',
+  name: "RestaurantDetailView",
   data() {
     return {
       isFavorite: false,
       showNotification: false,
-      notificationMessage: '',
+      notificationMessage: "",
       showPopup: false,
-      selectedTab: { text: 'Details' },
+      selectedTab: { text: "Details" },
 
       restaurant: {
-        name: 'Chick-fil-A',
-        address: '3707 State St',
-        fullAddress: '3707 State St',
+        name: "Chick-fil-A",
+        address: "3707 State St",
+        fullAddress: "3707 State St, Santa Clara, United Status",
+        OpeningTime:"Everyday at 9am till 11pm",
         rating: 4.7,
         ratingCount: 1500,
-        categories: ['Fast Food', 'American', 'Breakfast and Brunch', 'Chicken'],
+        categories: [
+          "Fast Food",
+          "American",
+          "Breakfast and Brunch",
+          "Chicken",
+        ],
         deliveryUnavailable: true,
-        description: 'Chick-fil-A on State Street in Santa Barbara offers a variety of fast food options, specializing in chicken-based dishes. Popular menu items among customers include the Spicy Chicken Sandwich Deluxe Meal and th...',
+        description:
+          "Chick-fil-A on State Street in Santa Barbara offers a variety of fast food options, specializing in chicken-based dishes. Popular menu items among customers include the Spicy Chicken Sandwich Deluxe Meal and th...",
         // ... other data
       },
       // ... other data properties
-    }
+    };
   },
   methods: {
     openPopup() {
       this.showPopup = true;
       this.$nextTick(() => {
-
-this.loadGoogleMapsScript();
-
-});
+        this.loadGoogleMapsScript();
+      });
     },
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
-      this.notificationMessage = this.isFavorite ? 'Added to favorites' : 'Removed from favorites';
+      this.notificationMessage = this.isFavorite
+        ? "Added to favorites"
+        : "Removed from favorites";
       this.showNotification = true;
       setTimeout(() => {
         this.showNotification = false;
@@ -103,54 +177,41 @@ this.loadGoogleMapsScript();
       this.showPopup = false;
     },
     loadGoogleMapsScript() {
+      if (typeof google === "undefined") {
+        const script = document.createElement("script");
 
-if (typeof google === 'undefined') {
+        script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAgrmQKFgTQNPpdwbyrobLDlBkNxtCu0v4&callback=initMap`;
 
-  const script = document.createElement('script');
+        script.async = true;
 
-  script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAgrmQKFgTQNPpdwbyrobLDlBkNxtCu0v4&callback=initMap`;
+        script.defer = true;
 
-  script.async = true;
+        script.onload = this.initMap;
 
-  script.defer = true;
+        document.head.appendChild(script);
+      } else {
+        this.initMap();
+      }
+    },
 
-  script.onload = this.initMap;
+    initMap() {
+      const uluru = { lat: -25.344, lng: 131.036 };
 
-  document.head.appendChild(script);
+      const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 4,
 
-} else {
+        center: uluru,
+      });
 
-  this.initMap();
+      const marker = new google.maps.Marker({
+        position: uluru,
 
-}
-
-},
-
-initMap() {
-
-const uluru = { lat: -25.344, lng: 131.036 };
-
-const map = new google.maps.Map(document.getElementById('map'), {
-
-  zoom: 4,
-
-  center: uluru,
-
-});
-
-const marker = new google.maps.Marker({
-
-  position: uluru,
-
-  map: map,
-
-});
-
-},
-    
+        map: map,
+      });
+    },
   },
   // ... methods and other component options
-}
+};
 </script>
 
 <style scoped>
@@ -196,6 +257,12 @@ const marker = new google.maps.Marker({
   cursor: pointer;
   font-size: 18px;
   padding: 0;
+}
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #dddcdc;
+  width: 100%;
 }
 
 .content {
@@ -369,10 +436,8 @@ h1 {
 }
 
 #map {
+  height: 200px; /* Adjust the height as needed */
 
-height: 400px; /* Adjust the height as needed */
-
-width: 100%; /* The width is the width of the container */
-
+  width: 100%; /* The width is the width of the container */
 }
 </style>
