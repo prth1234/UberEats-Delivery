@@ -39,21 +39,21 @@
           <span style="font-family: Uber Move;">&nbsp&nbsp&nbsp&nbsp{{ notificationMessage }}</span>
         </div>
       </transition>
-      <div v-if="showPopup" class="popup">
-        <div class="popup-content">
+      <div v-if="showPopup" class="modal-overlay">
+        <div class="modal-content">
           <div class="popup-header">
             <h2>{{ selectedTab.text }}</h2>
-            <button @click="closePopup" aria-label="Close" class="close-button">
-              x
-            </button>
+            <button @click="closePopup" aria-label="Close" class="close-button">x</button>
           </div>
-          <div class="popup-body"></div>
+          <div class="popup-body">
+            <div id="map"></div>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: 'RestaurantDetailView',
@@ -147,7 +147,6 @@ export default {
 .content {
   padding: 0px;
   text-align: center;
-
 }
 
 h1 {
@@ -175,10 +174,6 @@ h1 {
   color: #ff4500;
   margin-bottom: 10px;
 }
-.popup-body {
-    display: flex;
-    flex-direction: column;
-  }
 
 .group-order {
   float: right;
@@ -203,10 +198,12 @@ h1 {
   font-size: 14px;
   text-align: left;
 }
+
 .favorite svg path {
   stroke: black;
   fill: white;
 }
+
 .favorite svg path.filled {
   fill: black;
   stroke: black;
@@ -244,9 +241,8 @@ h1 {
   }
   100% {
     opacity: 0;
-  }}
-
-
+  }
+}
 
 .modal-overlay {
   position: fixed;
@@ -266,6 +262,7 @@ h1 {
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  width: 400px;
 }
 
 .modal-close {
@@ -282,41 +279,38 @@ h1 {
   max-width: 100%;
   height: auto;
 }
+
 .popup-content {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    width: 400px;
-    justify-content: center;
-    align-items: center;
-  }
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
 
-  .popup-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-  }
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
 
-  .popup-header h2 {
-    font-family: "Uber Move";
-    color: black;
-    margin: 0;
-  }
+.popup-header h2 {
+  font-family: "Uber Move";
+  color: black;
+  margin: 0;
+}
 
-  .close-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 20px;
-    color: black;
-  }
+.close-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: black;
+}
 
-  .popup-body {
-    display: flex;
-    flex-direction: column;
-  }
-
+.popup-body {
+  display: flex;
+  flex-direction: column;
+}
 </style>
