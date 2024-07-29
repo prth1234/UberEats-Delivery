@@ -7,12 +7,9 @@
               <div class="item-info">
                 <img :src="item.image" :alt="item.name" class="item-image" />
                 <div>
-                  <h3>{{ item.name }}</h3>
-                  <p class="price">${{ item.price.toFixed(2) }}</p>
-                  <p class="rank">{{ item.rank }}</p>
-                </div>
-              </div>
-              <div class="quantity-control">
+                  <h3 style="font-size: 14px;">{{ item.name }}</h3>
+                  <p class="price" style="font-size: 12px;">${{ item.price.toFixed(2) }}</p>
+                  <div class="quantity-control">
                 <button class="cart-button" @click="addToCart(index)">
                   <span v-if="item.quantity > 0">+</span>
                   <span v-else>+</span>
@@ -23,6 +20,9 @@
                   <span>-</span>
                 </button>
               </div>
+                </div>
+              </div>
+             
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
             name: "Chick-fil-A® OG Burger",
             price: 10.29,
             image:
-              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/Maple%20Pepper%20Bacon/CFA_Summer24_MaplePepperBacon_Bun_WebPLP_Ingredients_200x200.png_master.png",
+              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/New%20menu%20module%20images/Chick-fil-A_Chicken_Sandwich_200x200.png?h=-1&w=-1&la=en",
             rank: "＃ 1 most ordered",
             quantity: 0,
           },
@@ -47,7 +47,7 @@
             name: "Chick-fil-A® Bacon",
             price: 8.55,
             image:
-              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/Maple%20Pepper%20Bacon/CFA_Summer24_MaplePepperBacon_Bacon_WebPLP_Ingredients_200x200.png_master.png",
+              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/Maple%20Pepper%20Bacon/2.png?h=-1&w=-1&la=en",
             rank: "＃ 2 most ordered",
             quantity: 0,
           },
@@ -55,7 +55,7 @@
             name: "Spicy Southwest Pickle",
             price: 14.55,
             image:
-              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/Maple%20Pepper%20Bacon/CFA_Summer24_MaplePepperBacon_Pickles_WebPLP_Ingredients_200x200.png_master.png",
+              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/Maple%20Pepper%20Bacon/3.png?h=-1&w=-1&la=en",
             rank: "＃ 3 most ordered",
             quantity: 0,
           },
@@ -63,7 +63,7 @@
             name: "Chick-fil-A ChickMeal® Meal",
             price: 13.09,
             image:
-              "https://i.ibb.co/8XBLVc3/chick-fil-a-9jv-1200xx2918-2918-185-0.jpg",
+              "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/PLP%20updates/New%20menu%20module%20images/Spicy%20Chicken%20Sandwich.png?h=-1&w=-1&la=en",
             quantity: 0,
           },
           // Uncomment the items below if you want to add them
@@ -162,6 +162,8 @@
   .item-info .price {
     font-size: 1rem;
     color: #888;
+    text-align: left;
+    margin-top: -3px;
   }
   
   .item-info .rank {
@@ -175,17 +177,17 @@
   }
   
   .cart-button {
-    background-color: #f8f8f8;
-    border: 1px solid #eaeaea;
+    background-color: transparent;
     padding: 0.5rem;
-    border-radius: 50%;
+    border-radius: 70%;
     cursor: pointer;
     margin: 0 0.5rem;
+    color: ;
   }
   
-  .cart-button:hover {
-    background-color: #eaeaea;
-  }
+  /* .cart-button:hover {
+    background-color: #322525;
+  } */
   
   .quantity-control div {
     margin: 0 0.5rem;
