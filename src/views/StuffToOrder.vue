@@ -1,54 +1,38 @@
 <template>
-
-
-<div class="top-picks-slider">
-          <div class="header">
-            <div class="header-container">
-              <h2
-                style="
-                  text-align: left;
-                  font-family: Uber Move;
-                  font-size: 30px;
-                "
-              >
-              </h2>
-          
+    <div class="top-picks-slider">
+      <div class="header">
+        <div class="header-container">
+          <h2 style="text-align: left; font-family: Uber Move; font-size: 30px;"></h2>
+        </div>
+      </div>
+      <div class="slider-container">
+        <div class="slides-wrapper">
+          <div class="slide" v-for="(item, index) in items" :key="index">
+            <div class="item-image">
+              <img :src="item.image" :alt="item.name" class="img-stuff" />
+              <span v-if="item.rank" class="rank-badge">{{ item.rank }}</span>
             </div>
-          </div>
-          <div class="slider-container">
-            <div
-              class="slides-wrapper"
-              :style="{ transform: `translateX(-${currentIndex * 25}%)` }"
-            >
-            <div class="slide" v-for="(item, index) in items.slice(0, 5)" :key="index">                <div class="item-image">
-                  <img :src="item.image" :alt="item.name" class="img-stuff" />
-                  <span v-if="item.rank" class="rank-badge">{{
-                    item.rank
-                  }}</span>
-                </div>
-                <div class="item-details">
-                  <div class="item-info">
-                    <h3>{{ item.name }}</h3>
-                    <p class="price">${{ item.price.toFixed(2) }}</p>
-                  </div>
-                  <button class="cart-button" @click="addToCart(index)">
-                    <span v-if="item.quantity > 0">+ </span>
-                    <span v-else>+</span>
-                  </button>
-                  <div v-if="item.quantity == 0">0</div>
-
-                  <div v-if="item.quantity > 0">{{ item.quantity }}</div>
-
-                  <button class="cart-button" @click="removeFromCart(index)">
-                    <span>-</span>
-                  </button>
-                </div>
+            <div class="item-details">
+              <div class="item-info">
+                <h3>{{ item.name }}</h3>
+                <p class="price">${{ item.price.toFixed(2) }}</p>
               </div>
+              <button class="cart-button" @click="addToCart(index)">
+                <span v-if="item.quantity > 0">+ </span>
+                <span v-else>+</span>
+              </button>
+              <div v-if="item.quantity == 0">0</div>
+              <div v-if="item.quantity > 0">{{ item.quantity }}</div>
+              <button class="cart-button" @click="removeFromCart(index)">
+                <span>-</span>
+              </button>
             </div>
           </div>
         </div>
-</template>
-
+      </div>
+    </div>
+  </template>
+  
 
 <script>
 export default{
@@ -128,271 +112,12 @@ export default{
 
 </script>
 
-
 <style scoped>
-.restaurant-detail {
-  font-family: Arial, sans-serif;
-  max-width: 1700px;
-  margin: 0 auto;
-  background-color: #101010;
-  color: #ffffff;
-  width: 1300px;
-}
-
-.poster {
-  position: relative;
-  width: 100%;
-  height: 300px; /* Adjusted height */
-  overflow: hidden;
-  border-radius: 8px 8px 0 0;
-}
-
-.poster img {
-  width: 100%;
-  height: 100%; /* Make sure the image covers the new height */
-  object-fit: cover;
-}
-
-.poster-actions {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  display: flex;
-}
-
-.poster-actions button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  margin-left: 10px;
-  cursor: pointer;
-  font-size: 18px;
-  padding: 0;
-}
-.divider {
-  border: none;
-  height: 2px;
-  background-color: #ebeaea;
-  width: 100%;
-}
-
-.content {
-  padding: 0px;
-  text-align: center;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.restaurant-info {
-  font-size: 14px;
-  text-align: left;
-}
-
-.rating {
-  font-weight: bold;
-}
-
-.info-link {
-  color: #5557ca;
-  text-decoration: underline;
-}
-
-.delivery-status {
-  color: #ff4500;
-  margin-bottom: 10px;
-}
-
-.group-order {
-  float: right;
-  display: flex;
-  align-items: center;
-  padding: 8px 16px;
-  width: 120px;
-  background-color: #eee;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  color: black;
-  font-family: "Uber Move";
-}
-
-.group-order svg {
-  margin-right: 8px;
-  transform: scale(0.7);
-}
-
-.description {
-  margin-top: 20px;
-  font-size: 14px;
-  text-align: left;
-}
-
-.favorite svg path {
-  stroke: black;
-  fill: white;
-}
-
-.favorite svg path.filled {
-  fill: black;
-  stroke: black;
-}
-
-.notification {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  z-index: 1000;
-}
-
-.notification img {
-  width: 24px;
-  height: 24px;
-  margin-right: 10px;
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1001;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 20px;
-  position: relative;
-  width: 500px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.restaurant-details-img {
-  max-width: 100%;
-  height: auto;
-}
-
-.popup-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
-.popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.popup-header h2 {
-  font-family: "Uber Move";
-  color: black;
-  margin: 0;
-}
-
-.close-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  color: black;
-}
-
-.popup-body {
-  display: flex;
-  flex-direction: column;
-}
-
-#map {
-  height: 200px; /* Adjust the height as needed */
-
-  width: 100%; /* The width is the width of the container */
-}
-.address {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-
-.address svg {
-  margin-right: 10px;
-  transform: scale(0.7);
-}
-.opens-at {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
-  margin-top: -7px;
-  margin-bottom: -7px;
-}
-
-.opens-at svg {
-  margin-right: 10px;
-  margin-top: -10px;
-  margin-bottom: -10px;
-  transform: scale(0.7);
-}
-.information {
-  margin-bottom: 15px;
-}
 .top-picks-slider {
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  max-width: 100%; /* Allow full width */
   margin: 0 auto;
-  transform: scale(0.9);
-  align-items: left;
-  margin-left: -180px;
-  margin-top: -115px;
+  overflow: hidden;
 }
 
 h2 {
@@ -401,18 +126,21 @@ h2 {
 }
 
 .slider-container {
-  overflow: hidden;
+  overflow-x: scroll; /* Enable horizontal scrolling */
+  display: flex;
   width: 100%;
   text-align: left;
+  padding-bottom: 10px; /* Add some padding for better UX */
 }
 
 .slides-wrapper {
   display: flex;
-  width: 100%;
+  width: auto; /* Allow flexible width */
 }
 
 .slide {
-  flex: 0 0 calc(30% - 10px); /* 25% width minus padding */
+  flex: 0 0 auto; /* Maintain item width */
+  width: 300px; /* Set the width for each slide */
   padding: 10px;
   box-sizing: border-box;
 }
@@ -449,41 +177,6 @@ h2 {
 }
 
 h3 {
-  font-size: 23px;
-}
-
-.price {
-  font-weight: bold;
-  margin-top: 0;
-}
-
-.add-button {
-  background-color: transparent;
-  border: none;
-  color: green;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 0;
-  margin-left: 10px;
-}
-
-.rank-badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #4caf50;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 12px;
-}
-.more1 {
-  padding: 0px;
-  background-color: transparent;
-  color: #5557ca;
-}
-
-h3 {
   font-size: 16px;
 }
 
@@ -492,46 +185,6 @@ h3 {
   margin-top: -10px;
 }
 
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom:    0px;
-  margin-top: -20px;
-}
-
-.nav-button {
-  display: flex;
-  border-radius: 50%;
-}
-
-.nav-buttons {
-  border-radius: 100px; /* Half of width/height to make it round */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  background-color: #1a1a1a; /* Or any color you prefer */
-  border: none;
-  cursor: pointer;
-  margin: 0 5px; /* Add some space around the buttons */
-  margin-right: 10px;
-}
-
-.nav-buttons svg {
-  width: 24px;
-  height: 24px;
-}
-
-.nav-buttons svg path {
-  fill: rgb(255, 255, 255); /* Use currentColor to inherit the button's color */
-}
-.nav-button.prev {
-  border-radius: 1000px;
-}
-.nav-button.next {
-  border-radius: 1000px;
-}
 .cart-button {
   background-color: transparent;
   border: none;
@@ -539,9 +192,9 @@ h3 {
   font-size: 18px;
   cursor: pointer;
   padding: 0px;
-  width: 20px; /* Adjust width */
-  height: 20px; /* Adjust height */
-  border-radius: 30%; /* Make the button a circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 30%;
   margin-left: 5px;
   margin-right: 5px;
   transition: background-color 0.3s;
@@ -553,121 +206,9 @@ h3 {
 .cart-button:hover {
   background-color: rgba(0, 128, 0, 0.1);
 }
+
 .img-stuff {
-  width: 400px;
-  height: 100%;
-}
-
-.infobutton {
-  background-color: transparent;
-  padding: 0px;
-  color: #5557ca;
-}
-
-.page-layout {
-  display: flex;
-}
-
-.sidebar {
-  width: 270px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow-y: auto;
-  background-color: transparent;
-  padding: 25px 0px 0px 0px;
-  text-align: left;
-  font-size: 25px;
-  font-family: Uber Move;
-  margin-top: -100px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-  margin-left: 0px;
-}
-
-.sidebar li {
-  margin-bottom: 30px;
-  margin-left: 0px;
-}
-
-.sidebar a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.sidebar a.active {
-  /* border: 1px solid grey; */
-  background-color: #1a1a1a;
-  padding: 10px 0px 10px 0px;
-  border-radius: 0px;
   width: 100%;
-  display: block;
-  position: relative; /* added */
-}
-
-.sidebar a.active::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 5px; /* adjust width as needed */
-  background-color: rgb(54, 54, 54);
-}
-.content {
-  flex-grow: 1;
-  padding: 20px;
-}
-
-section {
-  min-height: 500px; /* Adjust as needed to ensure scrolling */
-}
-.container-rect {
-  display: flex;
-  justify-content: space-between; /* Adjust spacing as needed */
-  gap: 6px; /* Space between rectangles */
-  padding: 0px; /* Optional padding for the container */
-  margin-bottom: 60px;
-}
-
-.rectangle {
-  width: 220px; /* Adjust the width as needed */
-  height: 150px; /* Adjust the height as needed */
-  background-color: transparent;
-  border: 0.5px solid;
-  border-color: #3a3a3a; /* Rectangle color */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white; /* Text color */
-  font-size: 24px; /* Text size */
-  border-radius: 8px; /* Optional rounded corners */
-  
-}
-.testimonial-text {
-  font-size: 16px;
-  margin-bottom: 18px;
-  font-family: Uber Move Light;
-}
-
-.testimonial-info {
-  font-size: 12px;
-  color: #666;
-}
-
-.sections-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px; /* Increased gap between sections */
-}
-
-.dynamic-section {
-  display: flex;
-  flex-direction: column;
-  min-height: auto; /* Remove fixed height */
+  height: auto;
 }
 </style>
