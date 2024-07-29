@@ -411,6 +411,7 @@
       </div>
     </div>
   </div>
+  <Footer/>
 </template>
 <script>
 import StuffToOrder from './DetailView/StuffToOrder.vue'
@@ -425,9 +426,10 @@ import Treats from './DetailView/Treats.vue'
 import Offers from './DetailView/Offers.vue'
 import Dips from './DetailView/Dips.vue'
 import Desserts from './DetailView/Desserts.vue'
+import Footer from './Footer.vue'
 export default {
   components: {
-    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees,Sides,Beverages,Salads,Treats,Offers,Dips,Desserts
+    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees,Sides,Beverages,Salads,Treats,Offers,Dips,Desserts,Footer
   },
   name: "RestaurantDetailView",
   data() {
