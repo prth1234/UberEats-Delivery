@@ -76,7 +76,6 @@
     },
   };
   </script>
- 
  <style scoped>
  .picked-for-you {
    font-family: Arial, sans-serif;
@@ -103,11 +102,11 @@
  }
  
  .image-container {
-   width: 25%;
+   width: 30%; /* Changed from 25% to 30% */
    display: flex;
    align-items: center;
    justify-content: center;
-   background-color: #1a1a1a;
+   background-color: transparent;
  }
  
  .item-image {
@@ -118,11 +117,13 @@
  
  .item-info {
    flex-grow: 1;
-   width: 75%;
+   width: 70%; /* Changed from 75% to 70% */
    padding: 10px;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   margin-left: 15px;
+
  }
  
  .item-info h3 {

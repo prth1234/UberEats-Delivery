@@ -37,7 +37,7 @@
   border-width: 1px;
   border-color: rgb(0, 0, 0);
   border-radius: 1rem;
-  background-image: url('https://i.ibb.co/Tbs4TXf/Screenshot-2024-07-29-at-4-18-30-PM-modified.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
+  background-image: url('https://i.ibb.co/NLSd2jz/Untitled-design-1.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
   background-size: cover; /* Ensures the image covers the entire background */
   padding: 1rem;
   margin-top: 50px;

@@ -272,6 +272,11 @@
               <div v-if="section.id==='entrees'"><Entrees/></div>
               <div v-if="section.id==='sides'"><Sides/></div>
               <div v-if="section.id==='beverages'"><Beverages/></div>
+              <div v-if="section.id==='salads'"><Salads/></div>
+              <div v-if="section.id==='treats'"><Treats/></div>
+              <div v-if="section.id==='offers'"><Offers/></div>
+
+
 
 
               
@@ -410,9 +415,12 @@ import Spiceitup from './DetailView/Spiceitup.vue'
 import Entrees from './DetailView/Entrees.vue'
 import Sides from './DetailView/Sides.vue'
 import Beverages from './DetailView/Beverages.vue'
+import Salads from './DetailView/Salads.vue'
+import Treats from './DetailView/Treats.vue'
+import Offers from './DetailView/Offers.vue'
 export default {
   components: {
-    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees,Sides,Beverages
+    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees,Sides,Beverages,Salads,Treats,Offers
   },
   name: "RestaurantDetailView",
   data() {
@@ -434,7 +442,7 @@ export default {
         { id: "beverages", name: "Beverages" },
         { id: "salads", name: "Salads" },
         { id: "treats", name: "Treats" },
-        { id: "burgers", name: "Burgers" },
+        { id: "offers", name: "Offers" },
         { id: "seafood", name: "Seafood" },
         { id: "desserts", name: "Desserts" },
       ],
