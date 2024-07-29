@@ -1120,7 +1120,7 @@ section {
   height: 150px; /* Adjust the height as needed */
   background-color: transparent;
   border: 0.5px solid;
-  border-color: #3a3a3a; /* Rectangle color */
+  border-color: #202020; /* Rectangle color */
   display: flex;
   align-items: center;
   justify-content: center;

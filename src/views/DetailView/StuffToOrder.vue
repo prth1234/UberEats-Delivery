@@ -63,7 +63,7 @@
             quantity: 0,
           },
           {
-            name: "Chick-fil-A ChickMeal® Meal",
+            name: "Chick-fil-A ChickMeal",
             price: 13.09,
             image:
               "https://i.ibb.co/8XBLVc3/chick-fil-a-9jv-1200xx2918-2918-185-0.jpg",
@@ -126,7 +126,7 @@
     display: flex;
     width: 100%;
     text-align: left;
-    padding-bottom: 10px; /* Add some padding for better UX */
+    padding-bottom: 0px; /* Add some padding for better UX */
   }
   
   .slides-wrapper {
