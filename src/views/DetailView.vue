@@ -86,95 +86,167 @@
         <button class="more1" @click="openInfo">Info</button>
       </div>
       <!-- <p class="description">{{ restaurant.description }}</p> -->
-<div class="main-body-content">
-      <div class="top-picks-slider">
-    <div class="header">
-      <div class="header-container">
-        <h2 style="text-align: left; font-family: Uber Move; font-size: 30px;">Featured items</h2>
-        <div class="nav-buttons">
-          <button class="nav-button prev" @click="prevSlide" aria-label="Previous slide">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
-          </button>
-          <button class="nav-button next" @click="nextSlide" aria-label="Next slide">
-            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="i3 dq i4 i5 k8" style="transform: scaleX(-1);"><path d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"></path></svg>
-          </button> 
-        </div>
-      </div>
-    </div>
-    <div class="slider-container">
-      <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
-        <div class="slide" v-for="(item, index) in items" :key="index">
-          <div class="item-image">
-            <img :src="item.image" :alt="item.name" class="img-stuff">
-            <span v-if="item.rank" class="rank-badge">{{ item.rank }}</span>
-          </div>
-          <div class="item-details">
-            <div class="item-info">
-              <h3>{{ item.name }}</h3>
-              <p class="price">${{ item.price.toFixed(2) }}</p>
+      <div class="main-body-content">
+        <div class="top-picks-slider">
+          <div class="header">
+            <div class="header-container">
+              <h2
+                style="
+                  text-align: left;
+                  font-family: Uber Move;
+                  font-size: 30px;
+                "
+              >
+                Featured items
+              </h2>
+              <div class="nav-buttons">
+                <button
+                  class="nav-button prev"
+                  @click="prevSlide"
+                  aria-label="Previous slide"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    class="i3 dq i4 i5"
+                  >
+                    <path
+                      d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="nav-button next"
+                  @click="nextSlide"
+                  aria-label="Next slide"
+                >
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    viewBox="0 0 24 24"
+                    class="i3 dq i4 i5 k8"
+                    style="transform: scaleX(-1)"
+                  >
+                    <path
+                      d="M22 13.5H6.3l5.5 7.5H8.3l-6.5-9 6.5-9h3.5l-5.5 7.5H22v3z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
             </div>
-            <button class="cart-button" @click="addToCart(index)">
-              <span v-if="item.quantity > 0">+ </span>
-              <span v-else>+</span>
-            </button>
-            <div v-if="item.quantity==0">0</div>
+          </div>
+          <div class="slider-container">
+            <div
+              class="slides-wrapper"
+              :style="{ transform: `translateX(-${currentIndex * 25}%)` }"
+            >
+              <div class="slide" v-for="(item, index) in items" :key="index">
+                <div class="item-image">
+                  <img :src="item.image" :alt="item.name" class="img-stuff" />
+                  <span v-if="item.rank" class="rank-badge">{{
+                    item.rank
+                  }}</span>
+                </div>
+                <div class="item-details">
+                  <div class="item-info">
+                    <h3>{{ item.name }}</h3>
+                    <p class="price">${{ item.price.toFixed(2) }}</p>
+                  </div>
+                  <button class="cart-button" @click="addToCart(index)">
+                    <span v-if="item.quantity > 0">+ </span>
+                    <span v-else>+</span>
+                  </button>
+                  <div v-if="item.quantity == 0">0</div>
 
-            <div v-if="item.quantity>0">{{ item.quantity }}</div>
-            
-            <button class="cart-button" @click="removeFromCart(index)">
-              <span >-</span>
-            </button>
+                  <div v-if="item.quantity > 0">{{ item.quantity }}</div>
+
+                  <button class="cart-button" @click="removeFromCart(index)">
+                    <span>-</span>
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="page-layout">
-    <nav class="sidebar">
-      <ul>
-        <h1>Menu</h1>
-        <p style="font-family: Uber Move Light; font-size: small; margin-top: -10px; margin-bottom: 30px;">Open 24 hrs</p>
-        <li v-for="section in sections" :key="section.id">
-          <a 
-            :href="`#${section.id}`"
-            :class="{ 'active': activeSection === section.id }"
-            @click="scrollToSection(section.id)"
-            
-          >
-            <div style="margin-left: 25px; font-size: 20px; ">{{ section.name }}</div>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <main class="content">
-<section v-for="section in sections" :key="section.id" :id="section.id">
-  <h2 style="text-align: left; margin-top: -72px; font-family: Uber Move;">{{ section.name }}</h2>
-  <div v-if="section.id === 'ratings'" style="color: green">
-    <div class="container-rect">
-      <div class="rectangle">
-        <div class="rating-container">
-          <span class="rating" style="font-size: 40px;">{{ restaurant.rating }}</span>
-          <span class="rating-count" style="margin-left: 10px;">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" color="#F6BC2F">
-              <title>Star</title>
-              <path d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z" fill="currentColor"></path>
-            </svg>
-          </span>
+        <div class="page-layout">
+          <nav class="sidebar">
+            <ul>
+              <h1>Menu</h1>
+              <p
+                style="
+                  font-family: Uber Move Light;
+                  font-size: small;
+                  margin-top: -10px;
+                  margin-bottom: 30px;
+                "
+              >
+                Open 24 hrs
+              </p>
+              <li v-for="section in sections" :key="section.id">
+                <a
+                  :href="`#${section.id}`"
+                  :class="{ active: activeSection === section.id }"
+                  @click="scrollToSection(section.id)"
+                >
+                  <div style="margin-left: 25px; font-size: 20px">
+                    {{ section.name }}
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <main class="content">
+            <section
+              v-for="section in sections"
+              :key="section.id"
+              :id="section.id"
+            >
+              <h2
+                style="
+                  text-align: left;
+                  margin-top: -72px;
+                  font-family: Uber Move;
+                "
+              >
+                {{ section.name }}
+              </h2>
+              <div v-if="section.id === 'ratings'" style="color: green">
+                <div class="container-rect">
+                  <div class="rectangle">
+                    <div class="rating-container">
+                      <span class="rating" style="font-size: 40px">{{
+                        restaurant.rating
+                      }}</span>
+                      <span class="rating-count" style="margin-left: 10px">
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          color="#F6BC2F"
+                        >
+                          <title>Star</title>
+                          <path
+                            d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      <br/> <div style="font-weight: 20; color:darkgrey; font-size: 20px;"> {{ restaurant.ratingCount }}+ ratings </div> 
+
+                      </span>
+                    </div>
+                
+                  </div>
+                  <div class="rectangle">2</div>
+                  <div class="rectangle">3</div>
+                  <div class="rectangle">4</div>
+                </div>
+              </div>
+            </section>
+          </main>
         </div>
-        <!-- <div class="rating-count-text" style="display: inline;">{{ restaurant.ratingCount }}+ ratings</div> -->
       </div>
-      <div class="rectangle"></div>
-      <div class="rectangle">3</div>
-      <div class="rectangle">4</div>
-    </div>
-  </div>
-</section>
-
-
-    </main>
-  </div>
-
-</div>
       <transition name="fade">
         <div v-if="showNotification" class="notification">
           <svg
@@ -197,7 +269,7 @@
           >
         </div>
       </transition>
-      <div v-if="showPopup" class="modal-overlay" >
+      <div v-if="showPopup" class="modal-overlay">
         <div class="modal-content">
           <div class="popup-header">
             <h2>{{ selectedTab.text }}</h2>
@@ -289,7 +361,7 @@
             </button>
           </div>
           <div class="popup-body" style="color: black; text-align: left">
-            <p style="font-weight: 100;">{{restaurant.description }}</p>
+            <p style="font-weight: 100">{{ restaurant.description }}</p>
           </div>
         </div>
       </div>
@@ -309,24 +381,22 @@ export default {
       showNotification: false,
       notificationMessage: "",
       showPopup: false,
-      showInfo:false,
+      showInfo: false,
       selectedTab: { text: "Details" },
-      activeSection: '',
+      activeSection: "",
       sections: [
-      { id: 'ratings', name: 'Ratings' },
-        { id: 'picked-for-you', name: 'Picked for you' },
-        { id: 'breakfast', name: 'Breakfast' },
-        { id: 'meals', name: 'Meals' },
-        { id: 'entrees', name: 'Entrées' },
-        { id: 'sides', name: 'Sides' },
-        { id: 'beverages', name: 'Beverages' },
-        { id: 'salads', name: 'Salads' },
-        { id: 'treats', name: 'Treats' },
-        { id: 'burgers', name: 'Burgers' },
-        { id: 'seafood', name: 'Seafood' },
-        { id: 'desserts', name: 'Desserts' },
-
-
+        { id: "ratings", name: "Ratings" },
+        { id: "picked-for-you", name: "Picked for you" },
+        { id: "breakfast", name: "Breakfast" },
+        { id: "meals", name: "Meals" },
+        { id: "entrees", name: "Entrées" },
+        { id: "sides", name: "Sides" },
+        { id: "beverages", name: "Beverages" },
+        { id: "salads", name: "Salads" },
+        { id: "treats", name: "Treats" },
+        { id: "burgers", name: "Burgers" },
+        { id: "seafood", name: "Seafood" },
+        { id: "desserts", name: "Desserts" },
       ],
       items: [
         {
@@ -335,7 +405,7 @@ export default {
           image:
             "https://www.kitchenathoskins.com/wp-content/uploads/2020/09/air-fryer-chicken-nuggets-28.jpg",
           rank: " ＃ 1 most liked",
-          quantity:0,
+          quantity: 0,
         },
         {
           name: "Chick-fil-A® Nuggets",
@@ -343,8 +413,7 @@ export default {
           image:
             "https://girlscangrill.com/wp-content/uploads/2015/12/copycat-chick-fil-a-chicken-nuggets-500x500.jpg",
           rank: "＃ 2 most liked",
-          quantity:0,
-
+          quantity: 0,
         },
         {
           name: "Spicy Southwest Salad",
@@ -352,16 +421,14 @@ export default {
           image:
             "https://realhousemoms.com/wp-content/uploads/Copycat-Chick-Fil-A-Spicy-Southwest-Salad-RECIPE-CARD.jpg",
           rank: "＃ 3 most liked",
-          quantity:0,
-
+          quantity: 0,
         },
         {
           name: "Chick-fil-A ChickMeal® Meal",
           price: 13.09,
           image:
             "https://i.ibb.co/8XBLVc3/chick-fil-a-9jv-1200xx2918-2918-185-0.jpg",
-            quantity:0,
-
+          quantity: 0,
         },
 
         {
@@ -369,8 +436,7 @@ export default {
           price: 13.09,
           image:
             "https://summeryule.com/wp-content/uploads/2022/04/southwest-salad-chick-fil-a.jpeg",
-            quantity:0,
-
+          quantity: 0,
         },
 
         {
@@ -378,16 +444,14 @@ export default {
           price: 13.09,
           image:
             "https://d1fd34dzzl09j.cloudfront.net/Images/CFACOM/Daypart%20Hero/Winter23/Winter23-DotCom-ChickenSandwich-D_720x748.jpg?h=748&w=720&la=en",
-            quantity:0,
-
+          quantity: 0,
         },
         {
           name: "Chick-fil-A Waffles",
           price: 13.09,
           image:
             "https://assets.entrepreneur.com/content/3x2/2000/20180403185342-12030542-10153912476520101-9019529450634602395-o.jpeg?format=pjeg&auto=webp&crop=1:1",
-            quantity:0,
-
+          quantity: 0,
         },
       ],
       currentIndex: 0,
@@ -414,8 +478,6 @@ export default {
     };
   },
   methods: {
-
-    
     handleScroll() {
       const scrollPosition = window.scrollY;
       for (let i = this.sections.length - 1; i >= 0; i--) {
@@ -428,7 +490,7 @@ export default {
     },
     scrollToSection(sectionId) {
       const element = document.getElementById(sectionId);
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     },
     openPopup() {
       this.showPopup = true;
@@ -436,12 +498,12 @@ export default {
         this.loadGoogleMapsScript();
       });
     },
-    openInfo(){
+    openInfo() {
       this.showInfo = true;
       console.log(this.showInfo);
     },
-    closeInfo(){
-      this.showInfo=false;
+    closeInfo() {
+      this.showInfo = false;
     },
     toggleFavorite() {
       this.isFavorite = !this.isFavorite;
@@ -467,10 +529,10 @@ export default {
       this.items[index].quantity++;
     },
     removeFromCart(index) {
-  if (this.items[index].quantity > 0) {
-    this.items[index].quantity--;
-  }
-},
+      if (this.items[index].quantity > 0) {
+        this.items[index].quantity--;
+      }
+    },
     closePopup() {
       this.showPopup = false;
     },
@@ -509,11 +571,11 @@ export default {
     },
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll);
     this.handleScroll(); // Initial check
   },
   beforeUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   // ... methods and other component options
 };
@@ -569,7 +631,6 @@ export default {
   height: 2px;
   background-color: #ebeaea;
   width: 100%;
-
 }
 
 .content {
@@ -607,7 +668,7 @@ h1 {
   display: flex;
   align-items: center;
   padding: 8px 16px;
-  width:120px;
+  width: 120px;
   background-color: #eee;
   border: none;
   border-radius: 20px;
@@ -753,7 +814,6 @@ h1 {
   margin-left: 15px;
   margin-top: 0px;
   margin-bottom: 0px;
-  
 }
 
 .address svg {
@@ -766,7 +826,6 @@ h1 {
   margin-left: 15px;
   margin-top: -7px;
   margin-bottom: -7px;
-  
 }
 
 .opens-at svg {
@@ -774,7 +833,6 @@ h1 {
   margin-top: -10px;
   margin-bottom: -10px;
   transform: scale(0.7);
-
 }
 .information {
   margin-bottom: 15px;
@@ -787,7 +845,6 @@ h1 {
   align-items: left;
   margin-left: -180px;
   margin-top: -70px;
-
 }
 
 h2 {
@@ -874,16 +931,14 @@ h3 {
   border-radius: 15px;
   font-size: 12px;
 }
-.more1{
+.more1 {
   padding: 0px;
   background-color: transparent;
   color: #5557ca;
 }
 
-
 h3 {
   font-size: 16px;
-  
 }
 
 .price {
@@ -930,32 +985,32 @@ h3 {
   border-radius: 1000px;
 }
 .cart-button {
-    background-color: transparent;
-    border: none;
-    color: green;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 0px;
-    width: 40px;  /* Adjust width */
-    height: 40px;  /* Adjust height */
-    border-radius: 50%;  /* Make the button a circle */
-    margin-left: 5px;
-    margin-right: 5px;
-    transition: background-color 0.3s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: transparent;
+  border: none;
+  color: green;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0px;
+  width: 40px; /* Adjust width */
+  height: 40px; /* Adjust height */
+  border-radius: 50%; /* Make the button a circle */
+  margin-left: 5px;
+  margin-right: 5px;
+  transition: background-color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart-button:hover {
   background-color: rgba(0, 128, 0, 0.1);
 }
-.img-stuff{
+.img-stuff {
   width: 100%;
   height: 100%;
 }
 
-.infobutton{
+.infobutton {
   background-color: transparent;
   padding: 0px;
   color: #5557ca;
@@ -978,7 +1033,6 @@ h3 {
   font-family: Uber Move;
   margin-top: -100px;
 }
-
 
 .sidebar ul {
   list-style-type: none;
@@ -1034,7 +1088,7 @@ section {
 .rectangle {
   width: 220px; /* Adjust the width as needed */
   height: 150px; /* Adjust the height as needed */
-  background-color:transparent;
+  background-color: transparent;
   border: 0.5px solid;
   border-color: #3a3a3a; /* Rectangle color */
   display: flex;
