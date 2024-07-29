@@ -6,20 +6,19 @@
           <p class="alert"></p>
         </div>
   
-        <p class="message"><b>
-          Uber has expanded its services to include environmentally friendly options like Green Delivery, promoting sustainability in urban transportation. Through initiatives like Green Delivery, Uber aims to reduce carbon emissions and contribute to a greener future for urban mobility.
+        <p class="message" style="text-align: left; color: white; font-size: 20px;"><b>
+            Unleash the Spicy Inferno, Ignite Your Taste Buds!
         </b></p>
   
         <div class="actions">
           <!-- Updated anchor tag with router-link -->
-          <router-link to="/green" class="read" style="font-family: 'Uber Move';">
-            Take a Look
-          </router-link>
+            <button class="takealook">Take a Look</button>
+            
   
           <!-- Updated anchor tag to redirect to /sign-in-green -->
-          <router-link to="/sign-in-green" class="mark-as-read" style="font-family: 'Uber Move';">
+          <!-- <router-link to="/sign-in-green" class="mark-as-read" style="font-family: 'Uber Move';">
             Join us
-          </router-link>
+          </router-link> -->
         </div>
       </div>
 
@@ -164,13 +163,18 @@ export default {
   margin: 0 0.5rem;
 }
 
+.takealook{
+    background-color: #06C167;
+    font-family: Uber Move;
+}
+
 .card {
   max-width: 3000px;
   width: 1000px;
   border-width: 1px;
   border-color: rgb(0, 0, 0);
   border-radius: 1rem;
-  background-image: url('https://i.ibb.co/NLSd2jz/Untitled-design-1.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
+  background-image: url('https://i.ibb.co/Tbs4TXf/Screenshot-2024-07-29-at-4-18-30-PM-modified.png'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
   background-size: cover; /* Ensures the image covers the entire background */
   padding: 1rem;
   margin-top: 20px;
@@ -233,6 +237,8 @@ export default {
 .actions {
   margin-top: 1.5rem;
   gap:10px;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .actions a {
@@ -241,6 +247,7 @@ export default {
   margin-right: 10px; /* Adjust as needed for the desired gap */
 
 }
+
 
 .mark-as-read, .read {
   display: inline-block;
