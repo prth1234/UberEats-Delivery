@@ -20,8 +20,7 @@
               class="slides-wrapper"
               :style="{ transform: `translateX(-${currentIndex * 25}%)` }"
             >
-              <div class="slide" v-for="(item, index) in items" :key="index">
-                <div class="item-image">
+            <div class="slide" v-for="(item, index) in items.slice(0, 5)" :key="index">                <div class="item-image">
                   <img :src="item.image" :alt="item.name" class="img-stuff" />
                   <span v-if="item.rank" class="rank-badge">{{
                     item.rank
@@ -113,6 +112,16 @@ export default{
       ],
       currentIndex: 0,
         }
+    },
+    methods:{
+        addToCart(index) {
+      this.items[index].quantity++;
+    },
+    removeFromCart(index) {
+      if (this.items[index].quantity > 0) {
+        this.items[index].quantity--;
+      }
+    },
     }
 }
 
@@ -380,10 +389,10 @@ h1 {
   font-family: Arial, sans-serif;
   max-width: 1200px;
   margin: 0 auto;
-  transform: scale(0.7);
+  transform: scale(0.9);
   align-items: left;
   margin-left: -180px;
-  margin-top: -125px;
+  margin-top: -115px;
 }
 
 h2 {
@@ -399,15 +408,13 @@ h2 {
 
 .slides-wrapper {
   display: flex;
-  transition: transform 0.3s ease;
-  width: fit-content;
+  width: 100%;
 }
 
 .slide {
-  flex: 0 0 25%;
+  flex: 0 0 calc(30% - 10px); /* 25% width minus padding */
   padding: 10px;
   box-sizing: border-box;
-  width: 25%;
 }
 
 .item-image {
@@ -489,7 +496,8 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom:    0px;
+  margin-top: -20px;
 }
 
 .nav-button {
@@ -531,9 +539,9 @@ h3 {
   font-size: 18px;
   cursor: pointer;
   padding: 0px;
-  width: 40px; /* Adjust width */
-  height: 40px; /* Adjust height */
-  border-radius: 50%; /* Make the button a circle */
+  width: 20px; /* Adjust width */
+  height: 20px; /* Adjust height */
+  border-radius: 30%; /* Make the button a circle */
   margin-left: 5px;
   margin-right: 5px;
   transition: background-color 0.3s;
@@ -546,7 +554,7 @@ h3 {
   background-color: rgba(0, 128, 0, 0.1);
 }
 .img-stuff {
-  width: 100%;
+  width: 400px;
   height: 100%;
 }
 
