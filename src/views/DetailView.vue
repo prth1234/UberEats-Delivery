@@ -267,6 +267,8 @@
                 </div>
               </div>
               <div v-if="section.id==='picked-for-you' "><StuffToOrder/></div>
+              <div v-if="section.id==='breakfast'"><BreakfastOrder/></div>
+
             </section>
           </div>
           </main>
@@ -394,11 +396,12 @@
   </div>
 </template>
 <script>
-import StuffToOrder from './StuffToOrder.vue'
+import StuffToOrder from './DetailView/StuffToOrder.vue'
+import BreakfastOrder from './DetailView/BreakfastOrder.vue'
 import Sidebarbody from "./Sidebarbody.vue";
 export default {
   components: {
-    Sidebarbody,StuffToOrder
+    Sidebarbody,StuffToOrder,BreakfastOrder
   },
   name: "RestaurantDetailView",
   data() {
