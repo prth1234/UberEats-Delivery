@@ -238,9 +238,30 @@
                     </div>
                 
                   </div>
-                  <div class="rectangle">2</div>
-                  <div class="rectangle">3</div>
-                  <div class="rectangle">4</div>
+                  <div class="rectangle">  <div class="testimonial">
+    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
+    <div class="testimonial-info">
+      <span class="stars" style="margin-right: 10px;">★★★★★</span>
+      <span class="author" style="margin-right: 10px;">Gracie S.</span>
+      <span class="date">02/15/23</span>
+    </div>
+  </div></div>
+                  <div class="rectangle"><div class="testimonial">
+    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
+    <div class="testimonial-info">
+      <span class="stars" style="margin-right: 10px;">★★★★★</span>
+      <span class="author" style="margin-right: 10px;">Gracie S.</span>
+      <span class="date">02/15/23</span>
+    </div>
+  </div></div>
+                  <div class="rectangle"><div class="testimonial">
+    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
+    <div class="testimonial-info">
+      <span class="stars" style="margin-right: 10px;">★★★★★</span>
+      <span class="author" style="margin-right: 10px;">Gracie S.</span>
+      <span class="date">02/15/23</span>
+    </div>
+  </div></div>
                 </div>
               </div>
             </section>
@@ -1097,5 +1118,15 @@ section {
   color: white; /* Text color */
   font-size: 24px; /* Text size */
   border-radius: 8px; /* Optional rounded corners */
+}
+.testimonial-text {
+  font-size: 16px;
+  margin-bottom: 18px;
+  font-family: Uber Move Light;
+}
+
+.testimonial-info {
+  font-size: 12px;
+  color: #666;
 }
 </style>
