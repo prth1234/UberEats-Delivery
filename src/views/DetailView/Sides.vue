@@ -3,16 +3,16 @@
       <div class="grid-container">
         <div class="grid-item" v-for="(item, index) in items" :key="index">
           <div class="item-content">
-            <img :src="item.image" :alt="item.name" class="item-image" />
+            <div class="image-container">
+              <img :src="item.image" :alt="item.name" class="item-image" />
+            </div>
             <div class="item-info">
-              <h3 style="text-align: left;">{{ item.name }}</h3>
-              <p class="price" style="text-align: left;" >${{ item.price.toFixed(2) }}</p>
+              <h3>{{ item.name }}</h3>
+              <p class="price">${{ item.price.toFixed(2) }}</p>
               <div class="quantity-control">
                 <button class="cart-button" @click="addToCart(index)">+</button>
-
                 <span>{{ item.quantity }}</span>
                 <button class="cart-button" @click="removeFromCart(index)">-</button>
-
               </div>
             </div>
           </div>
@@ -78,82 +78,90 @@
   };
   </script>
   
-  <style scoped>
-  .picked-for-you {
-    font-family: Arial, sans-serif;
-    max-width: 1200px;
-    margin: 0 auto;
-    margin-bottom: 70px;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-  
-  .grid-item {
-    border: 1px solid #202020;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .item-content {
-    display: flex;
-    height: 80px;
-  }
-  
-  .item-image {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-  }
-  
-  .item-info {
-    flex-grow: 1;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .item-info h3 {
-    font-size: 12px;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  
-  .price {
-    font-size: 11px;
-    color: #888;
-    margin: 2px 0;
-  }
-  
-  .quantity-control {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    font-size: 11px;
-  }
-  
-  .cart-button {
+<style scoped>
+.picked-for-you {
+  font-family: Arial, sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.grid-item {
+  border: 1px solid #202020;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.item-content {
+  display: flex;
+  height: 100px;
+}
+
+.image-container {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1a1a1a;
+}
+
+.item-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.item-info {
+  flex-grow: 1;
+  width: 75%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-info h3 {
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+}
+
+.price {
+  font-size: 12px;
+  color: #888;
+  margin: 4px 0;
+  text-align: left;
+}
+
+.quantity-control {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 12px;
+}
+
+.cart-button {
   background-color: transparent;
   color: green;
   border: none;
-  border-radius: 50%; /* This will make the button a circle */
-  width: 20px; /* Set the width and height to the same value */
-  height: 20px; /* Set the width and height to the same value */
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 4px;
 }
-  
-  .quantity-control span {
-    margin: 0 4px;
-  }
-  </style>
+
+.quantity-control span {
+  margin: 0 6px;
+}
+</style>
