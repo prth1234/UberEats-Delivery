@@ -1,29 +1,29 @@
 <template>
-      <div class="picked-for-you">
-    <div class="grid-container">
-      <div class="grid-item" v-for="(item, index) in items" :key="index">
-        <div class="item-image-container">
-          <img :src="item.image" :alt="item.name" class="item-image" />
-        </div>
-        <div class="item-info">
-          <h3>{{ item.name }}</h3>
-          <p class="price">${{ item.price.toFixed(2) }}</p>
-          <div class="quantity-control">
-            <button class="cart-button" @click="addToCart(index)">
-              <span v-if="item.quantity > 0">+</span>
-              <span v-else>+</span>
-            </button>
-            <div v-if="item.quantity == 0">0</div>
-            <div v-if="item.quantity > 0">{{ item.quantity }}</div>
-            <button class="cart-button" @click="removeFromCart(index)">
-              <span>-</span>
-            </button>
+    <div class="picked-for-you">
+      <div class="grid-container">
+        <div class="grid-item" v-for="(item, index) in items" :key="index">
+          <div class="item-image-container">
+            <img :src="item.image" :alt="item.name" class="item-image" />
+          </div>
+          <div class="item-info">
+            <h3>{{ item.name }}</h3>
+            <p class="price">${{ item.price.toFixed(2) }}</p>
+            <div class="quantity-control">
+              <button class="cart-button" @click="addToCart(index)">
+                <span v-if="item.quantity > 0">+</span>
+                <span v-else>+</span>
+              </button>
+              <div v-if="item.quantity == 0">0</div>
+              <div v-if="item.quantity > 0">{{ item.quantity }}</div>
+              <button class="cart-button" @click="removeFromCart(index)">
+                <span>-</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</template>
+  </template>
 
 
 
@@ -79,7 +79,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .picked-for-you {
   font-family: Arial, sans-serif;
@@ -94,49 +93,51 @@ export default {
 
 .grid-item {
   border: 1px solid #202020;
-  /* padding: 1rem; */
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  margin-top: 10px;
-  margin-bottom: 0px;
+  overflow: hidden;
 }
 
 .item-image-container {
-  width: 100%;
+  flex: 1;
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 1rem;
+  min-height: 200px; /* Set a minimum height for the image container */
 }
 
 .item-image {
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .item-info {
-  text-align: center;
-  margin-top: 1rem;
+  padding: 1rem;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .item-info h3 {
   font-size: 1rem;
   margin: 0;
+  text-align: center;
 }
 
 .item-info .price {
   font-size: 0.875rem;
   color: #888;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .quantity-control {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 0.5rem;
 }
 
 .cart-button {

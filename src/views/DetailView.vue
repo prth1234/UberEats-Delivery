@@ -1056,7 +1056,7 @@ h3 {
 }
 
 .sidebar {
-  width: 1050px;
+  width: 1250px;
   position: sticky;
   top: 0;
   height: 100vh;
