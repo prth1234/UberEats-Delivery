@@ -270,6 +270,9 @@
               <div v-if="section.id==='burger'"><BreakfastOrder/></div>
               <div v-if="section.id==='spiceitup'"><Spiceitup/></div>
               <div v-if="section.id==='entrees'"><Entrees/></div>
+              <div v-if="section.id==='sides'"><Sides/></div>
+              <div v-if="section.id==='beverages'"><Beverages/></div>
+
 
               
 
@@ -405,9 +408,11 @@ import BreakfastOrder from './DetailView/BreakfastOrder.vue'
 import Sidebarbody from "./Sidebarbody.vue";
 import Spiceitup from './DetailView/Spiceitup.vue'
 import Entrees from './DetailView/Entrees.vue'
+import Sides from './DetailView/Sides.vue'
+import Beverages from './DetailView/Beverages.vue'
 export default {
   components: {
-    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees
+    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees,Sides,Beverages
   },
   name: "RestaurantDetailView",
   data() {
