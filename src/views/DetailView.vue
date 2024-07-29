@@ -94,7 +94,7 @@
                 style="
                   text-align: left;
                   font-family: Uber Move;
-                  font-size: 30px;
+                  font-size: 35px;
                 "
               >
                 Featured items
@@ -197,10 +197,12 @@
             </ul>
           </nav>
           <main class="content">
+            <div class="sections-container">
             <section
               v-for="section in sections"
               :key="section.id"
               :id="section.id"
+              class="dynamic-section"
             >
               <h2
                 style="
@@ -211,7 +213,7 @@
               >
                 {{ section.name }}
               </h2>
-              <div v-if="section.id === 'ratings'" style="color: green">
+              <div v-if="section.id === 'ratings'" >
                 <div class="container-rect">
                   <div class="rectangle">
                     <div class="rating-container">
@@ -242,29 +244,31 @@
     <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
     <div class="testimonial-info">
       <span class="stars" style="margin-right: 10px;">★★★★★</span>
-      <span class="author" style="margin-right: 10px;">Gracie S.</span>
-      <span class="date">02/15/23</span>
+      <span class="author" style="margin-right: 10px;">Gracie</span>
+      <span class="date">19/4/24</span>
     </div>
   </div></div>
                   <div class="rectangle"><div class="testimonial">
-    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
+    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"The chicken sandwich was perfect. Fresh, tasty, and satisfying. Chick-fil-A always delivers quality"</div>
     <div class="testimonial-info">
       <span class="stars" style="margin-right: 10px;">★★★★★</span>
-      <span class="author" style="margin-right: 10px;">Gracie S.</span>
-      <span class="date">02/15/23</span>
+      <span class="author" style="margin-right: 10px;">Amalda</span>
+      <span class="date">02/11/23</span>
     </div>
   </div></div>
                   <div class="rectangle"><div class="testimonial">
-    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Exactly what I needed and desired. New for me. My body loved it. Go vegan. Better for Environement"</div>
+    <div class="testimonial-text" style="text-align: left; margin-left: 10px;">"Amazing experience every time. The waffle fries and chicken nuggets are top-notch and best i ever had"</div>
     <div class="testimonial-info">
       <span class="stars" style="margin-right: 10px;">★★★★★</span>
-      <span class="author" style="margin-right: 10px;">Gracie S.</span>
-      <span class="date">02/15/23</span>
+      <span class="author" style="margin-right: 10px;">Abraham</span>
+      <span class="date">28/10/23</span>
     </div>
   </div></div>
                 </div>
               </div>
+              <div v-if="section.id==='picked-for-you' "><StuffToOrder/></div>
             </section>
+          </div>
           </main>
         </div>
       </div>
@@ -390,10 +394,11 @@
   </div>
 </template>
 <script>
+import StuffToOrder from './StuffToOrder.vue'
 import Sidebarbody from "./Sidebarbody.vue";
 export default {
   components: {
-    Sidebarbody,
+    Sidebarbody,StuffToOrder
   },
   name: "RestaurantDetailView",
   data() {
@@ -1104,6 +1109,7 @@ section {
   justify-content: space-between; /* Adjust spacing as needed */
   gap: 6px; /* Space between rectangles */
   padding: 0px; /* Optional padding for the container */
+  margin-bottom: 60px;
 }
 
 .rectangle {
@@ -1118,6 +1124,7 @@ section {
   color: white; /* Text color */
   font-size: 24px; /* Text size */
   border-radius: 8px; /* Optional rounded corners */
+  
 }
 .testimonial-text {
   font-size: 16px;
@@ -1129,4 +1136,17 @@ section {
   font-size: 12px;
   color: #666;
 }
+
+.sections-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Increased gap between sections */
+}
+
+.dynamic-section {
+  display: flex;
+  flex-direction: column;
+  min-height: auto; /* Remove fixed height */
+}
+
 </style>
