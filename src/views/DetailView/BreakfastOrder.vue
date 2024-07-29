@@ -182,7 +182,7 @@
     border-radius: 70%;
     cursor: pointer;
     margin: 0 0.5rem;
-    color: ;
+    color: green;
   }
   
   /* .cart-button:hover {
