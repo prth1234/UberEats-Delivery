@@ -267,7 +267,11 @@
                 </div>
               </div>
               <div v-if="section.id==='picked-for-you' "><StuffToOrder/></div>
-              <div v-if="section.id==='breakfast'"><BreakfastOrder/></div>
+              <div v-if="section.id==='burger'"><BreakfastOrder/></div>
+              <div v-if="section.id==='spiceitup'"><Spiceitup/></div>
+              <div v-if="section.id==='entrees'"><Entrees/></div>
+
+              
 
             </section>
           </div>
@@ -399,9 +403,11 @@
 import StuffToOrder from './DetailView/StuffToOrder.vue'
 import BreakfastOrder from './DetailView/BreakfastOrder.vue'
 import Sidebarbody from "./Sidebarbody.vue";
+import Spiceitup from './DetailView/Spiceitup.vue'
+import Entrees from './DetailView/Entrees.vue'
 export default {
   components: {
-    Sidebarbody,StuffToOrder,BreakfastOrder
+    Sidebarbody,StuffToOrder,BreakfastOrder,Spiceitup,Entrees
   },
   name: "RestaurantDetailView",
   data() {
@@ -416,8 +422,8 @@ export default {
       sections: [
         { id: "ratings", name: "Ratings" },
         { id: "picked-for-you", name: "Picked for you" },
-        { id: "breakfast", name: "Breakfast" },
-        { id: "meals", name: "Meals" },
+        { id: "burger", name: "Burgers" },
+        { id: "spiceitup", name: "Spice it Up" },
         { id: "entrees", name: "Entrées" },
         { id: "sides", name: "Sides" },
         { id: "beverages", name: "Beverages" },
@@ -1050,7 +1056,7 @@ h3 {
 }
 
 .sidebar {
-  width: 270px;
+  width: 950px;
   position: sticky;
   top: 0;
   height: 100vh;

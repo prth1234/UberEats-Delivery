@@ -108,12 +108,18 @@
   <style scoped>
   .picked-for-you {
     font-family: Arial, sans-serif;
+    margin-bottom: 70px;
   }
   
   h2 {
     text-align: left;
     font-family: "Uber Move", sans-serif;
     font-size: 35px;
+  }
+
+  .item-image{
+    margin-right: 10px;
+    padding-right: 15px ;
   }
   
   .grid-container {
@@ -129,6 +135,8 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
+    margin-top: 10px;
+    margin-bottom: 0px;
   }
   
   .item-content {
@@ -177,20 +185,27 @@
   }
   
   .cart-button {
-    background-color: transparent;
-    padding: 0.5rem;
-    border-radius: 70%;
-    cursor: pointer;
-    margin: 0 0.5rem;
-    color: green;
-  }
-  
-  /* .cart-button:hover {
-    background-color: #322525;
-  } */
-  
-  .quantity-control div {
-    margin: 0 0.5rem;
-  }
+  background-color: transparent;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 0 0.5rem;
+  color: green;
+  border: 1px solid transparent;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-button:hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.quantity-control div {
+  margin: 0 0.5rem;
+}
   </style>
   
