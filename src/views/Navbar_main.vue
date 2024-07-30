@@ -218,7 +218,7 @@ function closePopup() {
 
 function searchCities() {
   selectedIndex.value = -1;
-  showSuggestions.value = searchQuery.value.length >= 2;
+  showSuggestions.value = searchQuery.value.length >= 1;
 }
 
 function moveDown() {
