@@ -412,7 +412,7 @@
       <h1 style="margin-top: -10px; font-size: 35px;">{{restaurant.name}}</h1>
       <!-- <p style="padding: 0px; margin-bottom: 0px; margin-top: 0px; font-family: Uber Move Light;">From Domino's</p> -->
       <!-- <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light;">Deliver to Santa Barbara</p> -->
-      <div class="information">
+      <div class="information" style="font-family: Uber Move Light;">
                 <span class="rating">{{ restaurant.rating }} ★ | </span>
                 <span>({{ restaurant.ratingCount }}+) | </span>
                 <span>{{ restaurant.categories.join(" • ") }} • </span>
@@ -423,9 +423,9 @@
         <div class="detail-item">
           <span class="icon" style="margin-right: 20px;"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></span>
           <div>
-            <strong>People can order at any time</strong>
+            <strong>{{restaurant.fullAddress}}</strong>
 
-            <p style="margin-top: 0px;  font-family: Uber Move Light;">No deadline set</p>
+            <!-- <p style="margin-top: 0px;  font-family: Uber Move Light;">No deadline set</p> -->
             <hr class="divider">
 
           </div>
@@ -435,8 +435,8 @@
         <div class="detail-item">
           <span class="icon" style="margin-right: 20px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Star</title><path d="M23.917 8.5 16.104 8l-3.646-7-3.646 7L1 8.5 6.73 14l-2.084 8 7.812-4 7.813 4-2.084-8 5.73-5.5Zm-8.855 4.7L16 16.8 12.458 15l-3.541 1.8.937-3.6-2.5-2.4 3.23-.2L12.457 7l1.875 3.6 3.23.2-2.5 2.4Z" fill="currentColor"></path></svg></span>
           <div>
-            <strong>You pay for everyone</strong>
-            <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p>
+            <strong>{{ restaurant.OpeningTime }}</strong>
+            <!-- <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p> -->
             <hr class="divider">
 
           </div>
@@ -446,8 +446,8 @@
         <div class="detail-item">
           <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
           <div>
-            <strong>Does not repeat</strong>
-            <p style="margin-top: 0px; font-family: Uber Move Light;">Set as a repeat group order to place at recurring times</p>
+            <strong>{{ restaurant.rating }} ({{ restaurant.ratingCount }}+ ratings)</strong>
+            <p style="margin-top: 0px; font-family: Uber Move Light;">{{ restaurant.categories.join(" • ") }} </p>
             <hr class="divider">
 
           </div>
@@ -455,7 +455,7 @@
         </div>
       </div>
       
-      <button class="invite-button">Invite people</button>
+      <button @click="closeGroupOrderPopup" class="invite-button">Order Online</button>
     </div>
   </div>
       </div>

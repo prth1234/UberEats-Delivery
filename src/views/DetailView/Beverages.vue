@@ -159,6 +159,7 @@
    cursor: pointer;
    font-size: 14px;
    margin: 0 4px;
+   margin-left: 0px;
  }
  
  .quantity-control span {
