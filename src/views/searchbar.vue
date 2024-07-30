@@ -482,6 +482,7 @@ function clearSearch() {
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(1.7);
 }
 
 .close-btn {
