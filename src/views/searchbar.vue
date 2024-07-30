@@ -451,7 +451,7 @@ function clearSearch() {
   --gap: 2em;
   --icon-change-color: #000000;
   --height: 55px;
-  width: 380px;
+  width: 580px;
   padding-inline-end: 1em;
   background: var(--input-bg);
   position: relative;
@@ -591,7 +591,7 @@ function clearSearch() {
   buttom:15px;
   /* right: 10px;
   top: 10px; */
-  right: 0px;
+  right: -13px;
 }
 
 
