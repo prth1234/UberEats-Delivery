@@ -517,7 +517,7 @@ function clearSearch() {
   background-color: white;
   border: 2px solid #f3f3f3;
   border-top: none;
-  max-height: 200px;
+  max-height: 500px;
   overflow-y: auto;
   z-index: 1;
   border-radius: 10px;
