@@ -411,36 +411,43 @@
     <div class="popup-body" style="color: black; text-align: left">
     
       
-      <h2>Parth's group order</h2>
-      <p>From Domino's</p>
-      <p>Deliver to Santa Barbara</p>
+      <h1 style="margin-top: -10px; font-size: 35px;">Parth's group order</h1>
+      <p style="padding: 0px; margin-bottom: 0px; margin-top: 0px; font-family: Uber Move Light;">From Domino's</p>
+      <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light;">Deliver to Santa Barbara</p>
       
       <div class="order-details">
         <div class="detail-item">
-          <span class="icon">⏱️</span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
           <div>
             <strong>People can order at any time</strong>
-            <p>No deadline set</p>
+
+            <p style="margin-top: 0px; font-family: Uber Move Light;">No deadline set</p>
+            <hr class="divider">
+
           </div>
-          <span class="edit-icon">✏️</span>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
+     
         </div>
-        
         <div class="detail-item">
-          <span class="icon">💳</span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
           <div>
             <strong>You pay for everyone</strong>
-            <p>No spending limit</p>
+            <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p>
+            <hr class="divider">
+
           </div>
-          <span class="edit-icon">✏️</span>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
         </div>
         
         <div class="detail-item">
-          <span class="icon">🔄</span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
           <div>
             <strong>Does not repeat</strong>
-            <p>Set as a repeat group order to place at recurring times</p>
+            <p style="margin-top: 0px; font-family: Uber Move Light;">Set as a repeat group order to place at recurring times</p>
+            <hr class="divider">
+
           </div>
-          <span class="edit-icon">✏️</span>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
         </div>
       </div>
       
@@ -489,6 +496,7 @@ export default {
     return {
       isFavorite: false,
       showNotification: false,
+      
       notificationMessage: "",
       showPopup: false,
       showGroupOrderPopup: false,
@@ -496,6 +504,9 @@ export default {
       showInfo: false,
       selectedTab: { text: "Details" },
       activeSection: "",
+      user:[
+        {id:"1",mame:"Parth"}
+      ],
       sections: [
         { id: "ratings", name: "Ratings" },
         { id: "picked-for-you", name: "Picked for you" },
@@ -750,7 +761,7 @@ export default {
   border: none;
   height: 2px;
   background-color: #ebeaea;
-  width: 100%;
+  width: 400px;
 }
 
 .content {
@@ -868,7 +879,6 @@ h1 {
 
 .modal-content {
   background: white;
-  padding: 20px;
   border-radius: 20px;
   position: relative;
   width: 500px;
@@ -914,12 +924,13 @@ h1 {
 
 .close-button {
   position: absolute;
-  top: 10px;
+  top: 5px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.7);
-  color:black;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: rgb(0, 0, 0);  /* Changed to white for better visibility on dark background */
   border: none;
   border-radius: 50%;
+  
   width: 30px;
   height: 30px;
   font-size: 18px;
@@ -928,12 +939,15 @@ h1 {
   align-items: center;
   justify-content: center;
   z-index: 1;
+  padding: 0;  /* Ensure no padding affects the circle shape */
+  line-height: 1;  /* Helps center the 'x' vertically */
 }
 
 
 .popup-body {
   display: flex;
   flex-direction: column;
+  font-family: Uber Move;
 }
 
 #map {
@@ -1315,6 +1329,8 @@ h2 {
   position: relative;
   width: 100%;
   text-align: center;
+  height: 200px;
+  background-color: #ffffff;
 }
 
 
