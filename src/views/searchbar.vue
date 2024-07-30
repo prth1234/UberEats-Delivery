@@ -113,20 +113,15 @@
 
           <h2 style="font-family: Uber Move; color: black; text-align: left; font-size: 20px;">Recent searches</h2>
           <div class="order-details">
-            <div v-for="(address, index) in savedAddresses" :key="index" class="detail-item" style="flex-direction: column; align-items: center;">
-              <!-- <span class="icon" style="margin-right: 20px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="#5E5E5E"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg>
-              </span> -->
-
-              <svg class="icon" width="25" height="25" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="#5E5E5E"></path></svg>
-              <div style="text-align: left; color: black; margin-left: 40px; font-family: Uber Move; font-weight: 200;">
-                <strong>{{ address }}</strong>
-                <hr class="divider">
-              </div>
-              <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
-            </div>
-          </div>
-
+  <div v-for="(address, index) in savedAddresses" :key="index" class="detail-item">
+    <div class="address-box">
+      <div class="address-text">
+        <strong>{{ address }}</strong>
+      </div>
+      <button class="remove-button" @click="removeAddress(index)">×</button>
+    </div>
+  </div>
+</div>
 
 
 
@@ -152,8 +147,10 @@ const showNotFound = ref(false);
 const selectedIndex = ref(-1);
 const savedAddresses = ref([]);
 
+function removeAddress(index){
+  this.savedAddresses.splice(index, 1);
 
-
+}
 const restaurants = ref([
   'McDonald\'s', 'Burger King', 'Subway', 'Pizza Hut', 'KFC', 'Domino\'s', 'Taco Bell', 'Wendy\'s', 'Starbucks', 'Dunkin\' Donuts',
   'Chipotle', 'Five Guys', 'Panera Bread', 'Panda Express', 'Sonic Drive-In', 'Arby\'s', 'Jack in the Box', 'Papa John\'s', 'Culver\'s', 'Chick-fil-A',
@@ -461,10 +458,7 @@ function clearSearch() {
   border-radius: 20px;
 }
 
-.detail-item{
-  padding: 0px;
-  margin-bottom: -30px;
-}
+
 
 .form label {
   display: flex;
@@ -557,9 +551,45 @@ function clearSearch() {
   font-family: 'Uber Move';
   margin-top: 15px;
 }
-
 .order-details {
-  margin-top: 20px;}
-  
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.address-box {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  position: relative;
+}
+
+.address-text {
+  color: black;
+  font-family: Uber Move, sans-serif;
+  font-weight: 200;
+  margin-right: 30px;
+}
+
+.remove-button {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+
   </style>
