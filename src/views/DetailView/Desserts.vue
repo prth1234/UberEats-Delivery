@@ -27,37 +27,37 @@
       return {
         items: [
           {
-            name: "Chick-fil-A® OG Waffles",
+            name: "Chick-fil-A® Nutella Jar",
             price: 10.29,
             image: "https://b.zmtcdn.com/data/dish_photos/ff6/89221ba732134c354e5e36fc784aeff6.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
           },
           {
-            name: "Chick-fil-A® Fruit Cup",
+            name: "Chick-fil-A® Kitkat Jar",
             price: 8.55,
             image: "https://b.zmtcdn.com/data/dish_photos/ab9/008928907d91882101e09f998d923ab9.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
           },
           {
-            name: "Side Salad",
+            name: "Chick-fil-A® ParleG Jar",
             price: 14.55,
             image: "https://b.zmtcdn.com/data/dish_photos/9a6/5687a4c934c9489c53342f80388fd9a6.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
           },
           {
-            name: "ChickMeal® Waffles Chips",
+            name: "ChickMeal® Orep Jar",
             price: 13.09,
             image: "https://b.zmtcdn.com/data/dish_photos/b51/a7d5bb66b985629fcdbce8c1cb82bb51.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
           },
           {
-            name: "ChickSalad® Noodle Soup",
+            name: "ChickSalad® Caramel Jar",
             price: 13.09,
             image: "https://b.zmtcdn.com/data/dish_photos/5fc/32e9fd54fb72f021de4ff143fbf825fc.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
           },
           {
-            name: "Chick-n-Macros Kale",
+            name: "Chick-n-Macros Brownie Jar",
             price: 13.09,
             image: "https://b.zmtcdn.com/data/dish_photos/045/89a10bed2a9df5f1cc17b71cf03af045.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
