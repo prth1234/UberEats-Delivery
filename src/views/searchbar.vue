@@ -118,7 +118,7 @@
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="#5E5E5E"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg>
               </span> -->
 
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="currentColor"></path></svg>
+              <svg class="icon" width="25" height="25" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="#5E5E5E"></path></svg>
               <div style="text-align: left; color: black; margin-left: 40px; font-family: Uber Move; font-weight: 200;">
                 <strong>{{ address }}</strong>
                 <hr class="divider">
@@ -413,7 +413,11 @@ function clearSearch() {
   border: None;
   color: #f3f3f3;
   height: 3px;
+  width: 438px;
   background-color: #f3f3f3;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: -60px;
 }
 
 .popup-header {
