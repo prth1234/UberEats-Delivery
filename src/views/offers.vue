@@ -10,7 +10,7 @@
             <div class="title"></div>
             <div class="action">
                 <div class="price">
-                    <span>Best Pies</span>
+                    <span>Wendy's Offers</span>
                 </div>
             </div>
         </div>
@@ -21,7 +21,7 @@
             <div class="title"></div>
             <div class="action">
                 <div class="price">
-                    <span>Complete Meal Box</span>
+                    <span>LolaVie</span>
                 </div>
             </div>
         </div>

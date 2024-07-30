@@ -475,7 +475,7 @@
       
       <h1 style="margin-top: 20px; font-size: 35px;">Parth's group order</h1>
       <p style="padding: 0px; margin-bottom: 0px; margin-top: 0px; font-family: Uber Move Light;">From Domino's</p>
-      <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light;">Deliver to Santa Barbara</p>
+      <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light; font-size: 16px;">Deliver to Santa Barbara</p>
       
       <div class="order-details">
         <div class="detail-item">
@@ -1167,23 +1167,24 @@ h3 {
   align-items: center;
   justify-content: space-between;
 }
-
 .nav-button {
   display: flex;
-  border-radius: 50%;
+  border-radius: 50%; /* Changed to 50% for a perfect circle */
+  width: 60px; /* Added fixed width */
+  height: 60px; /* Added fixed height */
+  align-items: center;
+  justify-content: center;
+  background-color: transparent; /* Or any color you prefer */
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
 }
 
 .nav-buttons {
-  border-radius: 100px; /* Half of width/height to make it round */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: #1a1a1a; /* Or any color you prefer */
-  border: none;
-  cursor: pointer;
-  margin: 0 5px; /* Add some space around the buttons */
-  margin-right: 10px;
 }
 
 .nav-buttons svg {
@@ -1192,13 +1193,13 @@ h3 {
 }
 
 .nav-buttons svg path {
-  fill: rgb(255, 255, 255); /* Use currentColor to inherit the button's color */
+  fill: #f3f3f3;
 }
-.nav-button.prev {
-  border-radius: 1000px;
-}
+
+.nav-button.prev,
 .nav-button.next {
-  border-radius: 1000px;
+  border-radius: 50%; /* Ensure perfect circle */
+  background-color: #1a1a1a;
 }
 .cart-button {
   background-color: transparent;
