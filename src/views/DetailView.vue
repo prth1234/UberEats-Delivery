@@ -421,7 +421,7 @@
           <div>
             <strong>People can order at any time</strong>
 
-            <p style="margin-top: 0px; font-family: Uber Move Light;">No deadline set</p>
+            <p style="margin-top: 0px;  font-family: Uber Move Light;">No deadline set</p>
             <hr class="divider">
 
           </div>
