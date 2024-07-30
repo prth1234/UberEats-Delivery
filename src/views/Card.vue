@@ -18,6 +18,7 @@
 
     <h2 class="h2-class" style="margin-bottom: 10px;">Cheat day 💪<br /></h2>
     <div class="cards" style="display: flex; gap: 10px; align-self: center;">
+      
       <div class="card" v-for="item in cheatDay" :key="item.id">
         <div class="image_container">
           <img :src="item.imageUrl" alt="Card Image" />
@@ -64,8 +65,8 @@ export default {
         },
         {
           id: 2,
-          imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj299yz9t-a3UVm_haBpj6mp5xamDK0M7-It_dolut17labc6RLapUCNEQoWHGKulwO2A&usqp=CAU',
-          title: 'Taco Bell',
+          imageUrl: 'https://d1fd34dzzl09j.cloudfront.net/2023/07/Catering%20Lifestyle%20Image%20-%20Chick-fil-A%C2%AE%20Nuggets%20Tray%202%201_master-2.jpg',
+          title: 'Chick Fill A',
           price: '$4.98',
         },
         {
