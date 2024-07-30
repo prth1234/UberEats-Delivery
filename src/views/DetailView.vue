@@ -88,6 +88,7 @@
       </div>
       <!-- <p class="description">{{ restaurant.description }}</p> -->
       <div class="main-body-content">
+        <div class="intial-content">
         <div class="top-picks-slider">
           <div class="header">
             <div class="header-container">
@@ -170,6 +171,42 @@
             </div>
           </div>
         </div>
+
+
+        <div class="rectangle1">
+                    <div class="rating-container">
+                      <span class="rating" style="font-size: 40px">{{
+                        restaurant.rating
+                      }}</span>
+                      <span class="rating-count" style="margin-left: 10px">
+                        <svg
+                          width="30"
+                          height="30"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          color="#F6BC2F"
+                        >
+                          <title>Star</title>
+                          <path
+                            d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z"
+                            fill="currentColor"
+                          ></path>
+                        </svg>
+                      <br/> <div style="font-weight: 20; color:darkgrey; font-size: 20px;"> {{ restaurant.ratingCount }}+ ratings </div> 
+
+                      </span>
+                    </div>
+                
+                  </div>
+
+
+      
+      
+      
+      </div>
+
+
+
         <div class="page-layout">
           <nav class="sidebar">
             <ul>
@@ -1317,6 +1354,21 @@ section {
   border-radius: 8px; /* Optional rounded corners */
   
 }
+
+.rectangle1 {
+  width: 1000px; /* Adjust the width as needed */
+  height: 150px; /* Adjust the height as needed */
+  background-color: transparent;
+  border: 0.5px solid;
+  border-color: #202020; /* Rectangle color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Text color */
+  font-size: 24px; /* Text size */
+  border-radius: 8px; /* Optional rounded corners */
+  
+}
 .testimonial-text {
   font-size: 16px;
   margin-bottom: 18px;
@@ -1408,6 +1460,11 @@ h2 {
   width: 100%;
   max-width: 300px;
   height: 220px;
+}
+
+.intial-content{
+  display: flex;
+  justify-content: center;
 }
 
 </style>
