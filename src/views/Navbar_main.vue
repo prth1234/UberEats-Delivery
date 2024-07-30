@@ -68,7 +68,27 @@
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
-        <div class="address-input">
+
+        <form class="form">
+    <label for="search">
+        <input required="" autocomplete="off" placeholder="Search for an address" id="search" type="text" style="color: black; font-family: Uber Move ; font-size: 18px;">
+        <div class="icon">
+            <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
+                <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+            <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
+                <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+        </div>
+        <button type="reset" class="close-btn">
+            <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+            </svg>
+        </button>
+    </label>
+</form>
+
+        <!-- <div class="address-input">
           <label for="delivery-address">Select an area</label>
           <div class="search">
             <div class="group">
@@ -87,7 +107,7 @@
 </select>
             </div>
           </div>
-        </div>
+        </div> -->
         <div class="buttons-container">
           <button @click="searchAreas" class="button" style="margin-top: 15px;   font-family: 'Uber Move';">Done</button>
         </div>
@@ -128,6 +148,8 @@ function searchAreas() {
 function onAreaChange() {
   console.log('Selected Area:', selectedArea.value); // Log the selected area for demonstration
 }
+
+
 
 </script>
 
@@ -294,7 +316,7 @@ function onAreaChange() {
   border-radius: 15px; /* Remove border-radius for rectangle shape */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   height: 230px;
-  width: 500px;
+  width: 400px;
 }
 
 .popup-header {
@@ -345,7 +367,7 @@ function onAreaChange() {
 .button {
   background-color: #000000;
   height: 59px;
-  width: 500px;
+  width: 400px;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -406,4 +428,239 @@ ul li a.cart .cart-basket {
   background-color: #ffffff;
   border-radius: 50%;
 }
+
+/* From uiverse.io by @satyamchaudharydev */
+/* this button is inspired by -- whatsapp input */
+/* == type to see fully interactive and click the close buttom to remove the text  == */
+
+.form {
+  --input-bg: #FFf;
+ /*  background of input */
+  --padding: 1.5em;
+  --rotate: 80deg;
+ /*  rotation degree of input*/
+  --gap: 2em;
+  /*  gap of items in input */
+  --icon-change-color: #15A986;
+ /*  when rotating changed icon color */
+  --height: 40px;
+ /*  height */
+  width: 200px;
+  padding-inline-end: 1em;
+ /*  change this for padding in the end of input */
+  background: var(--input-bg);
+  position: relative;
+  border-radius: 100px;
+}
+
+.form label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--height);
+}
+
+.form input {
+  width: 100%;
+  padding-inline-start: calc(var(--padding) + var(--gap));
+  outline: none;
+  background: none;
+  border: 0;
+}
+/* style for both icons -- search,close */
+.form svg {
+  /* display: block; */
+  color: #111;
+  transition: 0.3s cubic-bezier(.4,0,.2,1);
+  position: absolute;
+  height: 15px;
+}
+/* search icon */
+.icon {
+  position: absolute;
+  left: var(--padding);
+  transition: 0.3s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* arrow-icon*/
+.swap-off {
+  transform: rotate(-80deg);
+  opacity: 0;
+  visibility: hidden;
+}
+/* close button */
+.close-btn {
+  /* removing default bg of button */
+  background: none;
+  border: none;
+  right: calc(var(--padding) - var(--gap));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #111;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+}
+
+
+#search-box {
+  background-color: #f2f2f2; /* light gray background */
+  border: 1px solid #ccc; /* gray border */
+  border-radius: 10px; /* rounded edges */
+  padding: 10px; /* padding to make the text not stick to the edges */
+  width: 300px; /* fixed width */
+}
+
+#result {
+  border: 1px dotted #ccc;
+  padding: 3px;
+}
+
+#result ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#result ul li {
+  padding: 5px 0;
+}
+
+#result ul li:hover {
+  background: #eee;
+}
+
+/* From uiverse.io by @satyamchaudharydev */
+/* this button is inspired by -- whatsapp input */
+/* == type to see fully interactive and click the close buttom to remove the text  == */
+
+.form {
+  --input-bg: #f3f3f3;
+  color: black;
+ /*  background of input */
+  --padding: 1.5em;
+  --rotate: 80deg;
+ /*  rotation degree of input*/
+  --gap: 2em;
+  /*  gap of items in input */
+  --icon-change-color: #000000;
+ /*  when rotating changed icon color */
+  --height: 55px;
+ /*  height */
+  width: 380px;
+  padding-inline-end: 1em;
+  margin-right: 0px;
+ /*  change this for padding in the end of input */
+  background: var(--input-bg);
+  position: relative;
+  border-radius: 20px;
+}
+
+.form label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: var(--height);
+}
+
+.form input {
+  width: 100%;
+  padding-inline-start: calc(var(--padding) + var(--gap));
+  outline: none;
+  background: none;
+  border: 0;
+}
+/* style for both icons -- search,close */
+.form svg {
+  /* display: block; */
+  color: #111;
+  transition: 0.3s cubic-bezier(.4,0,.2,1);
+  position: absolute;
+  height: 15px;
+  transform: scale(1.7);
+}
+/* search icon */
+.icon {
+  position: absolute;
+  left: var(--padding);
+  transition: 0.3s cubic-bezier(.4,0,.2,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* arrow-icon*/
+.swap-off {
+  transform: rotate(-80deg);
+  opacity: 0;
+  visibility: hidden;
+}
+/* close button */
+.close-btn {
+  /* removing default bg of button */
+  background: none;
+  border: none;
+  right: calc(var(--padding) - var(--gap));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000000;
+  padding: 0.1em;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+  opacity: 0;
+  transform: scale(0);
+  visibility: hidden;
+}
+
+.form input:focus ~ .icon {
+  transform: rotate(var(--rotate)) scale(1.3);
+}
+
+.form input:focus ~ .icon .swap-off {
+  opacity: 1;
+  transform: rotate(-80deg);
+  visibility: visible;
+  color: var(--icon-change-color);
+}
+
+.form input:focus ~ .icon .swap-on {
+  opacity: 0;
+  visibility: visible;
+}
+
+.form input:valid ~ .icon {
+  transform: scale(1.3) rotate(var(--rotate))
+}
+
+.form input:valid ~ .icon .swap-off {
+  opacity: 1;
+  visibility: visible;
+  color: var(--icon-change-color);
+}
+
+.form input:valid ~ .icon .swap-on {
+  opacity: 0;
+  visibility: visible;
+}
+
+.form input:valid ~ .close-btn {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: 0s;
+}
+
+
 </style>
