@@ -110,7 +110,7 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="#5E5E5E"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg>
 
           </span>
-          <div style="text-align: left; color: black; margin-left: 40px;">
+          <div style="text-align: left; color: black; margin-left: 40px; font-family: Uber Move; font-weight: 200;">
             <strong>Santa Barbara</strong>
 
             <hr class="divider">
@@ -157,7 +157,7 @@ import searchbar from './searchbar.vue';
 const showPopup = ref(false);
 const searchQuery = ref('');
 const selectedArea = ref('');
-const displayedArea = ref('HSR, Bengaluru','Santa Clara'); // Initialize displayedArea with default value
+const displayedArea = ref('HSR, Bengaluru'); // Initialize displayedArea with default value
 
 
 // Function to open the popup
@@ -170,50 +170,36 @@ function closePopup() {
   showPopup.value = false;
 }
 
-// Function to handle the search logic
-function searchAreas() {
-  // Update displayedArea with the selected option
-  displayedArea.value = selectedArea.value;
-  console.log('Searching for:', displayedArea.value); // Log the selected area for demonstration
-  closePopup(); // Close the popup after selecting an area
-}
-
-// Function to handle the change in the selected area
-function onAreaChange() {
-  console.log('Selected Area:', selectedArea.value); // Log the selected area for demonstration
-}
 
 
-const cities = ref([]);
-const currentIndex = ref(-1);
 
-const searchCities = async () => {
-  const query = searchQuery.value.trim();
-  if (query.length > 2) {
-    const response = await fetch(`https://api.teleport.org/api/cities/?search=${query}`);
-    const data = await response.json();
-    cities.value = data.results.map(city => city.name);
-  } else {
-    cities.value = [];
-  }
-};
+// const searchCities = async () => {
+//   const query = searchQuery.value.trim();
+//   if (query.length > 2) {
+//     const response = await fetch(`https://api.teleport.org/api/cities/?search=${query}`);
+//     const data = await response.json();
+//     cities.value = data.results.map(city => city.name);
+//   } else {
+//     cities.value = [];
+//   }
+// };
 
-const moveDown = () => {
-  if (currentIndex.value < cities.value.length - 1) {
-    currentIndex.value++;
-  }
-};
+// const moveDown = () => {
+//   if (currentIndex.value < cities.value.length - 1) {
+//     currentIndex.value++;
+//   }
+// };
 
-const moveUp = () => {
-  if (currentIndex.value > 0) {
-    currentIndex.value--;
-  }
-};
+// const moveUp = () => {
+//   if (currentIndex.value > 0) {
+//     currentIndex.value--;
+//   }
+// };
 
-const selectCity = (city) => {
-  displayedArea.value = city;
-  closePopup();
-};
+// const selectCity = (city) => {
+//   displayedArea.value = city;
+//   closePopup();
+// };
 
 // Function to open the popup
 
@@ -230,7 +216,7 @@ const selectCity = (city) => {
   color: #f3f3f3;
   background-color: #f3f3f3;
   border: none;
-  height: 2px;
+  height: 4px;
   margin-top: 30px;
   width: 438px;
   margin-left: -60px;
