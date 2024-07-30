@@ -79,16 +79,20 @@
             </button>
           </label>
           <div v-if="showSuggestions" class="suggestions">
-            <div 
-              v-for="(city, index) in filteredCities" 
-              :key="index" 
-              @click="selectCity(city)"
-              :class="{ 'selected': index === selectedIndex }"
-              class="suggestion-item"
-            >
-              {{ city }}
-            </div>
-          </div>
+  <div 
+    v-if="filteredCities.length > 0"
+    v-for="(city, index) in filteredCities" 
+    :key="index" 
+    @click="selectCity(city)"
+    :class="{ 'selected': index === selectedIndex }"
+    class="suggestion-item"
+  >
+    {{ city }}
+  </div>
+  <div v-if="showNotFound" class="not-found-message">
+    Hmm... can't find this address. Try again?
+  </div>
+</div>
         </form>
         <h2 style="font-family: Uber Move; color: black; text-align: left; font-size: 20px;">Saved address</h2>
         <div class="order-details">
@@ -235,8 +239,17 @@ function selectCity(city) {
   } else {
     searchQuery.value = filteredCities.value[selectedIndex.value];
   }
+  if (!savedAddresses.value.includes(searchQuery.value)) {
+    savedAddresses.value.unshift(searchQuery.value);
+    // Keep only the last 3 addresses
+    if (savedAddresses.value.length > 3) {
+      savedAddresses.value.pop();
+    }
+  }
   savedAddress.value = searchQuery.value;
   showSuggestions.value = false;
+  showNotFound.value = false;  // Reset the "not found" message
+
 }
 
 function saveAddress() {
@@ -249,6 +262,8 @@ function saveAddress() {
 function clearSearch() {
   searchQuery.value = '';
   showSuggestions.value = false;
+  showNotFound.value = false;
+
 }
 </script>
 
@@ -305,6 +320,11 @@ function clearSearch() {
 
 .nav-menu li a:hover {
   color: #ccc;
+}
+
+.buttons-container{
+  margin-top: 210px;
+  position: fixed;
 }
 
 .toggle {
@@ -377,7 +397,7 @@ function clearSearch() {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  height: 400px;
+  height: 350px;
   width: 400px;
 }
 
@@ -519,6 +539,13 @@ function clearSearch() {
 
 .order-details {
   margin-top: 20px;
+}
+
+.not-found-message {
+  padding: 10px;
+  color: #666;
+  text-align: center;
+  font-family: 'Uber Move';
 }
 
 </style>
