@@ -147,19 +147,20 @@
   }
   
   .cart-button {
-    background-color: transparent;
-    color: green;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 14px;
-    margin: 0 4px;
-  }
+   background-color: transparent;
+   color: green;
+   border: none;
+   border-radius: 20%;
+   width: 24px;
+   height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   font-size: 14px;
+   margin: 0 4px;
+   margin-left: 0px;
+ }
   
   .quantity-control span {
     margin: 0 6px;

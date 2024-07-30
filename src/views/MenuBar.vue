@@ -460,10 +460,10 @@ export default {
   }
   .divider {
     width: 350px;
-    border: 0.1px solid;
-    border-color: #ececec;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
     margin:0px;
+    border: none;
+    height: 3px;
   }
 
   .slider {

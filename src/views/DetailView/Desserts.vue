@@ -45,7 +45,7 @@
             quantity: 0,
           },
           {
-            name: "ChickMeal® Orep Jar",
+            name: "ChickMeal® Oreo Jar",
             price: 13.09,
             image: "https://b.zmtcdn.com/data/dish_photos/b51/a7d5bb66b985629fcdbce8c1cb82bb51.jpeg?fit=around|130:130&crop=130:130;*,*",
             quantity: 0,
@@ -147,19 +147,20 @@
   }
   
   .cart-button {
-    background-color: transparent;
-    color: green;
-    border: none;
-    border-radius: 50%;
-    width: 24px;
-    height: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    font-size: 14px;
-    margin: 0 4px;
-  }
+   background-color: transparent;
+   color: green;
+   border: none;
+   border-radius: 20%;
+   width: 24px;
+   height: 24px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   cursor: pointer;
+   font-size: 14px;
+   margin: 0 4px;
+   margin-left: 0px;
+ }
   
   .quantity-control span {
     margin: 0 6px;

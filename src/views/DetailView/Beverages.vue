@@ -150,7 +150,7 @@
    background-color: transparent;
    color: green;
    border: none;
-   border-radius: 50%;
+   border-radius: 20%;
    width: 24px;
    height: 24px;
    display: flex;

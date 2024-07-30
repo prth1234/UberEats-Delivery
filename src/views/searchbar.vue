@@ -79,10 +79,10 @@
                 @keydown.enter.prevent="selectResult"
             >
             <div class="icon">
-              <svg stroke-width="4" stroke="currentColor" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
+              <svg stroke-width="3" stroke="currentColor" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
                 <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round" style="transform: scale(1.6);" ></path>
               </svg>
-              <svg stroke-width="4" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
+              <svg stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
                 <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round" style="color: black;"></path>
               </svg>
             </div>
@@ -342,8 +342,8 @@ function closePopup() {
 
 function searchAll() {
   selectedIndex.value = -1;
-  showSuggestions.value = searchQuery.value.length >= 2;
-  showNotFound.value = searchQuery.value.length >= 2 && filteredResults.value.length === 0;
+  showSuggestions.value = searchQuery.value.length >= 1;
+  showNotFound.value = searchQuery.value.length >= 1 && filteredResults.value.length === 0;
 }
 
 function moveDown() {
