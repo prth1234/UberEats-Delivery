@@ -2,7 +2,12 @@
   <div class="card-main">
     <h2 class="h2-class" style="margin-bottom: 10px;">Best Overall Rating ⭐️</h2>
     <div class="cards" style="display: flex; gap: 10px; align-self: center;">
-      <div class="card" v-for="item in bestOverallRating" :key="item.id">
+      <router-link 
+        v-for="item in bestOverallRating" 
+        :key="item.id" 
+        :to="{ path: '/detail-view', query: { id: item.id } }"
+        class="card"
+      >
         <div class="image_container">
           <img :src="item.imageUrl" alt="Card Image" />
         </div>
@@ -13,13 +18,17 @@
             <span style="font-weight: 100; text-align: left; font-size: smaller;"> | {{ item.price }}</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
 
     <h2 class="h2-class" style="margin-bottom: 10px;">Cheat day 💪<br /></h2>
     <div class="cards" style="display: flex; gap: 10px; align-self: center;">
-      
-      <div class="card" v-for="item in cheatDay" :key="item.id">
+      <router-link 
+        v-for="item in cheatDay" 
+        :key="item.id" 
+        :to="{ path: '/detail-view', query: { id: item.id } }"
+        class="card"
+      >
         <div class="image_container">
           <img :src="item.imageUrl" alt="Card Image" />
         </div>
@@ -30,12 +39,17 @@
             <span style="font-weight: 100; text-align: left; font-size: smaller;"> | {{ item.price }}</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
 
     <h2 class="h2-class" style="margin-bottom: 10px;">Frozen desserts ❄️<br /></h2>
     <div class="cards" style="display: flex; gap: 10px; align-self: center;">
-      <div class="card" v-for="item in frozenDesserts" :key="item.id">
+      <router-link 
+        v-for="item in frozenDesserts" 
+        :key="item.id" 
+        :to="{ path: '/detail-view', query: { id: item.id } }"
+        class="card"
+      >
         <div class="image_container">
           <img :src="item.imageUrl" alt="Card Image" />
         </div>
@@ -46,7 +60,7 @@
             <span style="font-weight: 100; text-align: left; font-size: smaller;"> | {{ item.price }}</span>
           </div>
         </div>
-      </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -157,27 +171,23 @@ export default {
 };
 </script>
 
-
 <style scoped>
 .cards-container {
   display: flex;
-  justify-content: center; /* Horizontally center the cards */
-  align-items: center; /* Vertically center the cards */
-  height: 100vh; /* Make the container full height of the viewport */
-  background-color: #f0f0f0; /* Optional: Add background color */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
   flex-wrap: wrap;
-  
 }
 
 .cards {
   display: flex;
-  align-items: center; /* Vertically center the cards inside */
+  align-items: center;
   gap: 10px;
-  max-width: 1200px; /* Optional: Set maximum width for the cards */
+  max-width: 1200px;
   margin-bottom: 35px;
 }
-
-
 
 .card {
   --bg-card: #0000;
@@ -196,7 +206,9 @@ export default {
   height: 10.5rem;
   background-color: var(--bg-card);
   border-radius: 1rem;
-  overflow:hidden;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
 .image_container {
@@ -208,17 +220,18 @@ export default {
   background-color: var(--primary-400);
   border-radius: 0.9rem;
   width: 100%;
-  transition: transform 0.3s ease; /* Add transition for smooth animation */
+  transition: transform 0.3s ease;
 }
+
 .card:hover .image_container img {
-  transform: scale(1.1); /* Zoom in by 10% on hover */
+  transform: scale(1.1);
 }
 
 .image_container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease; /* Add transition for smooth animation */
+  transition: transform 0.3s ease;
 }
 
 .title {
@@ -250,10 +263,8 @@ h3 {
 }
 
 .h2-class {
-    text-align: left;
-    font-family: 'Uber Move';
-
-    margin-bottom: -10px;
+  text-align: left;
+  font-family: 'Uber Move';
+  margin-bottom: -10px;
 }
-
 </style>

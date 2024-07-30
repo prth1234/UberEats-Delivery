@@ -57,6 +57,7 @@
 
     <div class="content">
       <button class="group-order">
+        @onClick="openPopupG"
         <svg
           aria-hidden="true"
           focusable="false"
