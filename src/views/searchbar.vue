@@ -42,25 +42,25 @@
       <div v-if="showPopup" class="popup">
     <div class="popup-content">
       <div class="popup-header">
-        <h2>Addresses</h2>
+        <h2>Search</h2>
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
         <form class="form">
           <label for="search">
             <input 
-              required
-              autocomplete="off" 
-              placeholder="Search for an address" 
-              id="search" 
-              type="text" 
-              style="color: black; font-family: Uber Move Light; font-weight: 100; font-size: 18px;"
-              v-model="searchQuery"
-              @input="searchCities"
-              @keydown.down="moveDown"
-              @keydown.up="moveUp"
-              @keydown.enter.prevent="selectCity"
-            >
+  required
+  autocomplete="off" 
+  placeholder="Search for city, restaurant, cuisine, food, or dish" 
+  id="search" 
+  type="text" 
+  style="color: black; font-family: Uber Move Light; font-weight: 100; font-size: 18px;"
+  v-model="searchQuery"
+  @input="searchAll"
+  @keydown.down="moveDown"
+  @keydown.up="moveUp"
+  @keydown.enter.prevent="selectResult"
+>
             <div class="icon">
               <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
                 <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
@@ -77,33 +77,21 @@
           </label>
           <div v-if="showSuggestions" class="suggestions">
   <div 
-    v-if="filteredCities.length > 0"
-    v-for="(city, index) in filteredCities" 
+    v-if="filteredResults.length > 0"
+    v-for="(result, index) in filteredResults" 
     :key="index" 
-    @click="selectCity(city)"
+    @click="selectResult(result)"
     :class="{ 'selected': index === selectedIndex }"
     class="suggestion-item"
   >
-    {{ city }}
+    <span class="result-type">{{ result.type }}:</span> {{ result.name }}
   </div>
   <div v-if="showNotFound" class="not-found-message">
-    Hmm... can't find this address. Try again?
+    Hmm... can't find this. Try again?
   </div>
 </div>
         </form>
-        <h2 style="font-family: Uber Move; color: black; text-align: left; font-size: 20px;">Saved address</h2>
-        <div class="order-details">
-          <div v-if="savedAddress" class="detail-item" style="flex-direction: column; align-items: center;">
-            <span class="icon" style="margin-right: 20px;">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="#5E5E5E"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg>
-            </span>
-            <div style="text-align: left; color: black; margin-left: 40px; font-family: Uber Move; font-weight: 200;">
-              <strong>{{ savedAddress }}</strong>
-              <hr class="divider">
-            </div>
-            <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
-          </div>
-        </div>
+ 
         <div class="buttons-container">
           <button @click="saveAddress" class="button" style="margin-top: 15px; font-family: 'Uber Move';">Done</button>
         </div>
@@ -149,73 +137,80 @@ const displayedArea = ref('HSR, Bengaluru');
 const savedAddress = ref('');
 const showSuggestions = ref(false);
 
-const cities = ref([
-  'New York, NY', 'Los Angeles, CA', 'Chicago, IL', 'Houston, TX', 'Phoenix, AZ',
-  'Philadelphia, PA', 'San Antonio, TX', 'San Diego, CA', 'Dallas, TX', 'San Jose, CA',
-  'Austin, TX', 'Jacksonville, FL', 'San Francisco, CA', 'Columbus, OH', 'Indianapolis, IN',
-  'Charlotte, NC', 'Seattle, WA', 'Denver, CO', 'El Paso, TX', 'Detroit, MI',
-  'Boston, MA', 'Memphis, TN', 'Nashville, TN', 'Baltimore, MD', 'Oklahoma City, OK',
-  'Las Vegas, NV', 'Louisville, KY', 'Milwaukee, WI', 'Albuquerque, NM', 'Tucson, AZ',
-  'Fresno, CA', 'Sacramento, CA', 'Kansas City, MO', 'Mesa, AZ', 'Atlanta, GA',
-  'Colorado Springs, CO', 'Virginia Beach, VA', 'Raleigh, NC', 'Omaha, NE', 'Miami, FL',
-  'Cleveland, OH', 'Tulsa, OK', 'Oakland, CA', 'Minneapolis, MN', 'Wichita, KS',
-  'Arlington, TX', 'Bakersfield, CA', 'Tampa, FL', 'Aurora, CO', 'Honolulu, HI',
-  'Anaheim, CA', 'Santa Ana, CA', 'Corpus Christi, TX', 'Riverside, CA', 'St. Louis, MO',
-  'Lexington, KY', 'Stockton, CA', 'Cincinnati, OH', 'St. Paul, MN', 'Toledo, OH',
-  'Pittsburgh, PA', 'Greensboro, NC', 'Jersey City, NJ', 'Chandler, AZ', 'Fort Wayne, IN',
-  'Buffalo, NY', 'Durham, NC', 'Madison, WI', 'Lubbock, TX', 'Chesapeake, VA',
-  'Scottsdale, AZ', 'Irving, TX', 'Gilbert, AZ', 'North Las Vegas, NV', 'Winston-Salem, NC',
-  'Hialeah, FL', 'Garland, TX', 'Fremont, CA', 'Richmond, VA', 'Boise, ID',
-  'San Bernardino, CA', 'Spokane, WA', 'Baton Rouge, LA', 'Modesto, CA', 'Des Moines, IA',
-  'Tacoma, WA', 'Augusta, GA', 'Akron, OH', 'Mobile, AL', 'Knoxville, TN',
-  'Shreveport, LA', 'Waco, TX', 'Columbia, SC', 'Fargo, ND', 'Salem, OR',
-  'Grand Rapids, MI', 'Oshkosh, WI', 'Cedar Rapids, IA', 'Chattanooga, TN', 'Little Rock, AR',
-  'Augusta, GA', 'Akron, OH', 'Mobile, AL', 'Knoxville, TN', 'Shreveport, LA',
-  'Waco, TX', 'Columbia, SC', 'Fargo, ND', 'Salem, OR', 'Grand Rapids, MI',
-  'Oshkosh, WI', 'Cedar Rapids, IA', 'Cincinnati, OH', 'Cleveland, OH', 'Dayton, OH',
-  'Akron, OH', 'Cleveland Heights, OH', 'Shaker Heights, OH', 'Lorain, OH', 'Youngstown, OH',
-  'Mansfield, OH', 'Findlay, OH', 'Zanesville, OH', 'Marion, OH', 'Newark, OH',
-  'Portsmouth, OH', 'Warren, OH', 'Ashtabula, OH', 'Tiffin, OH', 'Sandusky, OH',
-  'Lancaster, OH', 'Mount Vernon, OH', 'Coshocton, OH', 'Bellefontaine, OH', 'Urbana, OH',
-  'Hubbard, OH', 'Alliance, OH', 'Barberton, OH', 'Cuyahoga Falls, OH', 'Kent, OH',
-  'Tallmadge, OH', 'Stow, OH', 'Ravenna, OH', 'Garrettsville, OH', 'Berea, OH',
-  'Brunswick, OH', 'Medina, OH', 'Richfield, OH', 'Northfield, OH', 'Solon, OH',
-  'Hudson, OH', 'Twinsburg, OH', 'Aurora, OH', 'Portage Lakes, OH', 'New Philadelphia, OH',
-  'Cambridge, OH', 'Wooster, OH', 'Willard, OH', 'Ashland, OH', 'Madison, OH',
-  'Mansfield, OH', 'Galion, OH', 'Wooster, OH', 'Mount Vernon, OH', 'Lima, OH',
-  'London, OH', 'Lancaster, OH', 'Piqua, OH', 'Sidney, OH', 'Greenville, OH',
-  'Troy, OH', 'Eaton, OH', 'Bellevue, OH', 'Ashland, OH', 'Perrysburg, OH',
-  'Sylvania, OH', 'Oregon, OH', 'Maumee, OH', 'Westlake, OH', 'Avon, OH',
-  'Avon Lake, OH', 'North Olmsted, OH', 'Brook Park, OH', 'Strongsville, OH', 'Berea, OH',
-  'North Ridgeville, OH', 'Grafton, OH', 'Sheffield Lake, OH', 'Elyria, OH', 'Lorain, OH',
-  'New London, OH', 'Attica, OH', 'Fostoria, OH', 'Upper Sandusky, OH', 'Wyandot, OH',
-  'Montpelier, OH', 'Edon, OH', 'Hicksville, OH', 'Bryan, OH', 'Harrison, OH',
-  'Ridgeville Corners, OH', 'Swanton, OH', 'Wauseon, OH', 'Pioneer, OH', 'Bryan, OH',
-  'Paulding, OH', 'Ada, OH', 'Findlay, OH', 'Upper Sandusky, OH', 'Tiffin, OH',
-  'Sandusky, OH', 'Bellevue, OH', 'Norwalk, OH', 'Marion, OH', 'Mount Vernon, OH',
-  'Ashland, OH', 'Galion, OH', 'Shelby, OH', 'Lima, OH', 'Sidney, OH',
-  'Troy, OH', 'Eaton, OH', 'Greenville, OH', 'Piqua, OH', 'Wapakoneta, OH',
-  'St. Marys, OH', 'Celina, OH', 'Salina, OH', 'Coldwater, OH', 'Minster, OH',
-  'Anna, OH', 'Jackson Center, OH', 'Versailles, OH', 'Russia, OH', 'Fort Loramie, OH',
-  'New Bremen, OH', 'St. Henry, OH', 'Harrison, OH', 'Lawrenceburg, IN', 'Greendale, IN',
-  'Aurora, IN', 'Versailles, IN', 'Madison, IN', 'Seymour, IN', 'Columbus, IN',
-  'North Vernon, IN', 'Westfield, IN', 'Noblesville, IN', 'Carmel, IN', 'Fishers, IN',
-  'Indianapolis, IN', 'Greenwood, IN', 'Bargersville, IN', 'Whiteland, IN', 'Shelbyville, IN',
-  'Franklin, IN', 'Martinsville, IN', 'Mooresville, IN', 'Camby, IN', 'Plainfield, IN',
-  'Speedway, IN', 'Danville, IN', 'Lebanon, IN', 'Zionsville, IN', 'Pittsboro, IN',
-  'Crawfordsville, IN', 'Greencastle, IN', 'Brazil, IN', 'Russiaville, IN', 'Logansport, IN',
-  'Peru, IN', 'Kokomo, IN', 'Monticello, IN', 'Winamac, IN', 'Delphi, IN',
-  'Flora, IN', 'New Castle, IN', 'Anderson, IN', 'Pendleton, IN', 'Elwood, IN',
-  'Tipton, IN', 'Noblesville, IN', 'Greenfield, IN', 'Batesville, IN', 'Madison, IN',
-  'Seymour, IN', 'Columbus, IN', 'Shelbyville, IN', 'Franklin, IN', 'Martinsville, IN',
-  'Mooresville, IN', 'Camby, IN', 'Plainfield, IN', 'Speedway, IN', 'Danville, IN',
-  'Lebanon, IN', 'Zionsville, IN', 'Pittsboro, IN', 'Crawfordsville, IN', 'Greencastle, IN',
-  'Brazil, IN', 'Russiaville, IN', 'Logansport, IN', 'Peru, IN', 'Monticello, IN',
-  'Winamac, IN', 'Delphi, IN', 'Flora, IN', 'New Castle, IN']);
+const restaurants = ref([
+  'McDonald\'s', 'Burger King', 'Subway', 'Pizza Hut', 'KFC',
+  'Domino\'s', 'Taco Bell', 'Wendy\'s', 'Starbucks', 'Dunkin\' Donuts'
+  // Add more restaurants as needed
+]);
 
+const cuisines = ref([
+  'Italian', 'Chinese', 'Mexican', 'Japanese', 'Indian',
+  'Thai', 'French', 'Greek', 'Spanish', 'American'
+  // Add more cuisines as needed
+]);
 
+const foods = ref([
+  'Pizza', 'Burger', 'Sushi', 'Pasta', 'Tacos',
+  'Curry', 'Salad', 'Steak', 'Sandwich', 'Ramen'
+  // Add more foods as needed
+]);
+
+const dishes = ref([
+  'Margherita Pizza', 'Cheeseburger', 'California Roll', 'Spaghetti Carbonara', 'Fish Tacos',
+  'Chicken Tikka Masala', 'Caesar Salad', 'Filet Mignon', 'Club Sandwich', 'Tonkotsu Ramen'
+  // Add more specific dishes as needed
+]);
 const selectedIndex = ref(-1);
+function selectResult(result) {
+  if (typeof result === 'string') {
+    searchQuery.value = result;
+  } else {
+    searchQuery.value = result.name;
+  }
+  if (!savedAddresses.value.includes(searchQuery.value)) {
+    savedAddresses.value.unshift(searchQuery.value);
+    // Keep only the last 3 searches
+    if (savedAddresses.value.length > 3) {
+      savedAddresses.value.pop();
+    }
+  }
+  savedAddress.value = searchQuery.value;
+  showSuggestions.value = false;
+  showNotFound.value = false;  // Reset the "not found" message
+}
 
+const filteredResults = computed(() => {
+  if (searchQuery.value.length < 2) return [];
+  const query = searchQuery.value.toLowerCase();
+  
+  const matchingCities = cities.value.filter(city => 
+    city.toLowerCase().includes(query)
+  ).map(item => ({ type: 'City', name: item }));
+  
+  const matchingRestaurants = restaurants.value.filter(restaurant => 
+    restaurant.toLowerCase().includes(query)
+  ).map(item => ({ type: 'Restaurant', name: item }));
+  
+  const matchingCuisines = cuisines.value.filter(cuisine => 
+    cuisine.toLowerCase().includes(query)
+  ).map(item => ({ type: 'Cuisine', name: item }));
+  
+  const matchingFoods = foods.value.filter(food => 
+    food.toLowerCase().includes(query)
+  ).map(item => ({ type: 'Food', name: item }));
+  
+  const matchingDishes = dishes.value.filter(dish => 
+    dish.toLowerCase().includes(query)
+  ).map(item => ({ type: 'Dish', name: item }));
+  
+  return [
+    ...matchingCities,
+    ...matchingRestaurants,
+    ...matchingCuisines,
+    ...matchingFoods,
+    ...matchingDishes
+  ];
+});
 const filteredCities = computed(() => {
   if (searchQuery.value.length < 2) return [];
   return cities.value.filter(city => 
@@ -271,7 +266,11 @@ function selectCity(city) {
   showNotFound.value = false;  // Reset the "not found" message
 
 }
-
+function searchAll() {
+  selectedIndex.value = -1;
+  showSuggestions.value = searchQuery.value.length >= 2;
+  showNotFound.value = searchQuery.value.length >= 2 && filteredResults.value.length === 0;
+}
 function saveAddress() {
   if (savedAddress.value) {
     displayedArea.value = savedAddress.value;
@@ -666,6 +665,11 @@ function clearSearch() {
   color: #666;
   text-align: center;
   font-family: 'Uber Move';
+}
+
+.result-type {
+  font-weight: bold;
+  margin-right: 5px;
 }
   </style>
   
