@@ -63,30 +63,64 @@
   <div v-if="showPopup" class="popup" >
     <div class="popup-content">
       <div class="popup-header">
-        <h2>Search for delivery areas</h2>
+        <h2>Addresses</h2>
   <!-- <img src="https://cdn-icons-png.flaticon.com/128/447/447031.png" alt="Emoji" style="width: 20px; height: 20px; margin-left: -140px;"> -->
         <button @click="closePopup" aria-label="Close" class="close-button">x</button>
       </div>
       <div class="popup-body">
 
         <form class="form">
-    <label for="search">
-        <input required="" autocomplete="off" placeholder="Search for an address" id="search" type="text" style="color: black; font-family: Uber Move ; font-size: 18px;">
-        <div class="icon">
-            <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
+          <label for="search">
+            <input 
+              required
+              autocomplete="off" 
+              placeholder="Search for an address" 
+              id="search" 
+              type="text" 
+              style="color: black; font-family: Uber Move Light; font-weight: 100; font-size: 18px;"
+              @input="searchCities"
+              @keydown.down="moveDown"
+              @keydown.up="moveUp"
+              @keydown.enter="selectCity"
+            >
+            <div class="icon">
+              <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-on">
                 <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-            <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
+              </svg>
+              <svg stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="swap-off">
                 <path d="M10 19l-7-7m0 0l7-7m-7 7h18" stroke-linejoin="round" stroke-linecap="round"></path>
-            </svg>
-        </div>
-        <button type="reset" class="close-btn">
-            <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
+              </svg>
+            </div>
+            <button type="reset" class="close-btn">
+              <svg viewBox="0 0 20 20" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg">
                 <path clip-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" fill-rule="evenodd"></path>
-            </svg>
-        </button>
-    </label>
-</form>
+              </svg>
+            </button>
+          </label>
+          <div id="suggestions" class="suggestions">
+            <div v-for="(city, index) in cities" :key="index" @click="selectCity(city)">
+              {{ city }}
+            </div>
+          </div>
+        </form>
+        <h2 style="font-family: Uber Move; color: black; text-align: left; font-size: 20px;">Saved address</h2>
+        <div class="order-details">
+        <div class="detail-item" style="flex-direction: column; align-items: center;">
+          <span class="icon" style="margin-right: 20px;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="#5E5E5E"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg>
+
+          </span>
+          <div style="text-align: left; color: black; margin-left: 40px;">
+            <strong>Santa Barbara</strong>
+
+            <hr class="divider">
+
+          </div>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
+     
+        </div>
+        
+      </div>
 
         <!-- <div class="address-input">
           <label for="delivery-address">Select an area</label>
@@ -123,7 +157,7 @@ import searchbar from './searchbar.vue';
 const showPopup = ref(false);
 const searchQuery = ref('');
 const selectedArea = ref('');
-const displayedArea = ref('HSR, Bengaluru'); // Initialize displayedArea with default value
+const displayedArea = ref('HSR, Bengaluru','Santa Clara'); // Initialize displayedArea with default value
 
 
 // Function to open the popup
@@ -150,10 +184,57 @@ function onAreaChange() {
 }
 
 
+const cities = ref([]);
+const currentIndex = ref(-1);
+
+const searchCities = async () => {
+  const query = searchQuery.value.trim();
+  if (query.length > 2) {
+    const response = await fetch(`https://api.teleport.org/api/cities/?search=${query}`);
+    const data = await response.json();
+    cities.value = data.results.map(city => city.name);
+  } else {
+    cities.value = [];
+  }
+};
+
+const moveDown = () => {
+  if (currentIndex.value < cities.value.length - 1) {
+    currentIndex.value++;
+  }
+};
+
+const moveUp = () => {
+  if (currentIndex.value > 0) {
+    currentIndex.value--;
+  }
+};
+
+const selectCity = (city) => {
+  displayedArea.value = city;
+  closePopup();
+};
+
+// Function to open the popup
+
+
+
+
 
 </script>
 
 <style scoped>
+
+
+.divider{
+  color: #f3f3f3;
+  background-color: #f3f3f3;
+  border: none;
+  height: 2px;
+  margin-top: 30px;
+  width: 438px;
+  margin-left: -60px;
+}
 .navbar {
   background-color: transparent;
   position: relative;
@@ -315,7 +396,7 @@ function onAreaChange() {
   padding: 20px;
   border-radius: 15px; /* Remove border-radius for rectangle shape */
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  height: 230px;
+  height: 400px;
   width: 400px;
 }
 
@@ -660,6 +741,20 @@ ul li a.cart .cart-basket {
   visibility: visible;
   transform: scale(1);
   transition: 0s;
+}
+
+@font-face {
+    font-family: "Uber Move Light";
+    src: url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.eot");
+    src: url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/79dd8fd82129493e2894679950d5b897.svg#Uber Move Light")format("svg");
+}
+
+.order-details {
+  margin-top: 20px;
 }
 
 
