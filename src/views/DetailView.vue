@@ -56,8 +56,8 @@
     </div>
 
     <div class="content">
-      <button class="group-order">
-        @onClick="openPopupG"
+      <button class="group-order" @click="openGroupOrderPopup">
+       
         <svg
           aria-hidden="true"
           focusable="false"
@@ -397,6 +397,58 @@
           </div>
         </div>
       </div>
+      <div v-if="showGroupOrderPopup" class="modal-overlay">
+  <div class="modal-content">
+    <div class="popup-header">
+  <div class="order-image">
+    <img src="https://www.ubereats.com/_static/599c925a5b7f753e.svg" alt="Group Order Items" class="group-order-image">
+    <button @click="closeGroupOrderPopup" aria-label="Close" class="close-button">
+      x
+    </button>
+  </div>
+</div>
+    
+    <div class="popup-body" style="color: black; text-align: left">
+    
+      
+      <h2>Parth's group order</h2>
+      <p>From Domino's</p>
+      <p>Deliver to Santa Barbara</p>
+      
+      <div class="order-details">
+        <div class="detail-item">
+          <span class="icon">⏱️</span>
+          <div>
+            <strong>People can order at any time</strong>
+            <p>No deadline set</p>
+          </div>
+          <span class="edit-icon">✏️</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="icon">💳</span>
+          <div>
+            <strong>You pay for everyone</strong>
+            <p>No spending limit</p>
+          </div>
+          <span class="edit-icon">✏️</span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="icon">🔄</span>
+          <div>
+            <strong>Does not repeat</strong>
+            <p>Set as a repeat group order to place at recurring times</p>
+          </div>
+          <span class="edit-icon">✏️</span>
+        </div>
+      </div>
+      
+      <button class="invite-button">Invite people</button>
+    </div>
+  </div>
+</div>
+
       <div v-if="showInfo" class="modal-overlay">
         <div class="modal-content">
           <div class="popup-header">
@@ -439,6 +491,8 @@ export default {
       showNotification: false,
       notificationMessage: "",
       showPopup: false,
+      showGroupOrderPopup: false,
+
       showInfo: false,
       selectedTab: { text: "Details" },
       activeSection: "",
@@ -583,6 +637,14 @@ export default {
         this.currentIndex++;
       }
     },
+    openGroupOrderPopup() {
+    this.showGroupOrderPopup = true;
+    
+    this.selectedTab = { text: "Group Order" };
+  },
+  closeGroupOrderPopup() {
+    this.showGroupOrderPopup = false;
+  },
     addToCart(index) {
       this.items[index].quantity++;
     },
@@ -839,22 +901,35 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 .popup-header h2 {
   font-family: "Uber Move";
   color: black;
   margin: 0;
+
 }
 
 .close-button {
-  background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color:black;
   border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
   cursor: pointer;
-  font-size: 20px;
-  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
 }
+
 
 .popup-body {
   display: flex;
@@ -1179,6 +1254,74 @@ section {
   display: flex;
   flex-direction: column;
   min-height: auto; /* Remove fixed height */
+}
+
+.invite-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 18px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.edit-icon {
+  margin-left: auto;
+}
+
+.icon {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.order-details {
+  margin-top: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+h2 {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.close-button, .question-mark {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.order-image {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+
+.group-order-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
 }
 
 </style>
