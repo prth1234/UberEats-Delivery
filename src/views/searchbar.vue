@@ -367,7 +367,7 @@ function selectResult(result) {
   if (!savedAddresses.value.includes(searchQuery.value)) {
     savedAddresses.value.unshift(searchQuery.value);
     // Keep only the last 3 searches
-    if (savedAddresses.value.length > 3) {
+    if (savedAddresses.value.length > 6) {
       savedAddresses.value.pop();
     }
   }
@@ -403,7 +403,7 @@ function clearSearch() {
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  width: 400px;
+  width: 600px;
 }
 
 .divider{
@@ -583,12 +583,15 @@ function clearSearch() {
 .remove-button {
   background: none;
   border: none;
-  color: #ff4d4d;
+  color: #000000;
   font-size: 18px;
   cursor: pointer;
   position: absolute;
-  right: 10px;
-  top: 10px;
+  font-size: 18px;
+  buttom:15px;
+  /* right: 10px;
+  top: 10px; */
+  right: 0px;
 }
 
 
