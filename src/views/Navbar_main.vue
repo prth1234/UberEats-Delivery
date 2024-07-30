@@ -22,7 +22,7 @@
       <ul class="nav-menu">
         <input type="checkbox" name="check-toggle" id="checkbox" hidden="">
         <label for="checkbox" class="toggle">
-          <div class="toggle__circle"></div>
+            <div class="toggle__circle"></div>
         </label>
         <div class="nav-links">
           <ul class="nav-menu">
@@ -330,26 +330,61 @@ function clearSearch() {
 .toggle {
   --bg-toggle: hsl(0, 0%, 96%);
   --bg-circle: hsl(96, 85%, 34%);
-  width: 60px;
-  height: 30px;
+  width: 60px; /* 120px * 0.5 */
+  height: 30px; /* 60px * 0.5 */
   background-color: var(--bg-toggle);
-  box-shadow: 0 .2rem 3rem 0 rgba(125, 125, 125, 0.25);
-  border-radius: 1.5rem;
+  box-shadow: 0 .15rem 2.5rem 0 rgba(125, 125, 125, 0.25); /* Adjusted for scale */
+  border-radius: 2rem; /* 4rem * 0.5 */
   display: flex;
   align-items: center;
-  padding: 0 .2rem;
+  padding: 0 .15rem; /* 0.3rem * 0.5 */
   transition: background-color 400ms;
 }
 
 .toggle__circle {
-  width: 24px;
-  height: 24px;
+  width: 25px; /* 50px * 0.5 */
+  height: 25px; /* 50px * 0.5 */
   cursor: pointer;
   background-color: var(--bg-circle);
-  border-radius: 500px;
+  border-radius: 50%;
   position: relative;
   transition: margin 400ms ease-in-out, background-color 1000ms;
 }
+
+.toggle__circle::after,
+.toggle__circle::before {
+  content: '';
+  position: absolute;
+  background-color: var(--bg-toggle);
+  bottom: 118%;
+  transform-origin: bottom left;
+}
+
+.toggle__circle::before {
+  width: 7.5px; /* 15px * 0.5 */
+  height: 12.5px; /* 25px * 0.5 */
+  left: 32%;
+  border-radius: 0% 100% 0% 100% / 0% 27% 73% 100%;
+  transform: translateX(-70%) rotate(-2deg);
+}
+
+.toggle__circle::after {
+  width: 12.5px; /* 25px * 0.5 */
+  height: 15px; /* 30px * 0.5 */
+  left: 48%;
+  border-radius: 100% 0% 100% 0% / 100% 0% 100% 0%;
+  transform: rotate(-20deg);
+}
+
+#checkbox:checked + .toggle > .toggle__circle {
+  margin-left: calc(60px - (.15rem * 2) - 25px); /* Adjusted for scale */
+}
+
+#checkbox:checked + .toggle {
+  --bg-toggle: hsl(96, 85%, 34%);
+  --bg-circle: hsl(0, 0%, 96%);
+}
+
 
 .location-button {
   display: flex;
@@ -547,5 +582,7 @@ function clearSearch() {
   text-align: center;
   font-family: 'Uber Move';
 }
+
+
 
 </style>
