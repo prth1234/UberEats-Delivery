@@ -114,6 +114,8 @@
 <script setup>
 import { ref, computed } from 'vue';
 import searchbar from './searchbar.vue';
+const savedAddresses = ref([]);
+
 
 const showPopup = ref(false);
 const searchQuery = ref('');
@@ -124,8 +126,70 @@ const showSuggestions = ref(false);
 
 const cities = ref([
   'New York, NY', 'Los Angeles, CA', 'Chicago, IL', 'Houston, TX', 'Phoenix, AZ',
-  'Philadelphia, PA', 'San Antonio, TX', 'San Diego, CA', 'Dallas, TX', 'San Jose, CA'
-]);
+  'Philadelphia, PA', 'San Antonio, TX', 'San Diego, CA', 'Dallas, TX', 'San Jose, CA',
+  'Austin, TX', 'Jacksonville, FL', 'San Francisco, CA', 'Columbus, OH', 'Indianapolis, IN',
+  'Charlotte, NC', 'Seattle, WA', 'Denver, CO', 'El Paso, TX', 'Detroit, MI',
+  'Boston, MA', 'Memphis, TN', 'Nashville, TN', 'Baltimore, MD', 'Oklahoma City, OK',
+  'Las Vegas, NV', 'Louisville, KY', 'Milwaukee, WI', 'Albuquerque, NM', 'Tucson, AZ',
+  'Fresno, CA', 'Sacramento, CA', 'Kansas City, MO', 'Mesa, AZ', 'Atlanta, GA',
+  'Colorado Springs, CO', 'Virginia Beach, VA', 'Raleigh, NC', 'Omaha, NE', 'Miami, FL',
+  'Cleveland, OH', 'Tulsa, OK', 'Oakland, CA', 'Minneapolis, MN', 'Wichita, KS',
+  'Arlington, TX', 'Bakersfield, CA', 'Tampa, FL', 'Aurora, CO', 'Honolulu, HI',
+  'Anaheim, CA', 'Santa Ana, CA', 'Corpus Christi, TX', 'Riverside, CA', 'St. Louis, MO',
+  'Lexington, KY', 'Stockton, CA', 'Cincinnati, OH', 'St. Paul, MN', 'Toledo, OH',
+  'Pittsburgh, PA', 'Greensboro, NC', 'Jersey City, NJ', 'Chandler, AZ', 'Fort Wayne, IN',
+  'Buffalo, NY', 'Durham, NC', 'Madison, WI', 'Lubbock, TX', 'Chesapeake, VA',
+  'Scottsdale, AZ', 'Irving, TX', 'Gilbert, AZ', 'North Las Vegas, NV', 'Winston-Salem, NC',
+  'Hialeah, FL', 'Garland, TX', 'Fremont, CA', 'Richmond, VA', 'Boise, ID',
+  'San Bernardino, CA', 'Spokane, WA', 'Baton Rouge, LA', 'Modesto, CA', 'Des Moines, IA',
+  'Tacoma, WA', 'Augusta, GA', 'Akron, OH', 'Mobile, AL', 'Knoxville, TN',
+  'Shreveport, LA', 'Waco, TX', 'Columbia, SC', 'Fargo, ND', 'Salem, OR',
+  'Grand Rapids, MI', 'Oshkosh, WI', 'Cedar Rapids, IA', 'Chattanooga, TN', 'Little Rock, AR',
+  'Augusta, GA', 'Akron, OH', 'Mobile, AL', 'Knoxville, TN', 'Shreveport, LA',
+  'Waco, TX', 'Columbia, SC', 'Fargo, ND', 'Salem, OR', 'Grand Rapids, MI',
+  'Oshkosh, WI', 'Cedar Rapids, IA', 'Cincinnati, OH', 'Cleveland, OH', 'Dayton, OH',
+  'Akron, OH', 'Cleveland Heights, OH', 'Shaker Heights, OH', 'Lorain, OH', 'Youngstown, OH',
+  'Mansfield, OH', 'Findlay, OH', 'Zanesville, OH', 'Marion, OH', 'Newark, OH',
+  'Portsmouth, OH', 'Warren, OH', 'Ashtabula, OH', 'Tiffin, OH', 'Sandusky, OH',
+  'Lancaster, OH', 'Mount Vernon, OH', 'Coshocton, OH', 'Bellefontaine, OH', 'Urbana, OH',
+  'Hubbard, OH', 'Alliance, OH', 'Barberton, OH', 'Cuyahoga Falls, OH', 'Kent, OH',
+  'Tallmadge, OH', 'Stow, OH', 'Ravenna, OH', 'Garrettsville, OH', 'Berea, OH',
+  'Brunswick, OH', 'Medina, OH', 'Richfield, OH', 'Northfield, OH', 'Solon, OH',
+  'Hudson, OH', 'Twinsburg, OH', 'Aurora, OH', 'Portage Lakes, OH', 'New Philadelphia, OH',
+  'Cambridge, OH', 'Wooster, OH', 'Willard, OH', 'Ashland, OH', 'Madison, OH',
+  'Mansfield, OH', 'Galion, OH', 'Wooster, OH', 'Mount Vernon, OH', 'Lima, OH',
+  'London, OH', 'Lancaster, OH', 'Piqua, OH', 'Sidney, OH', 'Greenville, OH',
+  'Troy, OH', 'Eaton, OH', 'Bellevue, OH', 'Ashland, OH', 'Perrysburg, OH',
+  'Sylvania, OH', 'Oregon, OH', 'Maumee, OH', 'Westlake, OH', 'Avon, OH',
+  'Avon Lake, OH', 'North Olmsted, OH', 'Brook Park, OH', 'Strongsville, OH', 'Berea, OH',
+  'North Ridgeville, OH', 'Grafton, OH', 'Sheffield Lake, OH', 'Elyria, OH', 'Lorain, OH',
+  'New London, OH', 'Attica, OH', 'Fostoria, OH', 'Upper Sandusky, OH', 'Wyandot, OH',
+  'Montpelier, OH', 'Edon, OH', 'Hicksville, OH', 'Bryan, OH', 'Harrison, OH',
+  'Ridgeville Corners, OH', 'Swanton, OH', 'Wauseon, OH', 'Pioneer, OH', 'Bryan, OH',
+  'Paulding, OH', 'Ada, OH', 'Findlay, OH', 'Upper Sandusky, OH', 'Tiffin, OH',
+  'Sandusky, OH', 'Bellevue, OH', 'Norwalk, OH', 'Marion, OH', 'Mount Vernon, OH',
+  'Ashland, OH', 'Galion, OH', 'Shelby, OH', 'Lima, OH', 'Sidney, OH',
+  'Troy, OH', 'Eaton, OH', 'Greenville, OH', 'Piqua, OH', 'Wapakoneta, OH',
+  'St. Marys, OH', 'Celina, OH', 'Salina, OH', 'Coldwater, OH', 'Minster, OH',
+  'Anna, OH', 'Jackson Center, OH', 'Versailles, OH', 'Russia, OH', 'Fort Loramie, OH',
+  'New Bremen, OH', 'St. Henry, OH', 'Harrison, OH', 'Lawrenceburg, IN', 'Greendale, IN',
+  'Aurora, IN', 'Versailles, IN', 'Madison, IN', 'Seymour, IN', 'Columbus, IN',
+  'North Vernon, IN', 'Westfield, IN', 'Noblesville, IN', 'Carmel, IN', 'Fishers, IN',
+  'Indianapolis, IN', 'Greenwood, IN', 'Bargersville, IN', 'Whiteland, IN', 'Shelbyville, IN',
+  'Franklin, IN', 'Martinsville, IN', 'Mooresville, IN', 'Camby, IN', 'Plainfield, IN',
+  'Speedway, IN', 'Danville, IN', 'Lebanon, IN', 'Zionsville, IN', 'Pittsboro, IN',
+  'Crawfordsville, IN', 'Greencastle, IN', 'Brazil, IN', 'Russiaville, IN', 'Logansport, IN',
+  'Peru, IN', 'Kokomo, IN', 'Monticello, IN', 'Winamac, IN', 'Delphi, IN',
+  'Flora, IN', 'New Castle, IN', 'Anderson, IN', 'Pendleton, IN', 'Elwood, IN',
+  'Tipton, IN', 'Noblesville, IN', 'Greenfield, IN', 'Batesville, IN', 'Madison, IN',
+  'Seymour, IN', 'Columbus, IN', 'Shelbyville, IN', 'Franklin, IN', 'Martinsville, IN',
+  'Mooresville, IN', 'Camby, IN', 'Plainfield, IN', 'Speedway, IN', 'Danville, IN',
+  'Lebanon, IN', 'Zionsville, IN', 'Pittsboro, IN', 'Crawfordsville, IN', 'Greencastle, IN',
+  'Brazil, IN', 'Russiaville, IN', 'Logansport, IN', 'Peru, IN', 'Monticello, IN',
+  'Winamac, IN', 'Delphi, IN', 'Flora, IN', 'New Castle, IN']);
+
+
+
 const selectedIndex = ref(-1);
 
 const filteredCities = computed(() => {
