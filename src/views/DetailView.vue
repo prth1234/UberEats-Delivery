@@ -399,7 +399,7 @@
         <div class="modal-content">
     <div class="popup-header">
   <div class="order-image">
-    <img src="https://www.ubereats.com/_static/599c925a5b7f753e.svg" alt="Group Order Items" class="group-order-image">
+    <img src="https://www.uber-assets.com/image/upload/q_auto:eco,c_fill,w_300,h_300/v1666628796/assets/b0/b78d38-638b-460e-a387-d5e4178436de/original/Icon_Meal_Programs_150x150.svg" alt="Group Order Items" class="group-order-image">
     <button @click="closePopup" aria-label="Close" class="close-button">
       x
     </button>
@@ -473,7 +473,7 @@
     <div class="popup-body" style="color: black; text-align: left">
     
       
-      <h1 style="margin-top: -10px; font-size: 35px;">Parth's group order</h1>
+      <h1 style="margin-top: 20px; font-size: 35px;">Parth's group order</h1>
       <p style="padding: 0px; margin-bottom: 0px; margin-top: 0px; font-family: Uber Move Light;">From Domino's</p>
       <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light;">Deliver to Santa Barbara</p>
       
@@ -484,7 +484,7 @@
             <strong>People can order at any time</strong>
 
             <p style="margin-top: 0px;  font-family: Uber Move Light;">No deadline set</p>
-            <hr class="divider">
+            <hr class="divider2">
 
           </div>
           <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
@@ -495,7 +495,7 @@
           <div>
             <strong>You pay for everyone</strong>
             <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p>
-            <hr class="divider">
+            <hr class="divider2">
 
           </div>
           <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
@@ -506,7 +506,7 @@
           <div>
             <strong>Does not repeat</strong>
             <p style="margin-top: 0px; font-family: Uber Move Light;">Set as a repeat group order to place at recurring times</p>
-            <hr class="divider">
+            <hr class="divider2">
 
           </div>
           <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
@@ -820,6 +820,13 @@ export default {
   padding: 0;
 }
 .divider {
+  border: none;
+  height: 2px;
+  background-color: #ebeaea;
+  width: 400px;
+  margin-top: 20px;
+}
+.divider2 {
   border: none;
   height: 2px;
   background-color: #ebeaea;
@@ -1399,7 +1406,7 @@ h2 {
 .group-order-image {
   width: 100%;
   max-width: 300px;
-  height: auto;
+  height: 220px;
 }
 
 </style>
