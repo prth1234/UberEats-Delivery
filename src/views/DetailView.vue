@@ -315,7 +315,7 @@
         </div>
       </transition>
       <div v-if="showPopup" class="modal-overlay">
-        <div class="modal-content">
+        <!-- <div class="modal-content">
           <div class="popup-header">
             <h2>{{ selectedTab.text }}</h2>
             <button @click="closePopup" aria-label="Close" class="close-button">
@@ -395,7 +395,69 @@
               </div>
             </div>
           </div>
+        </div> -->
+        <div class="modal-content">
+    <div class="popup-header">
+  <div class="order-image">
+    <img src="https://www.ubereats.com/_static/599c925a5b7f753e.svg" alt="Group Order Items" class="group-order-image">
+    <button @click="closePopup" aria-label="Close" class="close-button">
+      x
+    </button>
+  </div>
+</div>
+    
+    <div class="popup-body" style="color: black; text-align: left">
+    
+      
+      <h1 style="margin-top: -10px; font-size: 35px;">{{restaurant.name}}</h1>
+      <!-- <p style="padding: 0px; margin-bottom: 0px; margin-top: 0px; font-family: Uber Move Light;">From Domino's</p> -->
+      <!-- <p style="padding: 0px; margin-top: 0px;font-family: Uber Move Light;">Deliver to Santa Barbara</p> -->
+      <div class="information">
+                <span class="rating">{{ restaurant.rating }} ★ | </span>
+                <span>({{ restaurant.ratingCount }}+) | </span>
+                <span>{{ restaurant.categories.join(" • ") }} • </span>
+                <span class="info-link">Info</span>
+              </div>
+      
+      <div class="order-details">
+        <div class="detail-item">
+          <span class="icon" style="margin-right: 20px;"><svg width="29" height="29" viewBox="0 0 24 24" fill="none"><title>Location marker</title><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1c2.4 0 4.9.9 6.7 2.8 3.7 3.7 3.7 9.8 0 13.4L12 24l-6.7-6.7c-3.7-3.7-3.7-9.8 0-13.5C7.1 1.9 9.6 1 12 1Zm0 18.8 4.6-4.6c2.5-2.6 2.5-6.7 0-9.3C15.4 4.7 13.7 4 12 4c-1.7 0-3.4.7-4.6 1.9-2.5 2.6-2.5 6.7 0 9.3l4.6 4.6Zm2-9.3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z" fill="currentColor"></path></svg></span>
+          <div>
+            <strong>People can order at any time</strong>
+
+            <p style="margin-top: 0px;  font-family: Uber Move Light;">No deadline set</p>
+            <hr class="divider">
+
+          </div>
+          <span class="edit-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Clock</title><path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.9 5.9 1 12 1s11 4.9 11 11-4.9 11-11 11S1 18.1 1 12Zm3 0c0 4.4 3.6 8 8 8s8-3.6 8-8-3.6-8-8-8-8 3.6-8 8Zm6.5 2.5V7h3v4.5H17v3h-6.5Z" fill="currentColor"></path></svg></span>
+     
         </div>
+        <div class="detail-item">
+          <span class="icon" style="margin-right: 20px;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><title>Star</title><path d="M23.917 8.5 16.104 8l-3.646-7-3.646 7L1 8.5 6.73 14l-2.084 8 7.812-4 7.813 4-2.084-8 5.73-5.5Zm-8.855 4.7L16 16.8 12.458 15l-3.541 1.8.937-3.6-2.5-2.4 3.23-.2L12.457 7l1.875 3.6 3.23.2-2.5 2.4Z" fill="currentColor"></path></svg></span>
+          <div>
+            <strong>You pay for everyone</strong>
+            <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p>
+            <hr class="divider">
+
+          </div>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
+        </div>
+        
+        <div class="detail-item">
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
+          <div>
+            <strong>Does not repeat</strong>
+            <p style="margin-top: 0px; font-family: Uber Move Light;">Set as a repeat group order to place at recurring times</p>
+            <hr class="divider">
+
+          </div>
+          <span class="edit-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-label="Edit"><title>Pencil</title><g fill="currentColor"><path d="m14.4 6.6 3 3L5 22H2v-3L14.4 6.6ZM19.071 1.99l-2.475 2.474 2.97 2.97 2.475-2.475-2.97-2.97Z"></path></g></svg></span>
+        </div>
+      </div>
+      
+      <button class="invite-button">Invite people</button>
+    </div>
+  </div>
       </div>
       <div v-if="showGroupOrderPopup" class="modal-overlay">
   <div class="modal-content">
@@ -417,7 +479,7 @@
       
       <div class="order-details">
         <div class="detail-item">
-          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" data-v-167ce9ae=""><title data-v-167ce9ae="">Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor" data-v-167ce9ae=""></path></svg></span>
           <div>
             <strong>People can order at any time</strong>
 
@@ -429,7 +491,7 @@
      
         </div>
         <div class="detail-item">
-          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Money</title><path d="M1 4v16h22V4H1Zm5 5H3V6h3v3Zm6 6c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3Zm9 3h-3v-3h3v3Z" fill="currentColor"></path></svg></span>
           <div>
             <strong>You pay for everyone</strong>
             <p style="margin-top: 0px; font-family: Uber Move Light;">No spending limit</p>
@@ -440,7 +502,7 @@
         </div>
         
         <div class="detail-item">
-          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Clock</title><path d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm6 13h-8V4h3v7h5v3Z" fill="currentColor"></path></svg></span>
+          <span class="icon" style="margin-right: 20px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><title>Arrow clockwise</title><path d="M17.9 13c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .9.1 1.3.2L9.7 12h3.7l4.4-6-4.4-6H9.7l3 4H12c-5 0-9 4-9 9s4 9 9 9 9-4 9-9h-3.1Z" fill="currentColor"></path></svg></span>
           <div>
             <strong>Does not repeat</strong>
             <p style="margin-top: 0px; font-family: Uber Move Light;">Set as a repeat group order to place at recurring times</p>
