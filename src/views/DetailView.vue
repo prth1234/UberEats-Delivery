@@ -33,6 +33,8 @@
       <h1 style="font-size: 50px">
         {{ restaurant.name }} ({{ restaurant.address }})
       </h1>
+
+      
       <div class="restaurant-info">
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
