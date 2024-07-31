@@ -29,18 +29,35 @@
     </div>
 
     <div class="content">
-
+<div class="starting-info">
       <h1 style="font-size: 50px">
         {{ restaurant.name }} ({{ restaurant.address }})
       </h1>
 
-      
+     
       <div class="restaurant-info">
         <span class="rating">{{ restaurant.rating }} ★ | </span>
         <span>({{ restaurant.ratingCount }}+) | </span>
         <span>{{ restaurant.categories.join(" • ") }} • </span>
-        <button class="more1" @click="openInfo">Info</button>
-      </div>
+        <button class="more1" @click="openInfo" style="margin-bottom: 20px;">Info</button>
+      </div></div>
+
+
+
+
+      <!-- <div style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;"
+                class="searchbarr">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;">
+                  <title>Search</title>
+                  <path
+                    d="M22.6 20.4 18.2 16c1.1-1.6 1.8-3.5 1.8-5.6C20 5.2 15.7.9 10.5.9S1 5.2 1 10.4s4.3 9.5 9.5 9.5c2.1 0 4-.7 5.6-1.8l4.4 4.4 2.1-2.1ZM4 10.5C4 6.9 6.9 4 10.5 4S17 6.9 17 10.5 14.1 17 10.5 17 4 14.1 4 10.5Z"
+                    fill="currentColor"></path>
+                </svg>
+                <input type="text" placeholder="Search in store"
+                  style="flex: 1; padding: 10px; border-radius: 4px; font-family: Uber Move; border: none; background-color: transparent; font-family: 'Uber Move Light'; font-size: 20px;"
+                  onfocus="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';"
+                  onblur="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';"></input>
+              </div> -->
       <!-- <p class="description">{{ restaurant.description }}</p> -->
       <div class="main-body-content">
         <div class="intial-content">
@@ -840,8 +857,8 @@ export default {
 }
 
 .searchbarr {
-  border: none;
   border-radius: 20px;
+
 
 }
 
