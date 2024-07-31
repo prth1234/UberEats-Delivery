@@ -1385,14 +1385,14 @@ h3 {
 }
 
 .nav-buttons svg path {
-  fill: #f3f3f3;
+  fill: #000000;
 }
 
 .nav-button.prev,
 .nav-button.next {
   border-radius: 50%;
   /* Ensure perfect circle */
-  background-color: #1a1a1a;
+  background-color: #ffffff;
 }
 
 .cart-button {
