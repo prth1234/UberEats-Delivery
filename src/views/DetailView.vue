@@ -805,6 +805,7 @@ export default {
 
 .searchbarr{
   border: none;
+  border-radius: 20px;
 }
 .restaurant-detail {
   font-family: Arial, sans-serif;
