@@ -68,7 +68,7 @@
               </div>
             </div>
             <div class="slider-container">
-              <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 25}%)` }">
+              <div class="slides-wrapper" :style="{ transform: `translateX(-${currentIndex * 20}%)` }">
                 <div class="slide" v-for="(item, index) in items" :key="index">
                   <div class="item-image">
                     <img :src="item.image" :alt="item.name" class="img-stuff" />
@@ -756,7 +756,7 @@ export default {
       }
     },
     nextSlide() {
-      if (this.currentIndex < this.items.length - 4) {
+      if (this.currentIndex < this.items.length - 5) {
         this.currentIndex++;
       }
     },
@@ -1162,7 +1162,7 @@ h1 {
   font-family: Arial, sans-serif;
   max-width: 2200px;
   margin: 0 auto;
-  transform: scale(0.7);
+  transform: scale(0.71);
   align-items: left;
   margin-left: -220px;
   margin-top: -70px;
@@ -1186,10 +1186,10 @@ h2 {
 }
 
 .slide {
-  flex: 0 0 25%;
+  flex: 0 0 20%; /* Change from 25% to 20% to show 5 items */
   padding: 10px;
   box-sizing: border-box;
-  width: 25%;
+  width: 20%; /* Change from 25% to 20% */
 }
 
 .item-image {
@@ -1431,7 +1431,7 @@ section {
   display: flex;
   justify-content: space-between;
   /* Adjust spacing as needed */
-  gap: 6px;
+  gap: 3px;
   /* Space between rectangles */
   padding: 0px;
   /* Optional padding for the container */
@@ -1439,7 +1439,7 @@ section {
 }
 
 .rectangle {
-  width: 220px;
+  width: 245px;
   /* Adjust the width as needed */
   height: 150px;
   /* Adjust the height as needed */
