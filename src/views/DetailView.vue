@@ -99,72 +99,11 @@
           </div>
 
 
-          <div class="info-rectangle" style="width: 28%; padding: 20px;">
-            <div style="display: flex; align-items: center; width: 350px;">
-              <!-- Search Bar -->
-              <div style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;"
-                class="searchbarr">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;">
-                  <title>Search</title>
-                  <path
-                    d="M22.6 20.4 18.2 16c1.1-1.6 1.8-3.5 1.8-5.6C20 5.2 15.7.9 10.5.9S1 5.2 1 10.4s4.3 9.5 9.5 9.5c2.1 0 4-.7 5.6-1.8l4.4 4.4 2.1-2.1ZM4 10.5C4 6.9 6.9 4 10.5 4S17 6.9 17 10.5 14.1 17 10.5 17 4 14.1 4 10.5Z"
-                    fill="currentColor"></path>
-                </svg>
-                <input type="text" placeholder="Search in store"
-                  style="flex: 1; padding: 10px; border-radius: 4px; font-family: Uber Move; border: none; background-color: transparent; font-family: 'Uber Move Light'; font-size: 18px;"
-                  onfocus="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';"
-                  onblur="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';"></input>
-              </div>
-              <!-- Group Order Button -->
-              <button class="group-order" @click="openGroupOrderPopup"
-                style="background-color: transparent; color: azure; display: flex; align-items: center; border: none; ">
-                <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="gj dz gk gl"
-                  style="width: 24px; height: 24px; margin-right: 5px;">
-                  <g clip-path="url(#clip0)">
-                    <path fill-rule="evenodd" clip-rule="evenodd" fill="white"
-                      d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z">
-                    </path>
-                  </g>
-                  <defs>
-                    <clipPath id="clip0">
-                      <path d="M0 0h24v24H0z"></path>
-                    </clipPath>
-                  </defs>
-                </svg>
-                Group order
-              </button>
-            </div>
-
-            <hr class="divider3">
-            <div class="toggle-container" style="margin-top: 20px; font-size: 18px;">
-              <button class="toggle-button" :class="{ active: activeToggle === 'Delivery' }"
-                @click="setActiveToggle('Delivery')">
-                Delivery
-              </button>
-              <button class="toggle-button" :class="{ active: activeToggle === 'Pickup' }"
-                @click="setActiveToggle('Pickup')">
-                Pickup
-              </button>
-              <div class="slider" :style="sliderStyle"></div>
-            </div>
-            <button @click="openInfo" class="infobutton" style="color: white;">Info<svg width="2em" height="1em" style="font-size: 16px;"
-                viewBox="0 0 24 24" fill="none" color="#5E5E5E">
-                <title>Circle i</title>
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                  d="M12 1C5.9 1 1 5.9 1 12s4.9 11 11 11 11-4.9 11-11S18.1 1 12 1Zm0 19c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8Zm-1.5-9v7h3v-7h-3ZM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
-                  fill="white"></path>
-              </svg></button>
-
-            <hr class="divider4">
-
-            <button @click="openInfo" class="infobutton" style="color: white; font-size: 16px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" data-v-167ce9ae=""><title data-v-167ce9ae="">Arrow clockwise</title><path d="M17.9 13c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .9.1 1.3.2L9.7 12h3.7l4.4-6-4.4-6H9.7l3 4H12c-5 0-9 4-9 9s4 9 9 9 9-4 9-9h-3.1Z" fill="currentColor" data-v-167ce9ae=""></path></svg>
-              Repeat Last </button>
-
+          <!-- <div class="info-rectangle" style="width: 28%; padding: 20px;">
 
 
           </div>
-
+ -->
 
 
 
@@ -1221,11 +1160,11 @@ h1 {
 
 .top-picks-slider {
   font-family: Arial, sans-serif;
-  max-width: 1200px;
+  max-width: 2200px;
   margin: 0 auto;
   transform: scale(0.7);
   align-items: left;
-  margin-left: -180px;
+  margin-left: -220px;
   margin-top: -70px;
 }
 
