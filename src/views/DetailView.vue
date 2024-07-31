@@ -158,12 +158,12 @@
     <!-- Search Bar -->
     <div style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;" class="searchbarr">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;"><title>Search</title><path d="M22.6 20.4 18.2 16c1.1-1.6 1.8-3.5 1.8-5.6C20 5.2 15.7.9 10.5.9S1 5.2 1 10.4s4.3 9.5 9.5 9.5c2.1 0 4-.7 5.6-1.8l4.4 4.4 2.1-2.1ZM4 10.5C4 6.9 6.9 4 10.5 4S17 6.9 17 10.5 14.1 17 10.5 17 4 14.1 4 10.5Z" fill="currentColor"></path></svg>
-  <input type="text" placeholder="Search in store" style="flex: 1; padding: 10px; border-radius: 4px; border: none; background-color: transparent; font-family: 'Uber Move Light'; font-size: 18px;" 
+  <input type="text" placeholder="Search in store" style="flex: 1; padding: 10px; border-radius: 4px; font-family: Uber Move; border: none; background-color: transparent; font-family: 'Uber Move Light'; font-size: 18px;" 
   onfocus="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';" 
   onblur="this.style.fontFamily='Uber Move Light'; this.style.fontSize='18px';" ></input>
 </div>
     <!-- Group Order Button -->
-    <button class="group-order" @click="openGroupOrderPopup" style="background-color: transparent; color: azure; display: flex; align-items: center; border: none; cursor: pointer;">
+    <button class="group-order" @click="openGroupOrderPopup" style="background-color: transparent; color: azure; display: flex; align-items: center; border: none; ">
       <svg
         aria-hidden="true"
         focusable="false"
@@ -806,6 +806,7 @@ export default {
 .searchbarr{
   border: none;
   border-radius: 20px;
+
 }
 .restaurant-detail {
   font-family: Arial, sans-serif;
@@ -901,18 +902,22 @@ h1 {
   align-items: center;
   padding: 8px 16px;
   width: 120px;
-  background-color: #eee;
+  background-color: transparent; /* Set to transparent for consistency */
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  color: black;
+  color: azure; /* Ensures text color is azure */
   font-family: "Uber Move";
+  text-overflow: hidden;
+  width: 1200px;
+
 }
 
 .group-order svg {
   margin-right: 8px;
-  transform: scale(0.7);
+  transform: scale(1.3);
 }
+
 
 .description {
   margin-top: 20px;
