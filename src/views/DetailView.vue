@@ -50,8 +50,27 @@
        </svg>
        Group order
      </button>
+
+     <!-- <div class="searchbarr" style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;">
+        <title>Search</title>
+        <path d="M22.6 20.4 18.2 16c1.1-1.6 1.8-3.5 1.8-5.6C20 5.2 15.7.9 10.5.9S1 5.2 1 10.4s4.3 9.5 9.5 9.5c2.1 0 4-.7 5.6-1.8l4.4 4.4 2.1-2.1ZM4 10.5C4 6.9 6.9 4 10.5 4S17 6.9 17 10.5 14.1 17 10.5 17 4 14.1 4 10.5Z" fill="currentColor"></path>
+      </svg>
+      <input type="text" placeholder="Search in store" style="flex: 1; padding: 10px; border-radius: 4px; font-family: 'Uber Move Light'; font-size: 18px; border: none; background-color: transparent;">
+    </div>
+ -->
+ <div class="toggle-container" style="margin-top: 20px; font-size: 18px;">
+      <button class="toggle-button" :class="{ active: activeToggle === 'Delivery' }" @click="setActiveToggle('Delivery')">
+        Delivery
+      </button>
+      <button class="toggle-button" :class="{ active: activeToggle === 'Pickup' }" @click="setActiveToggle('Pickup')">
+        Pickup
+      </button>
+      <div class="slider" :style="sliderStyle"></div>
+    </div>
+
 <div class="starting-info">
-      <h1 style="font-size: 50px">
+      <h1 style="font-size: 50px; margin-top: -40px;">
         {{ restaurant.name }} ({{ restaurant.address }})
       </h1>
 
@@ -1007,7 +1026,7 @@ h1 {
 
 .group-order svg {
   margin-right: 8px;
-  transform: scale(1.3);
+  transform: scale(1);
 }
 
 
@@ -1608,12 +1627,12 @@ h2 {
 }
 
 
-.group-order-image {
-  width: 100%;
-  max-width: 300px;
-  height: 220px;
-  background-color: transparent;
-}
+  .group-order-image {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
+    background-color: transparent;
+  }
 
 .intial-content {
   display: flex;
@@ -1637,6 +1656,7 @@ input::placeholder {
   position: relative;
   font-family: Uber Move;
   height: 44px;
+  margin-left: 900px;
 }
 
 .toggle-button {
