@@ -82,6 +82,7 @@
    max-width: 1200px;
    margin: 0 auto;
    margin-bottom: 70px;
+   margin-top: 10px;
  }
  
  .grid-container {

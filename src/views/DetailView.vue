@@ -44,6 +44,27 @@
     </svg>
     Group order
   </button>
+  <div class="toggle-container" style="margin-top: 0px; font-size: 18px;">
+      <button class="toggle-button" :class="{ active: activeToggle === 'Delivery' }" @click="setActiveToggle('Delivery')">
+        Delivery
+      </button>
+      <button class="toggle-button" :class="{ active: activeToggle === 'Pickup' }" @click="setActiveToggle('Pickup')">
+        Pickup
+      </button>
+      <div class="slider" :style="sliderStyle"></div>
+    </div>
+    <!-- <button @click="openInfo" class="infobutton" style="color: white;">
+      Info
+      <svg width="2em" height="1em" style="font-size: 16px;" viewBox="0 0 24 24" fill="none" color="#5E5E5E">
+      </svg>
+    </button> -->
+  <!-- <div class="searchbarr" style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;">
+        <title>Search</title>
+        <path d="M22.6 20.4 18.2 16c1.1-1.6 1.8-3.5 1.8-5.6C20 5.2 15.7.9 10.5.9S1 5.2 1 10.4s4.3 9.5 9.5 9.5c2.1 0 4-.7 5.6-1.8l4.4 4.4 2.1-2.1ZM4 10.5C4 6.9 6.9 4 10.5 4S17 6.9 17 10.5 14.1 17 10.5 17 4 14.1 4 10.5Z" fill="currentColor"></path>
+      </svg>
+      <input type="text" placeholder="Search in store" style="flex: 1; padding: 10px; border-radius: 4px; font-family: 'Uber Move Light'; font-size: 18px; border: none; background-color: transparent;">
+    </div> -->
 
      <!-- <div class="searchbarr" style="display: flex; align-items: center; flex-grow: 1; margin-right: 10px; border: none;">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin-right: 10px;">
@@ -53,15 +74,7 @@
       <input type="text" placeholder="Search in store" style="flex: 1; padding: 10px; border-radius: 4px; font-family: 'Uber Move Light'; font-size: 18px; border: none; background-color: transparent;">
     </div>
  -->
- <div class="toggle-container" style="margin-top: 0px; font-size: 18px;">
-      <button class="toggle-button" :class="{ active: activeToggle === 'Delivery' }" @click="setActiveToggle('Delivery')">
-        Delivery
-      </button>
-      <button class="toggle-button" :class="{ active: activeToggle === 'Pickup' }" @click="setActiveToggle('Pickup')">
-        Pickup
-      </button>
-      <div class="slider" :style="sliderStyle"></div>
-    </div>
+
 
 <div class="starting-info">
       <h1 style="font-size: 50px; margin-top: -40px;">
@@ -893,6 +906,12 @@ export default {
 
 .searchbarr {
   border-radius: 20px;
+  margin-left: 700px;
+  background-color:transparent
+  ;
+  width: 190px;
+  margin-top: -30px;
+  color: black;
 
 
 }
@@ -1654,7 +1673,7 @@ input::placeholder {
   font-family: Uber Move;
   height: 44px;
   margin-left: 900px;
-  margin-bottom: -90px;
+  margin-bottom: -30px;
 }
 
 .toggle-button {

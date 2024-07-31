@@ -109,6 +109,7 @@
   .picked-for-you {
     font-family: Arial, sans-serif;
     margin-bottom: 70px;
+    margin-top: 10px;
   }
   
   h2 {
