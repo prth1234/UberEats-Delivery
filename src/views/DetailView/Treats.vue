@@ -1,5 +1,5 @@
 <template>
-    <div class="top-picks-slider">
+    <div class="top-picks-slider" style="margin-top: -120px;">
       <div class="header">
         <div class="header-container">
           <h2 style="text-align: left; font-family: Uber Move; font-size: 30px;"></h2>
