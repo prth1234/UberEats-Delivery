@@ -56,27 +56,7 @@
     </div>
 
     <div class="content">
-      <button class="group-order" @click="openGroupOrderPopup">
-       
-        <svg
-          aria-hidden="true"
-          focusable="false"
-          viewBox="0 0 24 24"
-          class="gj dz gk gl"
-        >
-          <g clip-path="url(#clip0)">
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"
-            ></path>
-          </g>
-          <defs>
-            <clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath>
-          </defs>
-        </svg>
-        Group order
-      </button>
+   
       <h1 style="font-size: 50px">
         {{ restaurant.name }} ({{ restaurant.address }})
       </h1>
@@ -173,31 +153,39 @@
         </div>
 
 
-        <div class="rectangle1">
-                    <div class="rating-container">
-                      <span class="rating" style="font-size: 40px">{{
-                        restaurant.rating
-                      }}</span>
-                      <span class="rating-count" style="margin-left: 10px">
-                        <svg
-                          width="30"
-                          height="30"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          color="#F6BC2F"
-                        >
-                          <title>Star</title>
-                          <path
-                            d="m12.458 1 3.646 7 7.813.5-5.73 5.5 2.084 8-7.813-4-7.812 4 2.083-8L1 8.5 8.813 8l3.645-7Z"
-                            fill="currentColor"
-                          ></path>
-                        </svg>
-                      <br/> <div style="font-weight: 20; color:darkgrey; font-size: 20px;"> {{ restaurant.ratingCount }}+ ratings </div> 
+        <div class="info-rectangle" style="width: 28%; padding: 20px;">
+  <div style="display: flex; align-items: center; width: 350px;">
+    <!-- Search Bar -->
+    <div style="flex-grow: 1; margin-right: 10px;">
+      <input type="text" placeholder="Search..." style="width: 100%; padding: 10px; border-radius: 4px; border: 1px solid #ccc;">
+    </div>
+    
+    <!-- Group Order Button -->
+    <button class="group-order" @click="openGroupOrderPopup" style="background-color: transparent; color: azure; display: flex; align-items: center; border: none; cursor: pointer;">
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        viewBox="0 0 24 24"
+        class="gj dz gk gl"
+        style="width: 24px; height: 24px; margin-right: 5px;"
+      >
+        <g clip-path="url(#clip0)">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            fill="white"
+            d="M10 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zm13 5h-3v-3h-3v3h-3v3h3v3h3v-3h3v-3zM1 23h12.1c-1-1.2-1.6-2.8-1.6-4.5 0-1.7.6-3.3 1.6-4.5H7c-3.3 0-6 2.7-6 6v3z"
+          ></path>
+        </g>
+        <defs>
+          <clipPath id="clip0"><path d="M0 0h24v24H0z"></path></clipPath>
+        </defs>
+      </svg>
+      Group order
+    </button>
+  </div>
+</div>
 
-                      </span>
-                    </div>
-                
-                  </div>
 
 
       
@@ -1194,6 +1182,16 @@ h3 {
   font-size: 16px;
 }
 
+.info-rectangle{
+  background-color: transparent;
+  border: 2px solid #1a1a1a;
+  width:320px;
+  margin-left: -120px;
+  height: 350px;
+  border-radius: 20px;
+
+}
+
 .price {
   font-weight: bold;
   margin-top: -10px;
@@ -1460,6 +1458,7 @@ h2 {
   width: 100%;
   max-width: 300px;
   height: 220px;
+  background-color: transparent;
 }
 
 .intial-content{
