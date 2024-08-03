@@ -13,7 +13,7 @@
           <div class="footer-logo">
             
           </div>
-          <div class="links-container">
+          <div class="links-container" style="font-family: Uber Move;">
             <div class="footer-links">
               <ul>
                 <!-- First set of footer links -->
