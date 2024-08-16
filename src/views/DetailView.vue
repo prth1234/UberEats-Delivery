@@ -1376,7 +1376,7 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 15px;
 }
 
 .nav-buttons svg {
@@ -1442,7 +1442,7 @@ h3 {
   height: 100vh;
   overflow-y: auto;
   background-color: transparent;
-  padding: 25px 0px 0px 0px;
+  padding: 25px 30px 0px 0px;
   text-align: left;
   font-size: 25px;
   font-family: Uber Move;
