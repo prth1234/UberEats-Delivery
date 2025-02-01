@@ -10,7 +10,7 @@ You can view demo on a hosted website via Vercel : https://calm-medovik-717b03.n
 - **Restaurant Listings**: Browse through a list of restaurants available for delivery.
 - **Menu Display**: View detailed menus for each restaurant, including prices and descriptions.
 - **Responsive Design**: The app is fully responsive and works seamlessly on both desktop and mobile devices.
-- **Interactive UI**: Smooth animations and transitions for an engaging user experience.
+- **Interactive UI**: Smooth animations and transitions for an engaging user experience
 
 ---
 
