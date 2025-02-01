@@ -84,6 +84,7 @@
     margin: 0 auto;
     margin-bottom: 70px;
     margin-top: 10px;
+
   }
   
   .grid-container {
@@ -125,6 +126,7 @@
     flex-direction: column;
     justify-content: space-between;
     margin-left: 15px;
+    margin-left: auto;
   }
   
   .item-info h3 {
@@ -145,7 +147,7 @@
     justify-content: flex-start;
     align-items: center;
     font-size: 12px;
-  }
+;  }
   
   .cart-button {
    background-color: transparent;
