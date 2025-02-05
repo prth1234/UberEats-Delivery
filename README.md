@@ -16,10 +16,10 @@ You can view demo on a hosted website via Vercel : https://calm-medovik-717b03.n
 
 ## Technologies Used
 
-- **React.js**: A JavaScript library for building user interfaces.
+- **Vue.js**: A JavaScript library for building user interfaces.
 - **HTML/CSS**: For structuring and styling the application.
 - **JavaScript**: For adding interactivity and dynamic content.
-- **React Router**: For handling navigation and routing within the app.
+- **Vue Router**: For handling navigation and routing within the app.
 - **Axios**: For making API calls to fetch restaurant and menu data.
 - **SASS/SCSS**: For advanced CSS styling and modularity.
 
