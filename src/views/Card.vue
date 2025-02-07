@@ -97,7 +97,7 @@ export default {
         },
         {
           id: 5,
-          imageUrl: 'https://entrackr.com/storage/2023/09/Swiggy-instamart.jpg',
+          imageUrl: 'https://media-cdn.tripadvisor.com/media/photo-s/1c/2f/33/2d/healthy-bowl-frische.jpg',
           title: 'Stay-Home Date',
           price: '10 mins',
         },
