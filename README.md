@@ -1,4 +1,4 @@
-# UberEats-Delivery Clone
+# UberEats-Delivery
 
 This project is a clone of the UberEats delivery platform, built using **React.js** and other front-end technologies. The goal of this project is to replicate the core features and user interface of the UberEats app, providing a seamless experience for users to browse restaurants, view menus, and place orders.
 
