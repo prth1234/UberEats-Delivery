@@ -1,6 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" width="100%" role="img" aria-labelledby="ue-arch-title ue-arch-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" width="900" height="270" role="img" aria-labelledby="ue-arch-title ue-arch-desc">
   <title id="ue-arch-title">UberEats Delivery Route Architecture</title>
-  <desc id="ue-arch-desc">Vue Router navigation between Home, Main storefront, Green delivery, DetailView, and SignIn routes.</desc>
+  <desc id="ue-arch-desc">Vue Router navigation between Home, Main storefront, Green delivery, DetailView, SignIn, and JoinUs routes.</desc>
+  <defs>
+    <path id="ue-route-top" d="M 114 136 L 204 136 L 260 88 L 490 88 L 546 136 L 712 136 L 748 88 L 812 88" fill="none" />
+    <path id="ue-route-eco" d="M 114 136 L 204 136 L 260 192 L 490 192 L 546 136 L 712 136 L 748 192 L 812 192" fill="none" />
+  </defs>
   <style>
     .ue-arch-root {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -16,20 +20,10 @@
       stroke: #374151;
       stroke-width: 1.2;
     }
-    .ue-arch-box-green {
-      fill: none;
-      stroke: #06C167;
-      stroke-width: 1.4;
-    }
     .ue-arch-title {
       font-size: 16px;
       font-weight: 700;
       fill: #f3f3f3;
-    }
-    .ue-arch-title-green {
-      font-size: 16px;
-      font-weight: 700;
-      fill: #06C167;
     }
     .ue-arch-body {
       font-size: 13px;
@@ -45,20 +39,50 @@
       stroke: #4b5563;
       stroke-width: 1.4;
       stroke-dasharray: 5 4;
-      animation: ue-arch-flow 18s linear infinite;
+      animation: ue-arch-flow 1.2s linear infinite;
     }
     @keyframes ue-arch-flow {
-      to { stroke-dashoffset: -180; }
+      to { stroke-dashoffset: -18; }
     }
+
+    .ue-n1 { animation: ue-nb1 6s ease-in-out infinite; }
+    .ue-n2 { animation: ue-nb2 6s ease-in-out infinite; }
+    .ue-n3 { animation: ue-nb3 6s ease-in-out infinite; }
+    .ue-n4 { animation: ue-nb4 6s ease-in-out infinite; }
+    .ue-t1 { animation: ue-nt1 6s ease-in-out infinite; }
+    .ue-t2 { animation: ue-nt2 6s ease-in-out infinite; }
+    .ue-t3 { animation: ue-nt3 6s ease-in-out infinite; }
+    .ue-t4 { animation: ue-nt4 6s ease-in-out infinite; }
+
+    @keyframes ue-nb1 { 0%, 16% { stroke: #06C167; stroke-width: 1.8; } 24%, 94% { stroke: #374151; stroke-width: 1.2; } 100% { stroke: #06C167; stroke-width: 1.8; } }
+    @keyframes ue-nb2 { 0%, 18% { stroke: #374151; stroke-width: 1.2; } 24%, 48% { stroke: #06C167; stroke-width: 1.8; } 56%, 100% { stroke: #374151; stroke-width: 1.2; } }
+    @keyframes ue-nb3 { 0%, 50% { stroke: #374151; stroke-width: 1.2; } 56%, 76% { stroke: #06C167; stroke-width: 1.8; } 84%, 100% { stroke: #374151; stroke-width: 1.2; } }
+    @keyframes ue-nb4 { 0%, 78% { stroke: #374151; stroke-width: 1.2; } 84%, 98% { stroke: #06C167; stroke-width: 1.8; } 100% { stroke: #374151; stroke-width: 1.2; } }
+
+    @keyframes ue-nt1 { 0%, 16% { fill: #06C167; } 24%, 94% { fill: #f3f3f3; } 100% { fill: #06C167; } }
+    @keyframes ue-nt2 { 0%, 18% { fill: #f3f3f3; } 24%, 48% { fill: #06C167; } 56%, 100% { fill: #f3f3f3; } }
+    @keyframes ue-nt3 { 0%, 50% { fill: #f3f3f3; } 56%, 76% { fill: #06C167; } 84%, 100% { fill: #f3f3f3; } }
+    @keyframes ue-nt4 { 0%, 78% { fill: #f3f3f3; } 84%, 98% { fill: #06C167; } 100% { fill: #f3f3f3; } }
+
     @media (prefers-color-scheme: light) {
       .ue-arch-heading { fill: #4b5563; }
       .ue-arch-box { stroke: #d1d5db; }
       .ue-arch-title { fill: #111827; }
       .ue-arch-body { fill: #4b5563; }
       .ue-arch-line { stroke: #9ca3af; }
+      @keyframes ue-nb1 { 0%, 16% { stroke: #06C167; stroke-width: 1.8; } 24%, 94% { stroke: #d1d5db; stroke-width: 1.2; } 100% { stroke: #06C167; stroke-width: 1.8; } }
+      @keyframes ue-nb2 { 0%, 18% { stroke: #d1d5db; stroke-width: 1.2; } 24%, 48% { stroke: #06C167; stroke-width: 1.8; } 56%, 100% { stroke: #d1d5db; stroke-width: 1.2; } }
+      @keyframes ue-nb3 { 0%, 50% { stroke: #d1d5db; stroke-width: 1.2; } 56%, 76% { stroke: #06C167; stroke-width: 1.8; } 84%, 100% { stroke: #d1d5db; stroke-width: 1.2; } }
+      @keyframes ue-nb4 { 0%, 78% { stroke: #d1d5db; stroke-width: 1.2; } 84%, 98% { stroke: #06C167; stroke-width: 1.8; } 100% { stroke: #d1d5db; stroke-width: 1.2; } }
+      @keyframes ue-nt1 { 0%, 16% { fill: #06C167; } 24%, 94% { fill: #111827; } 100% { fill: #06C167; } }
+      @keyframes ue-nt2 { 0%, 18% { fill: #111827; } 24%, 48% { fill: #06C167; } 56%, 100% { fill: #111827; } }
+      @keyframes ue-nt3 { 0%, 50% { fill: #111827; } 56%, 76% { fill: #06C167; } 84%, 100% { fill: #111827; } }
+      @keyframes ue-nt4 { 0%, 78% { fill: #111827; } 84%, 98% { fill: #06C167; } 100% { fill: #111827; } }
     }
     @media (prefers-reduced-motion: reduce) {
-      .ue-arch-line { animation: none; stroke-dasharray: none; }
+      * { animation: none !important; }
+      .ue-arch-line { stroke-dasharray: none; }
+      .motion-only { display: none; }
     }
   </style>
 
@@ -66,9 +90,9 @@
     <text class="ue-arch-heading" x="24" y="28">VUE ROUTER &amp; VIEW ARCHITECTURE</text>
 
     <!-- Entry -->
-    <rect class="ue-arch-box" x="24" y="54" width="180" height="164" rx="16" />
+    <rect class="ue-arch-box ue-n1" x="24" y="54" width="180" height="164" rx="16" />
     <text class="ue-arch-route" x="44" y="84">/</text>
-    <text class="ue-arch-title" x="44" y="112">Home</text>
+    <text class="ue-arch-title ue-t1" x="44" y="112">Home</text>
     <text class="ue-arch-body" x="44" y="138">Landing hero,</text>
     <text class="ue-arch-body" x="44" y="158">delivery form, and</text>
     <text class="ue-arch-body" x="44" y="178">quick navigation</text>
@@ -78,14 +102,14 @@
     <path class="ue-arch-line" d="M 204 136 L 260 192" />
 
     <!-- Main & Green -->
-    <rect class="ue-arch-box" x="260" y="46" width="230" height="84" rx="14" />
+    <rect class="ue-arch-box ue-n2" x="260" y="46" width="230" height="84" rx="14" />
     <text class="ue-arch-route" x="280" y="74">/main</text>
-    <text class="ue-arch-title" x="344" y="74">Main Storefront</text>
+    <text class="ue-arch-title ue-t2" x="344" y="74">Main Storefront</text>
     <text class="ue-arch-body" x="280" y="104">Collections, offers, search</text>
 
-    <rect class="ue-arch-box-green" x="260" y="150" width="230" height="84" rx="14" />
+    <rect class="ue-arch-box ue-n2" x="260" y="150" width="230" height="84" rx="14" />
     <text class="ue-arch-route" x="280" y="178">/green</text>
-    <text class="ue-arch-title-green" x="350" y="178">Green Delivery</text>
+    <text class="ue-arch-title ue-t2" x="350" y="178">Green Delivery</text>
     <text class="ue-arch-body" x="280" y="208">Eco-friendly routes &amp; Uber One</text>
 
     <!-- Connector 2 -->
@@ -93,24 +117,33 @@
     <path class="ue-arch-line" d="M 490 192 L 546 136" />
 
     <!-- Detail & Maps -->
-    <rect class="ue-arch-box" x="546" y="46" width="166" height="188" rx="16" />
+    <rect class="ue-arch-box ue-n3" x="546" y="46" width="166" height="188" rx="16" />
     <text class="ue-arch-route" x="564" y="76">/detail-view</text>
-    <text class="ue-arch-title" x="564" y="106">DetailView</text>
+    <text class="ue-arch-title ue-t3" x="564" y="106">DetailView</text>
     <text class="ue-arch-body" x="564" y="134">Menu items,</text>
     <text class="ue-arch-body" x="564" y="154">ProductService,</text>
     <text class="ue-arch-body" x="564" y="174">and GoogleMaps</text>
     <text class="ue-arch-body" x="564" y="194">integration</text>
 
     <!-- Connector 3 -->
-    <path class="ue-arch-line" d="M 712 136 L 748 136" />
+    <path class="ue-arch-line" d="M 712 136 L 748 88" />
+    <path class="ue-arch-line" d="M 712 136 L 748 192" />
 
     <!-- Auth & Partner -->
-    <rect class="ue-arch-box" x="748" y="46" width="128" height="84" rx="14" />
+    <rect class="ue-arch-box ue-n4" x="748" y="46" width="128" height="84" rx="14" />
     <text class="ue-arch-route" x="764" y="74">/sign-in</text>
-    <text class="ue-arch-title" x="764" y="104">SignIn</text>
+    <text class="ue-arch-title ue-t4" x="764" y="104">SignIn</text>
 
-    <rect class="ue-arch-box" x="748" y="150" width="128" height="84" rx="14" />
+    <rect class="ue-arch-box ue-n4" x="748" y="150" width="128" height="84" rx="14" />
     <text class="ue-arch-route" x="764" y="178">/join-us</text>
-    <text class="ue-arch-title" x="764" y="208">JoinUs</text>
+    <text class="ue-arch-title ue-t4" x="764" y="208">JoinUs</text>
+
+    <!-- Travelling signal dots -->
+    <circle r="4.5" fill="#06C167" class="motion-only">
+      <animateMotion dur="6s" repeatCount="indefinite"><mpath href="#ue-route-top" /></animateMotion>
+    </circle>
+    <circle r="4" fill="#06C167" class="motion-only">
+      <animateMotion dur="6s" begin="3s" repeatCount="indefinite"><mpath href="#ue-route-eco" /></animateMotion>
+    </circle>
   </g>
 </svg>
