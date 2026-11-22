@@ -53,6 +53,11 @@
 
 ## Screenshots
 
+<details>
+<summary><b>Home &amp; Restaurant Menu screenshots</b></summary>
+
+<br/>
+
 ### Home Page
 
 ![Home Page](https://i.ibb.co/0ycqFyYr/Screenshot-2025-02-01-at-12-10-40-PM.png)
@@ -61,37 +66,35 @@
 
 ![Menu Page](https://i.ibb.co/Gfv2sFMh/Screenshot-2025-02-01-at-12-09-20-PM.png)
 
+</details>
+
 ---
 
 ## Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/prth1234/UberEats-Delivery.git
-   cd UberEats-Delivery
-   ```
+```bash
+git clone https://github.com/prth1234/UberEats-Delivery.git
+cd UberEats-Delivery
+npm install
+npm run dev
+```
 
-2. **Install dependencies**:
-   ```bash
-   npm install
-   ```
+<details>
+<summary><b>Available npm scripts &amp; build commands</b></summary>
 
-3. **Start the development server**:
-   ```bash
-   npm run dev
-   ```
-   Open the local Vite URL printed in your terminal (typically `http://localhost:5173`).
+- `npm run dev` — Start the Vite development server (typically `http://localhost:5173`)
+- `npm run build` — Production build into `dist/`
+- `npm run preview` — Preview the production build locally
+- `npm run deploy` — Build and deploy via `gh-pages`
 
-4. **Other scripts**:
-   ```bash
-   npm run build    # Production build into dist/
-   npm run preview  # Preview the production build locally
-   npm run deploy   # Build and deploy via gh-pages
-   ```
+</details>
 
 ---
 
 ## Project Structure
+
+<details>
+<summary><b>Explore repository layout (`src/views`, `src/components`, `src/router`)</b></summary>
 
 ```text
 UberEats-Delivery/
@@ -121,6 +124,8 @@ UberEats-Delivery/
         ├── joinus.vue          # Partner onboarding (/join-us)
         └── signin.vue          # Sign-in view (/sign-in)
 ```
+
+</details>
 
 ---
 
