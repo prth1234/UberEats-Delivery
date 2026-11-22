@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 270" width="100%" role="img" aria-labelledby="ue-arch-title ue-arch-desc">
+  <title id="ue-arch-title">UberEats Delivery Route Architecture</title>
+  <desc id="ue-arch-desc">Vue Router navigation between Home, Main storefront, Green delivery, DetailView, and SignIn routes.</desc>
+  <style>
+    .ue-arch-root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    .ue-arch-heading {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      fill: #9ca3af;
+    }
+    .ue-arch-box {
+      fill: none;
+      stroke: #374151;
+      stroke-width: 1.2;
+    }
+    .ue-arch-box-green {
+      fill: none;
+      stroke: #06C167;
+      stroke-width: 1.4;
+    }
+    .ue-arch-title {
+      font-size: 16px;
+      font-weight: 700;
+      fill: #f3f3f3;
+    }
+    .ue-arch-title-green {
+      font-size: 16px;
+      font-weight: 700;
+      fill: #06C167;
+    }
+    .ue-arch-body {
+      font-size: 13px;
+      fill: #9ca3af;
+    }
+    .ue-arch-route {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px;
+      fill: #06C167;
+    }
+    .ue-arch-line {
+      fill: none;
+      stroke: #4b5563;
+      stroke-width: 1.4;
+      stroke-dasharray: 5 4;
+      animation: ue-arch-flow 18s linear infinite;
+    }
+    @keyframes ue-arch-flow {
+      to { stroke-dashoffset: -180; }
+    }
+    @media (prefers-color-scheme: light) {
+      .ue-arch-heading { fill: #4b5563; }
+      .ue-arch-box { stroke: #d1d5db; }
+      .ue-arch-title { fill: #111827; }
+      .ue-arch-body { fill: #4b5563; }
+      .ue-arch-line { stroke: #9ca3af; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ue-arch-line { animation: none; stroke-dasharray: none; }
+    }
+  </style>
+
+  <g class="ue-arch-root">
+    <text class="ue-arch-heading" x="24" y="28">VUE ROUTER &amp; VIEW ARCHITECTURE</text>
+
+    <!-- Entry -->
+    <rect class="ue-arch-box" x="24" y="54" width="180" height="164" rx="16" />
+    <text class="ue-arch-route" x="44" y="84">/</text>
+    <text class="ue-arch-title" x="44" y="112">Home</text>
+    <text class="ue-arch-body" x="44" y="138">Landing hero,</text>
+    <text class="ue-arch-body" x="44" y="158">delivery form, and</text>
+    <text class="ue-arch-body" x="44" y="178">quick navigation</text>
+
+    <!-- Connector 1 -->
+    <path class="ue-arch-line" d="M 204 136 L 260 88" />
+    <path class="ue-arch-line" d="M 204 136 L 260 192" />
+
+    <!-- Main & Green -->
+    <rect class="ue-arch-box" x="260" y="46" width="230" height="84" rx="14" />
+    <text class="ue-arch-route" x="280" y="74">/main</text>
+    <text class="ue-arch-title" x="344" y="74">Main Storefront</text>
+    <text class="ue-arch-body" x="280" y="104">Collections, offers, search</text>
+
+    <rect class="ue-arch-box-green" x="260" y="150" width="230" height="84" rx="14" />
+    <text class="ue-arch-route" x="280" y="178">/green</text>
+    <text class="ue-arch-title-green" x="350" y="178">Green Delivery</text>
+    <text class="ue-arch-body" x="280" y="208">Eco-friendly routes &amp; Uber One</text>
+
+    <!-- Connector 2 -->
+    <path class="ue-arch-line" d="M 490 88 L 546 136" />
+    <path class="ue-arch-line" d="M 490 192 L 546 136" />
+
+    <!-- Detail & Maps -->
+    <rect class="ue-arch-box" x="546" y="46" width="166" height="188" rx="16" />
+    <text class="ue-arch-route" x="564" y="76">/detail-view</text>
+    <text class="ue-arch-title" x="564" y="106">DetailView</text>
+    <text class="ue-arch-body" x="564" y="134">Menu items,</text>
+    <text class="ue-arch-body" x="564" y="154">ProductService,</text>
+    <text class="ue-arch-body" x="564" y="174">and GoogleMaps</text>
+    <text class="ue-arch-body" x="564" y="194">integration</text>
+
+    <!-- Connector 3 -->
+    <path class="ue-arch-line" d="M 712 136 L 748 136" />
+
+    <!-- Auth & Partner -->
+    <rect class="ue-arch-box" x="748" y="46" width="128" height="84" rx="14" />
+    <text class="ue-arch-route" x="764" y="74">/sign-in</text>
+    <text class="ue-arch-title" x="764" y="104">SignIn</text>
+
+    <rect class="ue-arch-box" x="748" y="150" width="128" height="84" rx="14" />
+    <text class="ue-arch-route" x="764" y="178">/join-us</text>
+    <text class="ue-arch-title" x="764" y="208">JoinUs</text>
+  </g>
+</svg>

@@ -1,112 +1,148 @@
-# UberEats-Delivery
+<p align="center">
+  <img src="docs/assets/hero.svg" alt="UberEats Delivery hero banner" width="100%" />
+</p>
 
-This project is a clone of the UberEats delivery platform, built using **React.js** and other front-end technologies. The goal of this project is to replicate the core features and user interface of the UberEats app, providing a seamless experience for users to browse restaurants, view menus, and place orders.
+<p align="center">
+  <a href="https://deft-brioche-f529c6.netlify.app/">Live Demo (Netlify)</a> &middot;
+  <a href="#installation">Installation</a> &middot;
+  <a href="#architecture">Architecture</a> &middot;
+  <a href="#project-structure">Project Structure</a>
+</p>
 
-You can view demo on a hosted website via Netlify: [https://keen-panda-389bc8.netlify.app](https://deft-brioche-f529c6.netlify.app/)
+---
+
+## Overview
+
+**UberEats-Delivery** is a front-end food delivery web application built with **Vue 3**, **Vite**, **Vue Router**, and **PrimeVue**. It models the core browsing and ordering flows of a modern delivery platform: restaurant discovery, curated collections, promotional offers, detailed menu views, Google Maps integration, and dedicated Green Delivery and Uber One views.
+
+> **Note:** An earlier version of this README referenced React (`npm start` / `src/App.js`). The codebase is implemented with **Vue 3** and **Vite** (`npm run dev` / `src/main.js`).
+
 ---
 
 ## Features
 
-- **Restaurant Listings**: Browse through a list of restaurants available for delivery.
-- **Menu Display**: View detailed menus for each restaurant, including prices and descriptions.
-- **Responsive Design**: The app is fully responsive and works seamlessly on both desktop and mobile devices.
-- **Interactive UI**: Smooth animations and transitions for an engaging user experience
+<p align="center">
+  <img src="docs/assets/features.svg" alt="UberEats Delivery key capabilities" width="100%" />
+</p>
+
+- **Restaurant & Menu Discovery**: Browse restaurant cards, curated collections, promotional offers, and detailed menu views (`DetailView.vue`, `ProductService.js`).
+- **Green Delivery & Uber One**: Dedicated routes and views for eco-friendly delivery (`/green`, `greenDelivery.vue`) and membership (`/join-us`, `UberOne.vue`).
+- **Map & Location Support**: Integrated `@fawmi/vue-google-maps` (`GoogleMaps.vue`) and delivery address form (`DeliveryForm.vue`).
+- **Responsive Design**: Styled with `Uber Move` typography, `#06C167` delivery green accents, and `prefers-color-scheme` light/dark support.
 
 ---
 
-## Technologies Used
+## Architecture
 
-- **Vue.js**: A JavaScript library for building user interfaces.
-- **HTML/CSS**: For structuring and styling the application.
-- **JavaScript**: For adding interactivity and dynamic content.
-- **Vue Router**: For handling navigation and routing within the app.
-- **Axios**: For making API calls to fetch restaurant and menu data.
-- **SASS/SCSS**: For advanced CSS styling and modularity.
+<p align="center">
+  <img src="docs/assets/architecture.svg" alt="Vue Router and view architecture" width="100%" />
+</p>
+
+### Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | Vue 3 (`^3.4.21`) |
+| Build Tool | Vite (`^5.2.6`) |
+| Routing | Vue Router (`^4.0.13`) |
+| UI Components | PrimeVue (`^3.51.0`) |
+| Maps | `@fawmi/vue-google-maps` (`^0.9.79`) |
+| Deployment | Netlify / `gh-pages` (`^6.3.0`) |
 
 ---
 
 ## Screenshots
 
 ### Home Page
+
 ![Home Page](https://i.ibb.co/0ycqFyYr/Screenshot-2025-02-01-at-12-10-40-PM.png)
 
 ### Restaurant Menu Page
+
 ![Menu Page](https://i.ibb.co/Gfv2sFMh/Screenshot-2025-02-01-at-12-09-20-PM.png)
 
 ---
 
 ## Installation
 
-To run this project locally, follow these steps:
-
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/prth1234/UberEats-Delivery.git
-   ```
-
-2. **Navigate to the project directory**:
-   ```bash
    cd UberEats-Delivery
    ```
 
-3. **Install dependencies**:
+2. **Install dependencies**:
    ```bash
    npm install
    ```
 
-4. **Start the development server**:
+3. **Start the development server**:
    ```bash
-   npm start
+   npm run dev
    ```
+   Open the local Vite URL printed in your terminal (typically `http://localhost:5173`).
 
-5. **Open your browser** and visit `http://localhost:3000` to view the app.
+4. **Other scripts**:
+   ```bash
+   npm run build    # Production build into dist/
+   npm run preview  # Preview the production build locally
+   npm run deploy   # Build and deploy via gh-pages
+   ```
 
 ---
 
-## Folder Structure
+## Project Structure
 
-```
+```text
 UberEats-Delivery/
+├── index.html
+├── package.json
 ├── public/
-│   └── index.html
-├── src/
-│   ├── components/       # Reusable UI components
-│   ├── pages/            # Page components
-│   ├── assets/           # Images, icons, and other static files
-│   ├── styles/           # CSS/SCSS files
-│   ├── App.js            # Main application component
-│   └── index.js          # Entry point
-├── package.json          # Project dependencies
-└── README.md             # Project documentation
+│   └── vite.svg
+└── src/
+    ├── App.vue                 # Root Vue component
+    ├── home.vue                # Landing view (/)
+    ├── main.js                 # Application entry point
+    ├── style.css               # Global theme & Uber Move font tokens
+    ├── router/
+    │   └── router.js           # Vue Router configuration
+    ├── components/
+    │   ├── DeliveryForm.vue    # Address & delivery input
+    │   ├── navbar.vue
+    │   ├── logo.vue
+    │   └── imageBar.vue
+    └── views/
+        ├── main.vue            # Main storefront (/main)
+        ├── green.vue           # Green delivery (/green)
+        ├── DetailView.vue      # Restaurant & menu details (/detail-view)
+        ├── GoogleMaps.vue      # Map integration
+        ├── ProductService.js   # Menu & product data service
+        ├── UberOne.vue         # Membership view
+        ├── joinus.vue          # Partner onboarding (/join-us)
+        └── signin.vue          # Sign-in view (/sign-in)
 ```
 
 ---
 
 ## Contributing
 
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
+Contributions are welcome:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Commit your changes.
-4. Push your branch and submit a pull request.
+2. Create a new branch for your feature or fix (`git checkout -b feature/your-feature`).
+3. Commit your changes (`git commit -m "Add feature"`).
+4. Push your branch and open a pull request.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License. See the `LICENSE` file if present in the repository for details.
 
 ---
 
 ## Contact
 
-If you have any questions or suggestions, feel free to reach out:
-
 - **Name**: Parth
 - **Email**: dearparthsingh@gmail.com
 - **GitHub**: [prth1234](https://github.com/prth1234)
-
----
-
-Thank you for checking out this project! 🚀
